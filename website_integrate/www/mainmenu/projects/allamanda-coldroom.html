@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Allamanda Cold Room installation in Warri featuring dual 4HP refrigeration units by De Koolar Nigeria Limited">
+    <title>Allamanda Cold Room Project - De Koolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --success: #28a745;
+            --frozen-blue: #1565c0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .project-status {
+            display: inline-block;
+            background: var(--success);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-partner {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .spec-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .spec-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-card i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .specs-table th {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .specs-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .components-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .component-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .component-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .component-card ul {
+            list-style: none;
+        }
+
+        .component-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .feature-highlight {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--frozen-blue);
+            margin: 2rem 0;
+        }
+
+        .feature-highlight h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-highlight i {
+            color: var(--frozen-blue);
+            font-size: 1.5rem;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <section class="hero-section" style="background-image: url('/assets/website_integrate/images/allamanda-project.jpg');">
+        <div class="container">
+            <div class="hero-content">
+                <span class="project-status">Project Completed</span>
+                <span class="project-partner">Allamanda</span>
+                <h1>Cold Room Installation</h1>
+                <p class="hero-subtitle">Dual-Unit Cold Storage Solution in Warri</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-overview fade-in">
+            <h2 class="section-title">Project Overview</h2>
+            <p>A state-of-the-art cold room facility has been successfully installed at the Warri location for Allamanda. This installation features a dual 4HP refrigeration system, providing both primary and backup cooling capabilities for uninterrupted operation.</p>
+            
+            <div class="feature-highlight">
+                <h3><i class="fas fa-shield-alt"></i>Redundant Cooling System</h3>
+                <p>The installation's standout feature is its dual-unit refrigeration system, where one unit serves as the primary cooling source while the second unit stands ready as a backup. This redundancy ensures continuous operation and maintains consistent temperatures even in the event of a system failure.</p>
+            </div>
+
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3><i class="fas fa-warehouse"></i>Storage Capacity</h3>
+                    <ul>
+                        <li>Total Capacity: 10 Tonnes</li>
+                        <li>Volume: 27.7m³ (external)</li>
+                        <li>Floor Area: 11.5m²</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><i class="fas fa-thermometer-half"></i>Temperature Control</h3>
+                    <ul>
+                        <li>Operating Temperature: -18°C</li>
+                        <li>Digital Control System</li>
+                        <li>Humidity Monitoring</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><i class="fas fa-bolt"></i>Power System</h3>
+                    <ul>
+                        <li>Dual 4HP Units</li>
+                        <li>15kVA Generator Support</li>
+                        <li>Three-Phase Operation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="components-section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="components-grid fade-in">
+                <div class="component-card">
+                    <h3><i class="fas fa-layer-group"></i>Construction</h3>
+                    <ul>
+                        <li>100mm P.U. Panel Thickness</li>
+                        <li>42kg/m³ Panel Density (±3kg/m³)</li>
+                        <li>PPGI Sheet (0.8mm thickness)</li>
+                        <li>Interlock Panel Grip System</li>
+                        <li>Polystyrene Floor Insulation</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-snowflake"></i>Refrigeration</h3>
+                    <ul>
+                        <li>Danfross Maneurope Compressors</li>
+                        <li>Split Unit Configuration</li>
+                        <li>R22 Refrigerant System</li>
+                        <li>Thermostatic Expansion</li>
+                        <li>Blue Fin Technology</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-cogs"></i>Control Systems</h3>
+                    <ul>
+                        <li>Digital Control Box</li>
+                        <li>German-made Thermostat</li>
+                        <li>Phase Monitoring</li>
+                        <li>Overload Protection</li>
+                        <li>Automated Defrost Timer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Detailed Specifications</h2>
+        <div class="specs-table-container fade-in">
+            <table class="specs-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Specification</th>
+                </tr>
+                <tr>
+                    <td>External Dimensions</td>
+                    <td>4800 x 2400 x 2400mm</td>
+                </tr>
+                <tr>
+                    <td>Internal Dimensions</td>
+                    <td>4600 x 2200 x 2200mm</td>
+                </tr>
+                <tr>
+                    <td>Door System</td>
+                    <td>900 x 1900mm Insulated Swing Door</td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td>380-415V, Three Phase, 50Hz</td>
+                </tr>
+                <tr>
+                    <td>Power Consumption</td>
+                    <td>4.2kWh per unit</td>
+                </tr>
+                <tr>
+                    <td>Backup Power</td>
+                    <td>15kVA Generator Support</td>
+                </tr>
+                <tr>
+                    <td>Cable Rating</td>
+                    <td>4mm² Power Cable</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need a Similar Solution?</h2>
+            <p>Contact us to discuss your cold storage requirements</p>
+            <a href="/contact" class="btn-primary">Request a Consultation</a>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html> 

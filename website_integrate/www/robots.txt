@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /mainmenu/
+Allow: /mainmenu/products/
+Allow: /mainmenu/services/
+Allow: /mainmenu/industries/
+Allow: /mainmenu/projects/
+Allow: /mainmenu/insights/
+Allow: /mainmenu/corporate/
+Allow: /sitemap.xml
+
+Disallow: /private/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /app/
+
+Sitemap: {{ frappe.utils.get_url() }}/sitemap.xml 

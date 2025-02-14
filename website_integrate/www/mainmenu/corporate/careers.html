@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join DeKoolar's team of refrigeration experts. Explore career opportunities in HVAC, technical services, and professional roles. Build your future with us.">
+    <title>Careers - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Benefits Section */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .culture-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .job-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .job-type {
+                align-self: flex-start;
+            }
+        }
+
+        /* Career Opportunities */
+        .opportunities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .opportunity-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 51, 153, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .opportunity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 51, 153, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .opportunity-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .opportunity-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .opportunity-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .opportunity-card:hover h3::after {
+            width: 100px;
+        }
+
+        .opportunity-card p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        /* Add icons to opportunity cards */
+        .opportunity-card h3::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            width: 40px;
+            height: 40px;
+            background: rgba(197, 165, 114, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .opportunity-card:hover h3::before {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Specific icons for each role */
+        .opportunity-card:nth-child(1) h3::before { content: '\f085'; } /* Engineering */
+        .opportunity-card:nth-child(2) h3::before { content: '\f0b1'; } /* Sales */
+        .opportunity-card:nth-child(3) h3::before { content: '\f095'; } /* Customer Service */
+        .opportunity-card:nth-child(4) h3::before { content: '\f0d1'; } /* Operations */
+        .opportunity-card:nth-child(5) h3::before { content: '\f0c0'; } /* HR */
+        .opportunity-card:nth-child(6) h3::before { content: '\f155'; } /* Finance */
+        .opportunity-card:nth-child(7) h3::before { content: '\f0eb'; } /* R&D */
+
+        @media (max-width: 768px) {
+            .opportunities-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .opportunity-card {
+                padding: 2rem;
+            }
+            
+            .opportunity-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* What We Look for in Candidates Section */
+        .qualities-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .qualities-list li {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 51, 153, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qualities-list li::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .qualities-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 51, 153, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .qualities-list i {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            background: rgba(197, 165, 114, 0.1);
+            padding: 1rem;
+            border-radius: 50%;
+            min-width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .qualities-list li:hover i {
+            background: var(--secondary-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .quality-content {
+            flex: 1;
+        }
+
+        .quality-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .quality-description {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .qualities-list {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .qualities-list li {
+                padding: 1.5rem;
+            }
+        }
+
+        /* How to Apply Section */
+        .how-to-apply {
+            background: linear-gradient(rgba(0, 51, 153, 0.03), rgba(0, 51, 153, 0.06));
+            padding: 5rem 0;
+        }
+
+        .how-to-apply .section-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 51, 153, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-to-apply .section-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .how-to-apply p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .how-to-apply .contact-info {
+            margin-top: 2rem;
+            padding: 2rem;
+            border-top: 2px solid rgba(0, 51, 153, 0.1);
+            background: rgba(0, 51, 153, 0.03);
+            border-radius: var(--border-radius);
+        }
+
+        .how-to-apply .contact-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0, 51, 153, 0.05);
+            transition: var(--transition);
+        }
+
+        .how-to-apply .contact-info p:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 51, 153, 0.1);
+            background: rgba(0, 51, 153, 0.02);
+        }
+
+        .how-to-apply .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            min-width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 51, 153, 0.1);
+            border-radius: 50%;
+            padding: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .how-to-apply .contact-info p:hover i {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .how-to-apply .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border-bottom: 2px solid transparent;
+        }
+
+        .how-to-apply .contact-info a:hover {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .how-to-apply .section-content {
+                padding: 1.5rem;
+            }
+            
+            .how-to-apply p {
+                font-size: 1rem;
+            }
+
+            .how-to-apply .contact-info {
+                padding: 1.5rem 1rem;
+            }
+            
+            .how-to-apply .contact-info p {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .how-to-apply .contact-info i {
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--primary-color);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate/about-us">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Careers</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Careers at De Koolar Nigeria Limited</h1>
+            <p class="hero-subtitle">Join Nigeria's Leading HVAC/R Solutions Provider</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-content">
+                <p class="intro-text">
+                    At De Koolar Nigeria Limited, we believe that our greatest asset is our people. We are a forward-thinking, innovative company in the HVAC/R industry, and our continued success is driven by the talent, passion, and dedication of our employees. As a company, we foster an inclusive and dynamic workplace where employees are encouraged to develop professionally and contribute meaningfully to the company's growth and success. We offer a range of exciting career opportunities for individuals who are ready to be part of an industry leader and are passionate about creating innovative solutions that make a real difference in society.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Us Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Work at De Koolar?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3><i class="fas fa-lightbulb"></i> Innovation and Growth</h3>
+                    <p>De Koolar is at the forefront of the HVAC/R industry, and we pride ourselves on our ability to innovate and adapt to ever-changing market needs. When you join De Koolar, you will be part of a team that is dedicated to pushing the boundaries of technology and creativity.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-users"></i> Collaborative Culture</h3>
+                    <p>We foster a collaborative and inclusive work culture where employees feel empowered to share their ideas and contribute to the success of the company. Our team-oriented approach ensures that everyone has a voice and plays an integral role in shaping the future of De Koolar.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Professional Development</h3>
+                    <p>We offer various training programs, workshops, and mentoring opportunities designed to enhance your skills and expand your professional capabilities. From technical certifications in HVAC/R systems to leadership training, we are committed to your growth.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-award"></i> Competitive Benefits</h3>
+                    <p>We offer a competitive salary structure along with a comprehensive benefits package that includes health insurance, paid time off, retirement planning, and other perks that prioritize the well-being and security of our employees.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3><i class="fas fa-globe"></i> Diversity and Inclusion</h3>
+                    <p>We recognize the value of diversity in the workplace and are committed to providing equal employment opportunities to individuals from all backgrounds. We believe that diverse teams lead to more innovative ideas and better decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Opportunities Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Career Opportunities at De Koolar</h2>
+            </div>
+            <div class="opportunities-grid">
+                <div class="opportunity-card">
+                    <h3>Engineering and Technical Roles</h3>
+                    <p>Our engineering and technical teams are the backbone of our business, responsible for the design, development, and maintenance of cutting-edge HVAC/R products. If you have expertise in refrigeration, air conditioning, or heat transfer systems, you could play a pivotal role.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Sales and Marketing</h3>
+                    <p>Join our dynamic sales and marketing team to help promote our products and services. Develop strategic marketing campaigns, nurture client relationships, and identify new market opportunities to drive De Koolar's continued success.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Customer Service and Support</h3>
+                    <p>Be part of our exceptional customer service team, ensuring clients receive the highest quality service. Focus on resolving issues, providing technical support, and helping clients maximize their De Koolar products.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Operations and Manufacturing</h3>
+                    <p>Join our operations team to ensure efficient delivery of high-quality products. From supply chain management and quality control to manufacturing and assembly, help maintain our high standards of excellence.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Human Resources and Administration</h3>
+                    <p>Support our organizational needs through talent acquisition, employee engagement, training, and fostering a positive company culture. Help create an environment where employees thrive.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Finance and Accounting</h3>
+                    <p>Join our finance team to manage budgets, financial reports, audits, and strategic planning. Make a significant impact on De Koolar's long-term financial success.</p>
+                </div>
+                <div class="opportunity-card">
+                    <h3>Research and Development (R&D)</h3>
+                    <p>Be part of our innovative R&D team researching emerging technologies and integrating them into our HVAC/R systems. Help shape the future of cooling solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Look for in Candidates Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What We Look for in Candidates</h2>
+            </div>
+            <ul class="qualities-list">
+                <li>
+                    <i class="fas fa-lightbulb"></i>
+                    <div class="quality-content">
+                        <div class="quality-title">Passion for Innovation</div>
+                        <div class="quality-description">A strong drive to contribute to technological advancement and new product development</div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                    <div class="quality-content">
+                        <div class="quality-title">Team-Oriented</div>
+                        <div class="quality-description">The ability to collaborate effectively with colleagues from diverse backgrounds and departments</div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-heart"></i>
+                    <div class="quality-content">
+                        <div class="quality-title">Customer-Focused</div>
+                        <div class="quality-description">A commitment to understanding and meeting the needs of our clients</div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-puzzle-piece"></i>
+                    <div class="quality-content">
+                        <div class="quality-title">Problem-Solving Mindset</div>
+                        <div class="quality-description">A proactive approach to identifying challenges and finding creative solutions</div>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-shield-alt"></i>
+                    <div class="quality-content">
+                        <div class="quality-title">Integrity</div>
+                        <div class="quality-description">A commitment to ethical practices and doing the right thing in all situations</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- How to Apply Section -->
+    <section class="section how-to-apply">
+        <div class="container">
+            <div class="section-header">
+                <h2>How to Apply</h2>
+            </div>
+            <div class="section-content">
+                <p>If you're interested in building a rewarding career with De Koolar Nigeria Limited, we encourage you to explore our current job openings on our website or reach out to our Human Resources team for more information. We accept applications from qualified individuals across various departments, and we are excited to hear how you can contribute to our continued success.</p>
+                
+                <p>At De Koolar, your career journey is just the beginning. Join us and be a part of an innovative company that is reshaping the HVAC/R industry and making a lasting impact on the future.</p>
+                
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> Email: <a href="mailto:careers@dekoolar.com">careers@dekoolar.com</a></p>
+                    <p><i class="fas fa-phone"></i> Phone: <a href="tel:+2349076600000">+234 907 660 0000</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Visit our office: 1/3 Alade Close, Beside Addide Supermarket, Off Iju Road, Ifako-Ijaiye, Lagos State, Nigeria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Explore Your Career at De Koolar Today!</h2>
+            <p>Your career journey is just beginning. Join us and be part of an innovative company that is reshaping the HVAC/R industry.</p>
+            <a href="/jobs" class="btn-primary">Apply Today</a>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

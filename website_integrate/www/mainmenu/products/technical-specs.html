@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Technical Specifications - Detailed technical information, specifications, and performance data for our cold room solutions and refrigeration products.">
+    <title>Technical Specifications - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/technical-specs.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Specs Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Specs Tables */
+        .specs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .specs-category {
+            margin-bottom: 4rem;
+        }
+
+        .specs-category h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .specs-table th {
+            background: var(--primary-color);
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .specs-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .specs-table tr:hover {
+            background: #f0f0f0;
+        }
+
+        /* Download Section */
+        .download-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+        }
+
+        .download-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/products">Products</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Technical Specifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content container">
+            <h1>Technical Specifications</h1>
+            <p class="hero-subtitle">Detailed specifications and performance data for our cold room solutions</p>
+        </div>
+    </section>
+
+    <!-- Specs Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Product Specifications</h2>
+                <p>Comprehensive technical details for our range of cold room solutions</p>
+            </div>
+
+            <div class="specs-container">
+                <!-- Standard Cold Rooms -->
+                <div class="specs-category">
+                    <h3>Standard Cold Rooms</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th>Specification</th>
+                                <th>Small</th>
+                                <th>Medium</th>
+                                <th>Large</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Temperature Range</td>
+                                <td>0°C to +10°C</td>
+                                <td>-5°C to +15°C</td>
+                                <td>-10°C to +20°C</td>
+                            </tr>
+                            <tr>
+                                <td>Dimensions (LxWxH)</td>
+                                <td>2.4m x 2.4m x 2.4m</td>
+                                <td>3.6m x 3.6m x 2.7m</td>
+                                <td>4.8m x 4.8m x 3.0m</td>
+                            </tr>
+                            <tr>
+                                <td>Storage Capacity</td>
+                                <td>5-8 tons</td>
+                                <td>10-15 tons</td>
+                                <td>20-30 tons</td>
+                            </tr>
+                            <tr>
+                                <td>Power Consumption</td>
+                                <td>2.5 kW/h</td>
+                                <td>4.0 kW/h</td>
+                                <td>6.5 kW/h</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Solar Cold Rooms -->
+                <div class="specs-category">
+                    <h3>Solar Cold Rooms</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th>Specification</th>
+                                <th>Basic</th>
+                                <th>Advanced</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Solar Panel Capacity</td>
+                                <td>5 kW</td>
+                                <td>8 kW</td>
+                                <td>12 kW</td>
+                            </tr>
+                            <tr>
+                                <td>Battery Storage</td>
+                                <td>10 kWh</td>
+                                <td>15 kWh</td>
+                                <td>20 kWh</td>
+                            </tr>
+                            <tr>
+                                <td>Backup Duration</td>
+                                <td>12 hours</td>
+                                <td>18 hours</td>
+                                <td>24 hours</td>
+                            </tr>
+                            <tr>
+                                <td>Temperature Range</td>
+                                <td>0°C to +10°C</td>
+                                <td>-5°C to +15°C</td>
+                                <td>-10°C to +20°C</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Industrial Cold Rooms -->
+                <div class="specs-category">
+                    <h3>Industrial Cold Rooms</h3>
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th>Specification</th>
+                                <th>Type A</th>
+                                <th>Type B</th>
+                                <th>Type C</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Storage Volume</td>
+                                <td>500m³</td>
+                                <td>1000m³</td>
+                                <td>2000m³</td>
+                            </tr>
+                            <tr>
+                                <td>Cooling Capacity</td>
+                                <td>25 kW</td>
+                                <td>50 kW</td>
+                                <td>100 kW</td>
+                            </tr>
+                            <tr>
+                                <td>Door Dimensions</td>
+                                <td>2.4m x 2.8m</td>
+                                <td>3.0m x 3.2m</td>
+                                <td>3.6m x 4.0m</td>
+                            </tr>
+                            <tr>
+                                <td>Max Load Capacity</td>
+                                <td>50 tons</td>
+                                <td>100 tons</td>
+                                <td>200 tons</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Download Section -->
+            <div class="download-section">
+                <h3>Need more detailed specifications?</h3>
+                <p>Download our comprehensive technical documentation</p>
+                <a href="/files/dekoolar-technical-specifications.pdf" class="download-btn">
+                    <i class="fas fa-file-pdf"></i>
+                    Download Technical Specs PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

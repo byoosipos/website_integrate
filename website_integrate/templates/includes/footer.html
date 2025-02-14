@@ -1,0 +1,419 @@
+{% block style %}
+<style>
+    /* Variables */
+    :root {
+        --primary-color: #003399;
+        --secondary-color: #C5A572;
+        --accent-color: #006837;
+        --text-color: #333333;
+        --light-gray: #f8f9fa;
+        --dark-gray: #666666;
+        --white: #ffffff;
+        --transition: all 0.3s ease;
+        --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Base Footer Structure */
+    .footer {
+        background: var(--primary-color);
+        color: var(--white);
+        font-family: 'Poppins', sans-serif;
+        padding: 60px 0 0;
+        position: relative;
+    }
+
+    .footer::before {
+        background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+        content: '';
+        height: 4px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    /* Update container max-width */
+    .container {
+        max-width: 1440px;  /* Increased from 1280px */
+        margin: 0 auto;
+        padding: 0 24px;
+        width: 100%;
+    }
+
+    /* Update footer grid layout */
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 40px; /* Increased gap for better spacing */
+        margin-bottom: 40px;
+    }
+
+    /* Update column sizing */
+    .footer-column {
+        min-width: 0;
+        padding-right: 10px; /* Add some right padding */
+    }
+
+    /* Column Headers */
+    .footer-column h4 {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+
+    .footer-column h4::after {
+        background: var(--secondary-color);
+        bottom: 0;
+        content: '';
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 50px;
+    }
+
+    /* Link Lists */
+    .footer-column ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer-column ul li {
+        margin-bottom: 12px;
+    }
+
+    .footer-column ul a {
+        align-items: center;
+        color: var(--white);
+        display: flex;
+        gap: 8px;
+        opacity: 0.9;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .footer-column ul a i {
+        color: var(--secondary-color);
+        font-size: 1rem;
+        transition: var(--transition);
+        width: 20px;
+    }
+
+    .footer-column ul a:hover {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    .footer-column ul a:hover i {
+        transform: translateY(-2px);
+    }
+
+    /* Contact Information */
+    .contact-info li {
+        align-items: flex-start;
+        color: var(--white);
+        display: flex;
+        gap: 12px;
+        margin-bottom: 15px;
+        opacity: 0.9;
+        transition: var(--transition);
+        word-break: break-word; /* Allows long text to break */
+    }
+
+    .contact-info li:hover {
+        opacity: 1;
+        transform: translateX(5px);
+    }
+
+    .contact-info i {
+        color: var(--secondary-color);
+        font-size: 1.1rem;
+        margin-top: 5px;
+        transition: var(--transition);
+        width: 20px;
+    }
+
+    .contact-info li:hover i {
+        transform: translateY(-2px);
+    }
+
+    /* Adjust address text specifically */
+    .contact-info .address-info {
+        font-size: 0.9rem; /* Slightly smaller font for address */
+        line-height: 1.4; /* Better line height for readability */
+    }
+
+    /* Adjust email display */
+    .contact-info .email-info {
+        word-break: break-all; /* Breaks email at any character */
+    }
+
+    /* Newsletter Section */
+    .newsletter {
+        margin: 0 auto 30px;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .newsletter h4 {
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .newsletter p {
+        color: var(--white);
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    .newsletter-form {
+        display: flex;
+        gap: 10px;
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    .newsletter-form input {
+        border: none;
+        border-radius: 5px;
+        box-shadow: var(--shadow);
+        flex: 1;
+        font-family: inherit;
+        padding: 12px 15px;
+        transition: var(--transition);
+    }
+
+    .newsletter-form input:focus {
+        box-shadow: 0 0 0 2px var(--secondary-color);
+        outline: none;
+    }
+
+    .newsletter-form button {
+        background: var(--secondary-color);
+        border: none;
+        border-radius: 5px;
+        box-shadow: var(--shadow);
+        color: var(--white);
+        cursor: pointer;
+        font-weight: 500;
+        padding: 12px 25px;
+        transition: var(--transition);
+    }
+
+    .newsletter-form button:hover {
+        background: var(--accent-color);
+        transform: translateY(-2px);
+    }
+
+    /* Social Links */
+    .social-links {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        margin: 25px 0;
+    }
+
+    .social-links a {
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: var(--white);
+        display: flex;
+        font-size: 1.3rem;
+        height: 40px;
+        justify-content: center;
+        opacity: 0.9;
+        transition: var(--transition);
+        width: 40px;
+    }
+
+    .social-links a:hover {
+        background: rgba(255, 255, 255, 0.2);
+        color: var(--secondary-color);
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        background: rgba(0, 0, 0, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 30px;
+        padding: 30px 0;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .footer-links a {
+        color: var(--white);
+        font-size: 0.9rem;
+        opacity: 0.9;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+        color: var(--secondary-color);
+        opacity: 1;
+    }
+
+    .copyright {
+        color: var(--white);
+        font-size: 0.9rem;
+        margin: 0;
+        opacity: 0.8;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    /* Update responsive design */
+    @media (max-width: 1200px) {
+        .footer-grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .contact-info li {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .footer-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+</style>
+{% endblock %}
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <h4>Our Company</h4>
+                <ul>
+                    <li><a href="/mainmenu/corporate/about-us.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="/mainmenu/corporate/quality-management.html"><i class="fas fa-certificate"></i> Quality Management</a></li>
+                    <li><a href="/mainmenu/corporate/hse-policy.html"><i class="fas fa-hard-hat"></i> HSE Policy</a></li>
+                    <li><a href="/mainmenu/corporate/mission.html"><i class="fas fa-bullseye"></i> Mission & Vision</a></li>
+                    <li><a href="/mainmenu/corporate/values.html"><i class="fas fa-star"></i> Core Values</a></li>
+                    <li><a href="/mainmenu/corporate/management.html"><i class="fas fa-users"></i> Leadership Team</a></li>
+                    <li><a href="/mainmenu/corporate/certifications.html"><i class="fas fa-award"></i> Certifications</a></li>
+                    <li><a href="/mainmenu/corporate/community-relations.html"><i class="fas fa-hands-helping"></i> CSR</a></li>
+                    <li><a href="/mainmenu/corporate/careers.html"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="/mainmenu/corporate/contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="/mainmenu/products/cold-rooms.html"><i class="fas fa-snowflake"></i> Cold Rooms</a></li>
+                    <li><a href="/mainmenu/products/ice-block-machines.html"><i class="fas fa-cube"></i> Ice Block Machines</a></li>
+                    <li><a href="/mainmenu/products/hvac.html"><i class="fas fa-wind"></i> HVAC Systems</a></li>
+                    <li><a href="/mainmenu/products/spare-parts.html"><i class="fas fa-cogs"></i> Spare Parts</a></li>
+                    <li><a href="/mainmenu/products/custom-solutions.html"><i class="fas fa-tools"></i> Custom Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Customer Support</h4>
+                <ul>
+                    <li><a href="/mainmenu/support/technical.html"><i class="fas fa-headset"></i> Technical Support</a></li>
+                    <li><a href="/mainmenu/support/customer-service.html"><i class="fas fa-user-tie"></i> Customer Service</a></li>
+                    <li><a href="/mainmenu/faq.html"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    <li><a href="/mainmenu/support/warranty.html"><i class="fas fa-shield-alt"></i> Warranty Information</a></li>
+                    <li><a href="/mainmenu/support/emergency.html"><i class="fas fa-phone-alt"></i> Emergency Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> +234 907 660 0000</li>
+                    <li class="email-info"><i class="fas fa-envelope"></i> customercare@dekoolar.com</li>
+                    <li class="address-info"><i class="fas fa-map-marker-alt"></i> 1/3 Alade Close, Beside Addide Supermarket, Off Iju Road, Ifako-Ijaiye, Lagos State, Nigeria</li>
+                    <li><i class="fas fa-clock"></i> Mon - Fri: 8AM - 5PM</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="/mainmenu/resources/knowledge.html"><i class="fas fa-graduation-cap"></i> Knowledge Center</a></li>
+                    <li><a href="/mainmenu/resources/technical.html"><i class="fas fa-file-alt"></i> Technical Resources</a></li>
+                    <li><a href="/mainmenu/resources/guides.html"><i class="fas fa-book-open"></i> Business Guides</a></li>
+                    <li><a href="/mainmenu/insights/"><i class="fas fa-newspaper"></i> Industry Insights</a></li>
+                    <li><a href="/mainmenu/resources/calculator.html"><i class="fas fa-calculator"></i> ROI Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="/mainmenu/services/cold-rooms"><i class="fas fa-snowflake"></i> Cold Room Solutions</a></li>
+                    <li><a href="/mainmenu/services/ice-block"><i class="fas fa-cube"></i> Ice Block Machines</a></li>
+                    <li><a href="/mainmenu/services/hvac"><i class="fas fa-wind"></i> HVAC Systems</a></li>
+                    <li><a href="/mainmenu/services/maintenance"><i class="fas fa-tools"></i> Maintenance & Support</a></li>
+                    <li><a href="/mainmenu/emergency-repairs"><i class="fas fa-exclamation-circle"></i> Emergency Repairs</a></li>
+                    <li><a href="/mainmenu/after-sales-support"><i class="fas fa-handshake"></i> Maintenance Contracts</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="newsletter">
+                <h4>Subscribe to Our Newsletter</h4>
+                <p>Stay updated with our latest news, products, and industry insights</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+
+            <div class="footer-links">
+                <a href="/mainmenu/privacy-policy.html">Privacy Policy</a>
+                <a href="/mainmenu/terms-of-service.html">Terms of Service</a>
+                <a href="/mainmenu/sitemap.html">Sitemap</a>
+            </div>
+
+            <p class="copyright">&copy; 2024 DeKoolar Nigeria Limited. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+{% block script %}
+<script>
+    // Add smooth scrolling to all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script> {% endblock %} 

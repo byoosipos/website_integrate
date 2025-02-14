@@ -1,0 +1,535 @@
+{% extends "templates/web.html" %}
+{% block title %}Westcare Hospital Cold Chain Project - DeKoolar{% endblock %}
+
+{% block style %}
+<style>
+    :root {
+        --primary: #003399;
+        --secondary: #006837;
+        --accent: #C5A572;
+        --medical-blue: #1E88E5;
+        --text-dark: #333333;
+        --text-light: #666666;
+        --bg-light: #f8f9fa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(0, 51, 153, 0.9)), url('/files/westcare-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 140px 0;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.2) 100%);
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        opacity: 0.95;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    /* Project Overview */
+    .overview {
+        padding: 100px 0;
+        background: var(--bg-light);
+    }
+
+    .overview-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .overview-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: var(--text-dark);
+        position: relative;
+    }
+
+    .overview-content h2::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--medical-blue);
+        margin-top: 20px;
+        border-radius: 2px;
+    }
+
+    .overview-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+
+    .overview-image {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .overview-image img {
+        width: 100%;
+        height: auto;
+        transition: var(--transition);
+    }
+
+    .overview-image:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Implementation Phases */
+    .phases {
+        padding: 100px 0;
+        background: var(--white);
+    }
+
+    .phases h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-dark);
+    }
+
+    .phase-timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+
+    .phase-timeline::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: var(--medical-blue);
+    }
+
+    .phase-item {
+        position: relative;
+        margin-bottom: 60px;
+        width: calc(50% - 30px);
+    }
+
+    .phase-item:nth-child(odd) {
+        left: 0;
+    }
+
+    .phase-item:nth-child(even) {
+        left: calc(50% + 30px);
+    }
+
+    .phase-content {
+        background: var(--white);
+        padding: 30px;
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-md);
+        position: relative;
+    }
+
+    .phase-content::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--medical-blue);
+        border-radius: 50%;
+        top: 50%;
+    }
+
+    .phase-item:nth-child(odd) .phase-content::before {
+        right: -40px;
+        transform: translateY(-50%);
+    }
+
+    .phase-item:nth-child(even) .phase-content::before {
+        left: -40px;
+        transform: translateY(-50%);
+    }
+
+    .phase-content h3 {
+        color: var(--medical-blue);
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .phase-content p {
+        color: var(--text-light);
+        line-height: 1.7;
+    }
+
+    /* Solutions Section */
+    .solutions {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--primary), var(--medical-blue));
+        color: var(--white);
+        position: relative;
+    }
+
+    .solutions::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/files/pattern.png');
+        opacity: 0.1;
+    }
+
+    .solutions .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .solutions h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+
+    .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .solution-card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: var(--radius-md);
+        transition: var(--transition);
+    }
+
+    .solution-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .solution-card i {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 20px;
+    }
+
+    .solution-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .solution-card p {
+        opacity: 0.9;
+        line-height: 1.7;
+    }
+
+    /* Results Section */
+    .results {
+        padding: 100px 0;
+        background: var(--bg-light);
+    }
+
+    .results h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-dark);
+    }
+
+    .results-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        text-align: center;
+    }
+
+    .result-item h3 {
+        font-size: 3rem;
+        color: var(--medical-blue);
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+
+    .result-item p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+
+    /* CTA Section */
+    .cta {
+        padding: 120px 0;
+        text-align: center;
+        background: linear-gradient(rgba(30, 136, 229, 0.9), rgba(0, 51, 153, 0.9)), url('/files/westcare-cta.jpg');
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        position: relative;
+    }
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .cta .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta h2 {
+        font-size: 2.8rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-white {
+        background: var(--white);
+        color: var(--medical-blue);
+        padding: 18px 48px;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        transition: var(--transition);
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-white:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        background: var(--accent);
+        color: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .solutions-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .results-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .overview-grid {
+            grid-template-columns: 1fr;
+        }
+        .phase-timeline::before {
+            left: 20px;
+        }
+        .phase-item {
+            width: calc(100% - 50px);
+            left: 50px !important;
+        }
+        .phase-item:nth-child(odd) .phase-content::before,
+        .phase-item:nth-child(even) .phase-content::before {
+            left: -40px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .solutions-grid {
+            grid-template-columns: 1fr;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .overview-content h2,
+        .solutions h2,
+        .results h2,
+        .cta h2 {
+            font-size: 2rem;
+        }
+        .result-item h3 {
+            font-size: 2.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Westcare Hospital Project</h1>
+        <p>Advanced medical cold chain solutions for healthcare excellence</p>
+    </div>
+</section>
+
+<!-- Overview Section -->
+<section class="overview">
+    <div class="container">
+        <div class="overview-grid">
+            <div class="overview-content">
+                <h2>Project Overview</h2>
+                <p>DeKoolar partnered with Westcare Hospital to implement a comprehensive medical cold chain solution, ensuring the safe storage of vital medical supplies, vaccines, and laboratory specimens.</p>
+                <p>Our integrated approach combines cutting-edge refrigeration technology with smart monitoring systems, maintaining precise temperature control for critical healthcare materials.</p>
+            </div>
+            <div class="overview-image">
+                <img src="/files/westcare-overview.jpg" alt="Westcare Hospital Cold Chain Project">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Implementation Phases -->
+<section class="phases">
+    <div class="container">
+        <h2>Implementation Phases</h2>
+        <div class="phase-timeline">
+            <div class="phase-item">
+                <div class="phase-content">
+                    <h3>Phase 1: Assessment & Planning</h3>
+                    <p>Comprehensive evaluation of storage requirements and facility infrastructure to design optimal cold chain solutions.</p>
+                </div>
+            </div>
+            <div class="phase-item">
+                <div class="phase-content">
+                    <h3>Phase 2: Infrastructure Setup</h3>
+                    <p>Installation of medical-grade cold storage units and backup power systems for uninterrupted operation.</p>
+                </div>
+            </div>
+            <div class="phase-item">
+                <div class="phase-content">
+                    <h3>Phase 3: Monitoring Integration</h3>
+                    <p>Implementation of advanced temperature monitoring and alert systems for 24/7 surveillance.</p>
+                </div>
+            </div>
+            <div class="phase-item">
+                <div class="phase-content">
+                    <h3>Phase 4: Staff Training</h3>
+                    <p>Comprehensive training programs for hospital staff on system operation and maintenance protocols.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section class="solutions">
+    <div class="container">
+        <h2>Implemented Solutions</h2>
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>Temperature Control</h3>
+                <p>Precision temperature management systems for different medical storage requirements.</p>
+            </div>
+            <div class="solution-card">
+                <i class="fas fa-battery-full"></i>
+                <h3>Backup Systems</h3>
+                <p>Redundant power solutions ensuring continuous operation during power outages.</p>
+            </div>
+            <div class="solution-card">
+                <i class="fas fa-desktop"></i>
+                <h3>Remote Monitoring</h3>
+                <p>Real-time temperature monitoring and automated alert systems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Results Section -->
+<section class="results">
+    <div class="container">
+        <h2>Project Impact</h2>
+        <div class="results-grid">
+            <div class="result-item">
+                <h3>100%</h3>
+                <p>Temperature Compliance</p>
+            </div>
+            <div class="result-item">
+                <h3>24/7</h3>
+                <p>Monitoring Coverage</p>
+            </div>
+            <div class="result-item">
+                <h3>50%</h3>
+                <p>Energy Savings</p>
+            </div>
+            <div class="result-item">
+                <h3>0%</h3>
+                <p>Product Loss</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Transform Your Medical Storage</h2>
+        <p>Looking to implement a reliable cold chain solution for your healthcare facility? Let's discuss your requirements.</p>
+        <a href="/mainmenu/request-quote.html" class="btn-white" onclick="openQuoteForm(); return false;">Request Consultation</a>
+    </div>
+</section>
+{% endblock %} 

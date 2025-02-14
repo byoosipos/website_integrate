@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar core values - Excellence, integrity, innovation, and customer focus. Discover the principles that guide our operations and shape our company culture.">
+    <title>Core Values - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+            color: var(--secondary-color);
+        }
+
+        .value-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .value-card p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .value-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .value-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            background: var(--light-gray);
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .culture-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .culture-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .culture-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .culture-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .value-card {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate/about-us">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Core Values</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Core Values</h1>
+            <p class="hero-subtitle">The principles that define our character and guide our actions</p>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Values</h2>
+                <p>At De Koolar Nigeria Limited, our core values are the foundation of our success and growth in the HVAC/R industry. These principles guide our decisions and shape our approach to every aspect of the business.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-lightbulb value-icon"></i>
+                    <h3>Innovation</h3>
+                    <p>At the heart of what we do</p>
+                    <ul class="value-list">
+                        <li>Finding new and better solutions</li>
+                        <li>Advanced technologies</li>
+                        <li>Continuous improvement</li>
+                        <li>Meeting evolving industry needs</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-star value-icon"></i>
+                    <h3>Excellence</h3>
+                    <p>Our standard in everything we do</p>
+                    <ul class="value-list">
+                        <li>Superior product quality</li>
+                        <li>Outstanding customer service</li>
+                        <li>Efficient internal processes</li>
+                        <li>Long-lasting solutions</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-heart value-icon"></i>
+                    <h3>Customer Satisfaction</h3>
+                    <p>Our top priority</p>
+                    <ul class="value-list">
+                        <li>Tailored solutions</li>
+                        <li>Building lasting relationships</li>
+                        <li>Trust-based partnerships</li>
+                        <li>Exceptional service delivery</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake value-icon"></i>
+                    <h3>Integrity</h3>
+                    <p>The cornerstone of our operations</p>
+                    <ul class="value-list">
+                        <li>Honesty in all dealings</li>
+                        <li>Transparent operations</li>
+                        <li>Ethical business practices</li>
+                        <li>Accountability</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-fire value-icon"></i>
+                    <h3>Passion</h3>
+                    <p>The fuel that drives us forward</p>
+                    <ul class="value-list">
+                        <li>Motivation to excel</li>
+                        <li>Drive for innovation</li>
+                        <li>Positive workplace impact</li>
+                        <li>Community engagement</li>
+                    </ul>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf value-icon"></i>
+                    <h3>Sustainability</h3>
+                    <p>Central to our vision</p>
+                    <ul class="value-list">
+                        <li>Environmental responsibility</li>
+                        <li>Social well-being</li>
+                        <li>Economic growth</li>
+                        <li>Responsible operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section class="section culture-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Making an Impact</h2>
+                <p>These core values help us lead the HVAC/R industry and drive positive change, making De Koolar a trusted partner committed to creating lasting value for our customers, employees, and communities.</p>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Trusted Partnership</h3>
+                    <p>Building lasting relationships with our customers and stakeholders</p>
+                </div>
+                <div class="culture-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Employee Growth</h3>
+                    <p>Fostering a culture of continuous learning and development</p>
+                </div>
+                <div class="culture-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Community Impact</h3>
+                    <p>Contributing positively to the communities we serve</p>
+                </div>
+                <div class="culture-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Industry Leadership</h3>
+                    <p>Setting standards and driving innovation in HVAC/R</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

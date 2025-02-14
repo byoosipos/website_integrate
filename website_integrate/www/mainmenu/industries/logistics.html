@@ -1,0 +1,198 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<section class="industry-hero">
+    <div class="container">
+        <h1><i class="fas fa-warehouse"></i> Logistics & Cold Chain</h1>
+        <p>State-of-the-art cold chain solutions for efficient logistics operations</p>
+    </div>
+</section>
+
+<section class="industry-content">
+    <div class="container">
+        <div class="content-wrapper">
+            <p>Efficient cold chain logistics is the backbone of temperature-sensitive supply chains, ensuring that perishable goods such as food, pharmaceuticals, and agricultural products are transported and stored under optimal conditions. At De Koolar Nigeria Limited, we are leaders in providing state-of-the-art cold chain solutions that enhance the efficiency, reliability, and sustainability of logistics operations.</p>
+            
+            <p>Our expertise spans the design, construction, and installation of advanced cold storage facilities and refrigerated transport systems tailored to meet the needs of logistics providers, distributors, and exporters. By leveraging our innovative solutions, businesses can maintain product quality, reduce spoilage, and meet the demands of modern supply chains.</p>
+
+            <div class="benefits-grid">
+                <h2>Key Features of Our Cold Chain Solutions</h2>
+                <div class="benefit-card">
+                    <i class="fas fa-warehouse"></i>
+                    <h3>Custom-Built Cold Storage Facilities</h3>
+                    <p>We design and build facilities for seamless integration into your logistics operations, ensuring precise temperature control for various products.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>End-to-End Cold Chain Support</h3>
+                    <p>From storage to last-mile delivery, we provide solutions that keep your supply chain efficient and compliant with global standards.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Energy Efficiency</h3>
+                    <p>Our systems are designed with advanced technology to reduce energy consumption while maintaining peak performance, lowering operational costs.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Reliability and Longevity</h3>
+                    <p>We use high-quality materials and components to ensure that our solutions withstand the demands of Nigeria's logistics environment.</p>
+                </div>
+            </div>
+
+            <div class="conclusion">
+                <p>De Koolar Nigeria Limited is your trusted partner for cold chain logistics, offering cutting-edge solutions that empower businesses to deliver quality products across local and international markets. Together, we ensure that your perishable goods reach their destination fresh, safe, and on time.</p>
+            </div>
+
+            <div class="cta-section">
+                <a href="/mainmenu/contact" class="btn btn-primary">Contact Us</a>
+                <a href="/mainmenu/consultation" class="btn btn-outline">Request Consultation</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block style %}
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #ffd700;
+        --text-color: #333;
+        --bg-gradient: linear-gradient(135deg, #0056b3 0%, #00326b 100%);
+    }
+
+    .industry-hero {
+        background: var(--bg-gradient);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .industry-hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .industry-hero i {
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+
+    .industry-content {
+        padding: 60px 0;
+        background: #fff;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .benefits-grid {
+        margin: 40px 0;
+    }
+
+    .benefits-grid h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .benefit-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-color: var(--primary-color);
+    }
+
+    .benefit-card i {
+        font-size: 2em;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    .benefit-card h3 {
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    .conclusion {
+        text-align: center;
+        margin: 40px 0;
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .cta-section .btn {
+        margin: 0 10px;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .cta-section .btn-primary {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+    }
+
+    .cta-section .btn-outline {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        background: transparent;
+    }
+
+    .cta-section .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 768px) {
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .industry-hero {
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .industry-hero h1 {
+            font-size: 2em;
+        }
+
+        .cta-section .btn {
+            display: block;
+            margin: 10px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+</style>
+{% endblock %} 

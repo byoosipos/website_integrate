@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviation Industry Solutions - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-color: #0056b3;
+        --secondary-color: #ffd700;
+        --text-color: #333;
+        --bg-gradient: linear-gradient(135deg, #0056b3 0%, #00326b 100%);
+    }
+
+    .industry-hero {
+        background: var(--bg-gradient);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+    .industry-hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .industry-hero i {
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+
+    .industry-content {
+        padding: 60px 0;
+        background: #fff;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .benefits-grid {
+        margin: 40px 0;
+    }
+
+    .benefits-grid h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .benefit-card {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+    .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-color: var(--primary-color);
+    }
+
+    .benefit-card i {
+        font-size: 2em;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    .benefit-card h3 {
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    .conclusion {
+        text-align: center;
+        margin: 40px 0;
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 10px;
+        border: 1px solid #eee;
+    }
+
+    .cta-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .cta-section .btn {
+        margin: 0 10px;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .cta-section .btn-primary {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+    }
+
+    .cta-section .btn-outline {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        background: transparent;
+    }
+
+    .cta-section .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    @media (min-width: 768px) {
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .industry-hero {
+            margin-top: 60px;
+            padding: 40px 0;
+        }
+
+        .industry-hero h1 {
+            font-size: 2em;
+        }
+
+        .cta-section .btn {
+            display: block;
+            margin: 10px auto;
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+</style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <section class="industry-hero" style="background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <h1><i class="fas fa-plane"></i> Aviation Industry</h1>
+            <p>Specialized refrigeration solutions for aviation facilities and operations</p>
+        </div>
+    </section>
+
+    <section class="industry-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="image-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <img src="/files/Mobile Refrigerator.png" alt="Aviation Catering Solutions" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow);">
+                    <img src="/files/COLD ROOM STORAGE 1.png" alt="Airport Cold Storage" style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px; box-shadow: var(--shadow);">
+                </div>
+
+                <p>In the aviation industry, reliable refrigeration systems are essential for various applications, from aircraft catering and cargo handling to terminal facilities and maintenance operations. De Koolar Nigeria Limited delivers specialized cooling solutions designed to meet the stringent requirements of aviation operations, ensuring efficiency, safety, and compliance with industry standards.</p>
+                
+                <p>Our expertise covers both airside and landside facilities, providing customized refrigeration solutions that maintain the integrity of temperature-sensitive cargo, ensure food safety in catering operations, and support critical maintenance processes.</p>
+
+                <div class="benefits-grid">
+                    <h2>Key Benefits for Aviation Operations</h2>
+                    <div class="benefit-card">
+                        <img src="/files/Display Unit Cold ban 2.png" alt="Aviation Catering Equipment" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius) var(--border-radius) 0 0; margin-bottom: 1rem;">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Catering Solutions</h3>
+                        <p>Advanced refrigeration systems for airline catering facilities, ensuring food safety and quality.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <img src="/files/Mobile Refrigerator 1.png" alt="Cargo Handling Solutions" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius) var(--border-radius) 0 0; margin-bottom: 1rem;">
+                        <i class="fas fa-box"></i>
+                        <h3>Cargo Handling</h3>
+                        <p>Temperature-controlled storage solutions for sensitive air cargo and perishable goods.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-building"></i>
+                        <h3>Terminal Facilities</h3>
+                        <p>Efficient cooling systems for passenger terminals and operational areas.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-tools"></i>
+                        <h3>Maintenance Support</h3>
+                        <p>Specialized cooling solutions for aircraft maintenance and repair operations.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Compliance & Safety</h3>
+                        <p>Systems designed to meet aviation industry standards and safety regulations.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Energy Efficiency</h3>
+                        <p>Power-optimized systems for continuous operation in airport environments.</p>
+                    </div>
+                </div>
+
+                <div class="conclusion">
+                    <p>Partner with De Koolar Nigeria Limited for reliable, efficient, and specialized refrigeration solutions for your aviation operations. Our expertise ensures that your facilities and processes are supported by cooling systems that deliver consistent performance in demanding airport environments.</p>
+                </div>
+
+                <div class="cta-section">
+                    <a href="/mainmenu/contact" class="btn btn-primary">Contact Us</a>
+                    <a href="/mainmenu/consultation" class="btn btn-outline">Request Consultation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/mainmenu/public/js/script.js"></script>
+</body>
+</html> 

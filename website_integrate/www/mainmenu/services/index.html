@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Services - Comprehensive refrigeration and HVAC solutions including cold room installations, ice block machines, HVAC systems, and maintenance services.">
+    <title>Our Services - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content {
+            padding: 2rem;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .service-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Why Choose Us */
+        .why-choose-us {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .cta-button.primary {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .service-card {
+                margin: 0 1rem;
+            }
+
+            .feature-card {
+                margin: 0 1rem;
+            }
+
+            .cta-content {
+                padding: 0 1rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Our Services</h1>
+            <p class="hero-subtitle">Comprehensive refrigeration and HVAC solutions for every need</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Core Services</h2>
+                <p>Discover our range of professional refrigeration and HVAC services</p>
+            </div>
+            <div class="services-grid">
+                <!-- Cold Room Solutions -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="service-content">
+                        <h3>Cold Room Solutions</h3>
+                        <p>Custom-designed cold storage facilities for commercial and industrial applications.</p>
+                        <ul class="service-features">
+                            <li>Custom design and installation</li>
+                            <li>Temperature monitoring systems</li>
+                            <li>Energy-efficient solutions</li>
+                            <li>24/7 technical support</li>
+                        </ul>
+                        <a href="/mainmenu/services/cold-rooms" class="service-link">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Ice Block Machines -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/files/ICE BLOCK MACHINE.png');"></div>
+                    <div class="service-content">
+                        <h3>Ice Block Machines</h3>
+                        <p>Industrial ice production systems for commercial and business applications.</p>
+                        <ul class="service-features">
+                            <li>High-capacity production</li>
+                            <li>Automated systems</li>
+                            <li>Quality ice production</li>
+                            <li>Technical support</li>
+                        </ul>
+                        <a href="/mainmenu/services/ice-block" class="service-link">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- HVAC Systems -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/files/RIVA COLD COMPLETE UNIT PICTURE.PNG');"></div>
+                    <div class="service-content">
+                        <h3>HVAC Systems</h3>
+                        <p>Complete climate control solutions for commercial and industrial spaces.</p>
+                        <ul class="service-features">
+                            <li>System design and installation</li>
+                            <li>Smart climate control</li>
+                            <li>Energy optimization</li>
+                            <li>Regular maintenance</li>
+                        </ul>
+                        <a href="/mainmenu/services/hvac" class="service-link">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Maintenance Services -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="service-content">
+                        <h3>Maintenance & Support</h3>
+                        <p>Comprehensive maintenance and technical support services.</p>
+                        <ul class="service-features">
+                            <li>Preventive maintenance</li>
+                            <li>Emergency repairs</li>
+                            <li>System optimization</li>
+                            <li>24/7 support</li>
+                        </ul>
+                        <a href="/mainmenu/services/maintenance" class="service-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>Experience excellence in refrigeration and HVAC services</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Highly skilled technicians with years of industry experience</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock technical support and emergency services</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Service</h3>
+                    <p>Premium quality solutions and exceptional customer service</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Energy Efficient</h3>
+                    <p>Sustainable solutions that reduce energy consumption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today to discuss your refrigeration and HVAC needs. Our team is ready to help you find the perfect solution.</p>
+                <div class="cta-buttons">
+                    <a href="/mainmenu/corporate/contact" class="cta-button primary">Contact Us</a>
+                    <a href="/mainmenu/support/technical" class="cta-button secondary">Technical Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

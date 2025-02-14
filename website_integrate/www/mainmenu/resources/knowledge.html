@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Knowledge Base - Industry insights, best practices, and educational resources for refrigeration and cooling systems.">
+    <title>Knowledge Base | Dekoolar</title>
+    <style>
+        .knowledge-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - var(--header-height) - var(--topbar-height));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        /* Search Section */
+        .search-section {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .search-box {
+            position: relative;
+            width: 100%;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 24px;
+            padding-left: 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0,51,153,0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+        }
+
+        /* Topics Grid */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .topic-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .topic-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 20px;
+            position: relative;
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .topic-content {
+            padding: 20px;
+        }
+
+        .topic-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .topic-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .topic-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+        }
+
+        .topic-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            line-height: 1.5;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Featured Articles */
+        .featured-section {
+            margin-top: 60px;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 24px;
+        }
+
+        .article-title {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .article-excerpt {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .read-more:hover {
+            gap: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .knowledge-section {
+                padding: 40px 0;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .search-input {
+                padding: 12px 20px;
+                padding-left: 45px;
+            }
+
+            .topics-grid,
+            .article-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .topic-card,
+            .article-card {
+                background: #1a1a1a;
+            }
+
+            .search-input {
+                background: #2d2d2d;
+                border-color: #404040;
+                color: #ffffff;
+            }
+
+            .topic-list a {
+                color: #e0e0e0;
+            }
+
+            .article-excerpt {
+                color: #cccccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+    
+    <div class="knowledge-section">
+        <div class="container">
+            <h1 class="page-title">Knowledge Base</h1>
+            
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search knowledge base...">
+                </div>
+            </div>
+            
+            <!-- Topics Grid -->
+            <div class="topics-grid">
+                <!-- Refrigeration Basics -->
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h2 class="topic-title">Refrigeration Basics</h2>
+                    </div>
+                    <div class="topic-content">
+                        <ul class="topic-list">
+                            <li><a href="#">Introduction to Refrigeration Systems</a></li>
+                            <li><a href="#">Refrigeration Cycle Explained</a></li>
+                            <li><a href="#">Types of Refrigerants</a></li>
+                            <li><a href="#">Energy Efficiency in Cooling</a></li>
+                            <li><a href="#">Temperature Control Basics</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Cold Room Operations -->
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h2 class="topic-title">Cold Room Operations</h2>
+                    </div>
+                    <div class="topic-content">
+                        <ul class="topic-list">
+                            <li><a href="#">Cold Room Best Practices</a></li>
+                            <li><a href="#">Temperature Monitoring</a></li>
+                            <li><a href="#">Storage Guidelines</a></li>
+                            <li><a href="#">Maintenance Schedule</a></li>
+                            <li><a href="#">Troubleshooting Guide</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Industry Standards -->
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h2 class="topic-title">Industry Standards</h2>
+                    </div>
+                    <div class="topic-content">
+                        <ul class="topic-list">
+                            <li><a href="#">Safety Regulations</a></li>
+                            <li><a href="#">Quality Standards</a></li>
+                            <li><a href="#">Compliance Guidelines</a></li>
+                            <li><a href="#">Industry Best Practices</a></li>
+                            <li><a href="#">Certification Requirements</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Articles -->
+            <div class="featured-section">
+                <h2 class="section-title">Featured Articles</h2>
+                <div class="article-grid">
+                    <div class="article-card">
+                        <img src="/files/cold-room-efficiency.jpg" alt="Cold Room Efficiency" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Maximizing Cold Room Efficiency</h3>
+                            <p class="article-excerpt">Learn about the latest techniques and technologies to optimize your cold room's energy efficiency and performance.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <img src="/files/sustainable-cooling.jpg" alt="Sustainable Cooling" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Sustainable Cooling Solutions</h3>
+                            <p class="article-excerpt">Discover eco-friendly cooling solutions and how they can benefit both your business and the environment.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="article-card">
+                        <img src="/files/maintenance-tips.jpg" alt="Maintenance Tips" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title">Essential Maintenance Tips</h3>
+                            <p class="article-excerpt">Expert advice on maintaining your cooling systems for optimal performance and longevity.</p>
+                            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

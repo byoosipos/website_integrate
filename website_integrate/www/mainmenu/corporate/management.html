@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet DeKoolar's leadership team - Experienced professionals driving innovation and excellence in refrigeration solutions across Africa.">
+    <title>Leadership Team - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .team-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            background-color: var(--light-gray);
+            border-bottom: 4px solid var(--primary-color);
+            padding: 1rem;
+        }
+
+        .team-card:first-child .team-image {
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .team-info {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .team-name {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-position {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .team-social a {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .team-social a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Department Section */
+        .department-section {
+            background: var(--light-gray);
+        }
+
+        .department-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .department-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .department-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .department-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .department-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Principles Grid Styles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .principle-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .principle-card:hover::before {
+            opacity: 1;
+        }
+
+        .principle-card i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .principle-card h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .principle-card p {
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .team-card {
+                margin: 0 1rem;
+            }
+
+            .principles-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate/about-us">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Leadership Team</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Leadership Team</h1>
+            <p class="hero-subtitle">At De Koolar Nigeria Limited, our leadership team is a dynamic and passionate group of industry experts who bring years of experience, visionary thinking, and a commitment to excellence.</p>
+        </div>
+    </section>
+
+    <!-- Leadership Principles Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Leadership Principles</h2>
+                <p>Together, they steer the company toward innovation, growth, and continued success in the HVAC/R sector.</p>
+            </div>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Visionary Leadership</h3>
+                    <p>The leadership team at De Koolar has a relentless commitment to progress, constantly seeking new ways to improve on products, services, and the overall customer experience. With a clear vision of the future, they lead the company to stay ahead of industry trends and market demands.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Experience and Expertise</h3>
+                    <p>With more than two decades in the HVAC/R industry, our leaders have a wealth of knowledge in heat transfer technology, system design, manufacturing, installation, and maintenance. This experience ensures that De Koolar remains a trusted and reliable partner for both domestic and industrial clients.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Commitment to Innovation</h3>
+                    <p>Our leadership believes that innovation is key to staying competitive in a rapidly changing industry. By fostering a culture of creativity and problem-solving, they ensure that De Koolar remains at the forefront of technological advancements in HVAC/R solutions.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Customer-Centric Focus</h3>
+                    <p>The leadership team is deeply committed to providing exceptional customer service and satisfaction. Every decision they make is guided by a focus on delivering tailored solutions that meet the unique needs of our clients, fostering long-term relationships built on trust and reliability.</p>
+                </div>
+                <div class="principle-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Ethical Leadership</h3>
+                    <p>At De Koolar, our leaders operate with the highest level of integrity, ensuring that all our actions align with our core values. Their ethical approach to business reinforces our reputation for honesty, transparency, and accountability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Executive Team</h2>
+                <p>Our experienced leaders guiding DeKoolar towards excellence</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="/files/james-ola-akanbi-dekoolar.jpg" alt="Chief Executive Officer" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">Chief Executive Officer</h3>
+                        <p class="team-position">Executive Leadership</p>
+                        <p class="team-bio">A visionary leader with extensive experience in the HVAC/R industry, driving innovation and sustainable growth at DeKoolar.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="/files/executive-placeholder.jpg" alt="Technical Director" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">Technical Director</h3>
+                        <p class="team-position">Engineering Leadership</p>
+                        <p class="team-bio">Leading our engineering excellence with expertise in HVAC/R system design and technological innovation.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="/files/executive-placeholder.jpg" alt="Operations Director" class="team-image">
+                    <div class="team-info">
+                        <h3 class="team-name">Operations Director</h3>
+                        <p class="team-position">Operations Leadership</p>
+                        <p class="team-bio">Ensuring operational excellence and efficient delivery of our products and services across Nigeria.</p>
+                        <div class="team-social">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Heads Section -->
+    <section class="section department-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Department Leadership</h2>
+                <p>Experienced professionals leading our key departments</p>
+            </div>
+            <div class="department-grid">
+                <div class="department-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Technical Services</h3>
+                    <p>Expert team ensuring quality installation and maintenance services</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Sales & Marketing</h3>
+                    <p>Driving business growth through strategic market development</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Operations</h3>
+                    <p>Managing efficient delivery of products and services</p>
+                </div>
+                <div class="department-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Support</h3>
+                    <p>Dedicated to providing exceptional customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,380 @@
+{% block style %}
+<style>
+    .quote-form-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 1100;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .quote-form-modal.active {
+        display: flex;
+    }
+
+    .quote-form-container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .quote-form-header {
+        text-align: center;
+        margin-bottom: 32px;
+    }
+
+    .quote-form-header h2 {
+        color: var(--dekoolar-blue);
+        font-size: 2rem;
+        margin-bottom: 12px;
+        font-weight: 600;
+    }
+
+    .quote-form-header p {
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.5;
+    }
+
+    .quote-form {
+        display: grid;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: grid;
+        gap: 8px;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: var(--dekoolar-blue);
+        margin-bottom: 8px;
+        display: block;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        background: #f8f9fa;
+        border: 1px solid transparent;
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        color: var(--text-color);
+    }
+
+    .form-group input:hover,
+    .form-group select:hover,
+    .form-group textarea:hover {
+        background: #f0f2f5;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        background: white;
+        border-color: var(--dekoolar-gold);
+        box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder,
+    .form-group select::placeholder {
+        color: #aab0b7;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .submit-btn {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 16px 32px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 24px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 51, 153, 0.2);
+    }
+
+    .submit-btn:hover::before {
+        transform: translateX(100%);
+    }
+
+    .submit-btn:active {
+        transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--dark-gray);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .close-modal:hover {
+        color: var(--primary-color);
+        transform: rotate(90deg);
+    }
+
+    @media (max-width: 768px) {
+        .quote-form-container {
+            margin: 20px;
+            padding: 24px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+
+    /* Error state styling */
+    .form-group input.error,
+    .form-group select.error,
+    .form-group textarea.error {
+        background: rgba(255, 0, 0, 0.03);
+        border-color: rgba(255, 0, 0, 0.2);
+    }
+
+    .form-group input.error:focus,
+    .form-group select.error:focus,
+    .form-group textarea.error:focus {
+        border-color: rgba(255, 0, 0, 0.3);
+        box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+    }
+</style>
+{% endblock %}
+
+<div class="quote-form-modal" id="quoteFormModal">
+    <div class="quote-form-container">
+        <button class="close-modal" onclick="closeQuoteForm()">×</button>
+        <div class="quote-form-header">
+            <h2>Request a Quote</h2>
+            <p>Fill out the form below and we'll get back to you with a customized quote.</p>
+        </div>
+        <form class="quote-form" id="quoteRequestForm" onsubmit="submitQuoteForm(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="company">Company Name</label>
+                <input type="text" id="company" name="company">
+            </div>
+            <div class="form-group">
+                <label for="productCategory">Product Category *</label>
+                <select id="productCategory" name="productCategory" required>
+                    <option value="">Select a category</option>
+                    <option value="Cold Room Solutions">Cold Room Solutions</option>
+                    <option value="Blast Freezers">Blast Freezers</option>
+                    <option value="Additional Products">Additional Products</option>
+                    <option value="Support Products">Support Products</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="requirements">Project Requirements *</label>
+                <textarea id="requirements" name="requirements" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit Quote Request</button>
+        </form>
+    </div>
+</div>
+
+<script>
+function openQuoteForm() {
+    document.getElementById('quoteFormModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeQuoteForm() {
+    document.getElementById('quoteFormModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function showAlert(message, type = 'error') {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type}`;
+    alertDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        z-index: 10000;
+        background: ${type === 'error' ? '#ff5555' : '#4CAF50'};
+        color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    `;
+    alertDiv.textContent = message;
+    document.body.appendChild(alertDiv);
+    
+    setTimeout(() => {
+        alertDiv.remove();
+    }, 5000);
+}
+
+function submitQuoteForm(event) {
+    event.preventDefault();
+    
+    // Show loading state
+    const submitBtn = event.target.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.disabled = true;
+    
+    // Collect form data
+    const formData = new FormData(event.target);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+    
+    // Check if frappe is available
+    if (typeof frappe === 'undefined') {
+        // Fallback to regular fetch API if frappe is not available
+        fetch('/api/method/website_integrate.api.create_quotation', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Frappe-CSRF-Token': document.querySelector('meta[name="csrf-token"]')?.content || ''
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(response => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            
+            if (response.message && response.message.success) {
+                showAlert('Quote request submitted successfully! Our team will contact you soon.', 'success');
+                closeQuoteForm();
+                event.target.reset();
+            } else {
+                const errorMsg = response.message && response.message.message 
+                    ? response.message.message 
+                    : response._server_messages 
+                        ? JSON.parse(response._server_messages)[0]
+                        : 'Error submitting quote request. Please try again.';
+                showAlert(errorMsg);
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            showAlert('Error submitting quote request. Please try again.');
+            console.error('Quote request error:', error);
+        });
+    } else {
+        // Use frappe.call if available
+        frappe.call({
+            method: 'website_integrate.api.create_quotation',
+            args: data,
+            callback: function(response) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                
+                if (response.message && response.message.success) {
+                    showAlert('Quote request submitted successfully! Our team will contact you soon.', 'success');
+                    closeQuoteForm();
+                    event.target.reset();
+                } else {
+                    const errorMsg = response.message && response.message.message 
+                        ? response.message.message 
+                        : response._server_messages 
+                            ? JSON.parse(response._server_messages)[0]
+                            : 'Error submitting quote request. Please try again.';
+                    showAlert(errorMsg);
+                }
+            },
+            error: function(err) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                showAlert('Error submitting quote request. Please try again.');
+                console.error('Quote request error:', err);
+            }
+        });
+    }
+}
+
+// Close modal when clicking outside
+document.getElementById('quoteFormModal').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closeQuoteForm();
+    }
+});
+</script> 

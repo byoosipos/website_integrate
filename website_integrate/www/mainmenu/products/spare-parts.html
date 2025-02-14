@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Spare Parts - Comprehensive range of cold room components including PUR panels, condensing units, evaporating units, insulated doors, and accessories from globally recognized brands.">
+    <title>Spare Parts | Dekoolar</title>
+    <style>
+        .spare-parts-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - var(--header-height) - var(--topbar-height));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .page-description {
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Enhanced Search and Filter Section */
+        .search-filter-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(0,51,153,0.1);
+            background-color: #ffffff;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+            font-size: 1rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+        }
+
+        .filters {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            min-width: 200px;
+            cursor: pointer;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M8 11.5l-6-6h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 40px;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0,51,153,0.1);
+            background-color: #ffffff;
+        }
+
+        .filter-select:hover {
+            border-color: var(--primary-color);
+            background-color: #ffffff;
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            background: var(--white);
+            border-radius: 12px;
+            margin: 20px 0;
+            display: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Parts Grid */
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .part-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .part-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .part-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .part-content {
+            padding: 20px;
+        }
+
+        .part-category {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .part-name {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .part-description {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .part-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .part-code {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+        }
+
+        .inquiry-btn {
+            padding: 8px 15px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .inquiry-btn:hover {
+            background: var(--accent-color);
+        }
+
+        /* Categories Section */
+        .categories-section {
+            margin-bottom: 40px;
+        }
+
+        .category-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .category-card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .category-name {
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .parts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .search-filter-section,
+            .part-card,
+            .category-card {
+                background: #1a1a1a;
+            }
+
+            .search-input,
+            .filter-select {
+                background: #2d2d2d;
+                border-color: #404040;
+                color: #ffffff;
+            }
+
+            .part-description {
+                color: #cccccc;
+            }
+
+            .part-meta {
+                border-top-color: #404040;
+            }
+
+            .part-code {
+                color: #999999;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+    
+    <div class="spare-parts-section">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Cold Room Spare Parts & Components</h1>
+                <p class="page-description">
+                    De Koolar's cold room spare parts include essential components and accessories that ensure optimal functionality and efficiency of cold rooms. Our comprehensive range comprises major components including:
+                </p>
+                <div class="key-components">
+                    <ul style="list-style: none; padding: 20px; text-align: left; max-width: 800px; margin: 20px auto; background: var(--white); border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Thermal Insulation Polyurethane Panel (PUR)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Condensing Unit (Out-door)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Evaporating Unit (Indoor)
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Insulated Door
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Copper Piping
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Digital Electrical Control Unit
+                        </li>
+                        <li style="margin: 12px 0; padding-left: 24px; position: relative;">
+                            <span style="color: var(--primary-color); position: absolute; left: 0;">•</span>
+                            Internal Lightning and Accessories
+                        </li>
+                    </ul>
+                    <p class="quality-assurance" style="font-weight: 500; margin-top: 20px; color: var(--primary-color);">
+                        All our equipment and accessories are sourced from well-known OEMs/Brands globally.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Categories Section -->
+            <div class="categories-section">
+                <div class="category-cards">
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-fan"></i>
+                        </div>
+                        <div class="category-name">Compressors</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <div class="category-name">Condensers</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <div class="category-name">Temperature Controls</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-filter"></i>
+                        </div>
+                        <div class="category-name">Filters & Dryers</div>
+                    </div>
+                    <div class="category-card">
+                        <div class="category-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <div class="category-name">Electrical Parts</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search and Filter Section -->
+            <div class="search-filter-section">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search by name, category, or description...">
+                </div>
+                <div class="filters">
+                    <select class="filter-select">
+                        <option value="">Select Brand</option>
+                        <option value="rivacold">Rivacold</option>
+                        <option value="copeland">Copeland</option>
+                        <option value="bitzer">Bitzer</option>
+                        <option value="franscode">Franscode</option>
+                        <option value="tecumseh">Tecumseh</option>
+                        <option value="assan">Assan</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Part Type</option>
+                        <option value="condensing">Condensing Units</option>
+                        <option value="evaporator">Evaporators</option>
+                        <option value="monoblock">Mono Block Units</option>
+                        <option value="compressor">Compressors</option>
+                        <option value="panel">Insulation Panels</option>
+                        <option value="door">Doors</option>
+                        <option value="control">Control Systems</option>
+                        <option value="storage">Storage Solutions</option>
+                    </select>
+                    <select class="filter-select">
+                        <option value="">Capacity</option>
+                        <option value="30hp">30 HP</option>
+                        <option value="20hp">20 HP</option>
+                        <option value="7.5hp">7.5 HP</option>
+                        <option value="5hp">5 HP</option>
+                        <option value="4hp">4 HP</option>
+                        <option value="3hp">3 HP</option>
+                        <option value="2hp">2 HP</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="no-results">
+                <p>No matching products found. Please try different search criteria.</p>
+            </div>
+
+            <!-- Parts Grid -->
+            <div class="parts-grid">
+                <!-- Condensing Units -->
+                <div class="part-card">
+                    <img src="/files/30hp comdenser.jpeg" alt="30HP Condenser Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Condensing Units</div>
+                        <h3 class="part-name">30HP Condenser Unit</h3>
+                        <p class="part-description">High-capacity industrial condenser for large-scale applications.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CU-30HP</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/20HP CONDENSING UNIT.jpg" alt="20HP Condensing Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Condensing Units</div>
+                        <h3 class="part-name">20HP Condensing Unit</h3>
+                        <p class="part-description">Industrial-grade condensing unit for commercial cold rooms.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CU-20HP</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/5HP CONDENSING UNIT WITH COPELAND COMPRESSOR.jpg" alt="5HP Copeland Condensing Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Condensing Units</div>
+                        <h3 class="part-name">5HP Copeland Condensing Unit</h3>
+                        <p class="part-description">Medium-capacity unit with Copeland compressor technology.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CU-5HP-CPL</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/5HP CONDENSING UNIT WITH BIZER COMPRESSOR.jpg" alt="5HP Bitzer Condensing Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Condensing Units</div>
+                        <h3 class="part-name">5HP Bitzer Condensing Unit</h3>
+                        <p class="part-description">Reliable condensing unit featuring Bitzer compressor.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CU-5HP-BTZ</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/3HP CONDESNING UNIT WITH FRANSCODE COMPRESSOR.jpg" alt="3HP Franscode Condensing Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Condensing Units</div>
+                        <h3 class="part-name">3HP Franscode Condensing Unit</h3>
+                        <p class="part-description">Compact condensing unit with Franscode compressor.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CU-3HP-FRC</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Evaporators -->
+                <div class="part-card">
+                    <img src="/files/30HP EVAPORATOR FRONT VIEW.jpeg" alt="30HP Evaporator" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Evaporators</div>
+                        <h3 class="part-name">30HP Evaporator Unit</h3>
+                        <p class="part-description">High-capacity evaporator for industrial cold rooms.</p>
+                        <div class="part-meta">
+                            <span class="part-code">EV-30HP</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/7.5HP RIVACOLD EVAPORATOR.jpg" alt="7.5HP Rivacold Evaporator" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Evaporators</div>
+                        <h3 class="part-name">7.5HP Rivacold Evaporator</h3>
+                        <p class="part-description">Mid-range Rivacold evaporator for commercial applications.</p>
+                        <div class="part-meta">
+                            <span class="part-code">EV-7.5HP-RVC</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/2HP RIVACOLD EVAPORATOR.jpg" alt="2HP Rivacold Evaporator" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Evaporators</div>
+                        <h3 class="part-name">2HP Rivacold Evaporator</h3>
+                        <p class="part-description">Compact Rivacold evaporator for small cold rooms.</p>
+                        <div class="part-meta">
+                            <span class="part-code">EV-2HP-RVC</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mono Block Units -->
+                <div class="part-card">
+                    <img src="/files/5HP INVERTER MONO BLOCK UNIT.jpg" alt="5HP Inverter Mono Block" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Mono Block Units</div>
+                        <h3 class="part-name">5HP Inverter Mono Block</h3>
+                        <p class="part-description">Energy-efficient inverter technology mono block unit.</p>
+                        <div class="part-meta">
+                            <span class="part-code">MB-5HP-INV</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/4HP INVERTER MONO BLOCK UNIT.jpg" alt="4HP Inverter Mono Block" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Mono Block Units</div>
+                        <h3 class="part-name">4HP Inverter Mono Block</h3>
+                        <p class="part-description">Mid-range inverter mono block for commercial use.</p>
+                        <div class="part-meta">
+                            <span class="part-code">MB-4HP-INV</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/3HP INVERTER MONO BLOCK UNIT.jpg" alt="3HP Inverter Mono Block" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Mono Block Units</div>
+                        <h3 class="part-name">3HP Inverter Mono Block</h3>
+                        <p class="part-description">Compact inverter mono block for small installations.</p>
+                        <div class="part-meta">
+                            <span class="part-code">MB-3HP-INV</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/2HP INVERTER MONO BLOCK UNIT.jpg" alt="2HP Inverter Mono Block" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Mono Block Units</div>
+                        <h3 class="part-name">2HP Inverter Mono Block</h3>
+                        <p class="part-description">Small capacity inverter mono block unit.</p>
+                        <div class="part-meta">
+                            <span class="part-code">MB-2HP-INV</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panels -->
+                <div class="part-card">
+                    <img src="/files/100MM ASSAN PUR PANEL.jpg" alt="100mm Assan PUR Panel" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Insulation Panels</div>
+                        <h3 class="part-name">100mm Assan PUR Panel</h3>
+                        <p class="part-description">High-quality polyurethane insulation panel.</p>
+                        <div class="part-meta">
+                            <span class="part-code">PNL-100-ASN</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/ASSAN PANEL NEWLY ARRIVED.jpeg" alt="New Assan Panel" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Insulation Panels</div>
+                        <h3 class="part-name">New Assan PUR Panel</h3>
+                        <p class="part-description">Latest Assan panel with enhanced insulation properties.</p>
+                        <div class="part-meta">
+                            <span class="part-code">PNL-NEW-ASN</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doors -->
+                <div class="part-card">
+                    <img src="/files/SLIDING DOOR.jpeg" alt="Sliding Door" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Doors</div>
+                        <h3 class="part-name">Cold Room Sliding Door</h3>
+                        <p class="part-description">Heavy-duty sliding door with thermal seal.</p>
+                        <div class="part-meta">
+                            <span class="part-code">DR-SLD-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/HINGED DOOR.jpg" alt="Hinged Door" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Doors</div>
+                        <h3 class="part-name">Cold Room Hinged Door</h3>
+                        <p class="part-description">Robust hinged door with superior insulation.</p>
+                        <div class="part-meta">
+                            <span class="part-code">DR-HNG-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control Systems -->
+                <div class="part-card">
+                    <img src="/files/DIGITAL CONTROL BOX.jpg" alt="Digital Control Box" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Control Systems</div>
+                        <h3 class="part-name">Digital Control Box</h3>
+                        <p class="part-description">Advanced digital temperature control system.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CTR-DIG-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/RIVACOLD CONTROL.jpg" alt="Rivacold Control" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Control Systems</div>
+                        <h3 class="part-name">Rivacold Control System</h3>
+                        <p class="part-description">Specialized Rivacold temperature control unit.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CTR-RVC-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compressor Brands -->
+                <div class="part-card">
+                    <img src="/files/Copeland.jpeg" alt="Copeland Compressor" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Compressors</div>
+                        <h3 class="part-name">Copeland Compressor</h3>
+                        <p class="part-description">Industry-leading Copeland compressor.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-CPL-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/BITZER.jpeg" alt="Bitzer Compressor" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Compressors</div>
+                        <h3 class="part-name">Bitzer Compressor</h3>
+                        <p class="part-description">Premium Bitzer compressor technology.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-BTZ-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/FRANSCODE.jpeg" alt="Franscode Compressor" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Compressors</div>
+                        <h3 class="part-name">Franscode Compressor</h3>
+                        <p class="part-description">Reliable Franscode compressor solution.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-FRC-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/Techumseh.jpeg" alt="Tecumseh Compressor" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Compressors</div>
+                        <h3 class="part-name">Tecumseh Compressor</h3>
+                        <p class="part-description">High-performance Tecumseh compressor.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-TEC-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shelving -->
+                <div class="part-card">
+                    <img src="/files/STAINLESS SHELVES.jpg" alt="Stainless Steel Shelves" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Storage Solutions</div>
+                        <h3 class="part-name">Stainless Steel Shelving</h3>
+                        <p class="part-description">Heavy-duty stainless steel storage system.</p>
+                        <div class="part-meta">
+                            <span class="part-code">SLV-SS-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Images -->
+                <div class="part-card">
+                    <img src="/files/RIVA COLD COMPLETE UNIT PICTURE.PNG" alt="Rivacold Complete Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Complete Units</div>
+                        <h3 class="part-name">Rivacold Complete Unit</h3>
+                        <p class="part-description">Integrated Rivacold cooling system with all components.</p>
+                        <div class="part-meta">
+                            <span class="part-code">RVC-CMP-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/RIVACOLD ELECTRICAL CONTROL BOX.jpg" alt="Rivacold Electrical Control" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Control Systems</div>
+                        <h3 class="part-name">Rivacold Electrical Control Box</h3>
+                        <p class="part-description">Comprehensive electrical control system for Rivacold units.</p>
+                        <div class="part-meta">
+                            <span class="part-code">RVC-ECB-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/DIGITAL CONTROL BOX 2.jpg" alt="Digital Control Box Alternative" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Control Systems</div>
+                        <h3 class="part-name">Advanced Digital Control Box</h3>
+                        <p class="part-description">Next-generation digital control system with enhanced features.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CTR-DIG-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/DANFOSS.jpg" alt="Danfoss Components" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Components</div>
+                        <h3 class="part-name">Danfoss Components</h3>
+                        <p class="part-description">High-quality Danfoss refrigeration components.</p>
+                        <div class="part-meta">
+                            <span class="part-code">DNF-CMP-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/SLIDING DOOR_1.jpeg" alt="Alternative Sliding Door" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Doors</div>
+                        <h3 class="part-name">Premium Sliding Door</h3>
+                        <p class="part-description">Premium sliding door with enhanced insulation properties.</p>
+                        <div class="part-meta">
+                            <span class="part-code">DR-SLD-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/HINGED DOOR_1.jpg" alt="Alternative Hinged Door" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Doors</div>
+                        <h3 class="part-name">Premium Hinged Door</h3>
+                        <p class="part-description">Premium hinged door with superior sealing system.</p>
+                        <div class="part-meta">
+                            <span class="part-code">DR-HNG-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/STAINLESS SHELVES_1.jpg" alt="Alternative Stainless Shelves" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Storage Solutions</div>
+                        <h3 class="part-name">Premium Stainless Steel Shelving</h3>
+                        <p class="part-description">Premium grade stainless steel shelving system.</p>
+                        <div class="part-meta">
+                            <span class="part-code">SLV-SS-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/RIVACOLD UNIT.jpeg" alt="Rivacold Unit" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Complete Units</div>
+                        <h3 class="part-name">Rivacold Cooling Unit</h3>
+                        <p class="part-description">Complete Rivacold cooling solution.</p>
+                        <div class="part-meta">
+                            <span class="part-code">RVC-CMP-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/images_2.jpeg" alt="Additional Component 1" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Components</div>
+                        <h3 class="part-name">Refrigeration Component</h3>
+                        <p class="part-description">Specialized refrigeration component.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-GEN-01</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/images_1.jpeg" alt="Additional Component 2" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Components</div>
+                        <h3 class="part-name">Cooling System Component</h3>
+                        <p class="part-description">Essential cooling system component.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-GEN-02</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="part-card">
+                    <img src="/files/imagesde3ad3.jpeg" alt="Additional Component 3" class="part-image">
+                    <div class="part-content">
+                        <div class="part-category">Components</div>
+                        <h3 class="part-name">System Component</h3>
+                        <p class="part-description">Critical system component for cooling units.</p>
+                        <div class="part-meta">
+                            <span class="part-code">CMP-GEN-03</span>
+                            <button class="inquiry-btn">Inquire</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-input');
+            const filterSelects = document.querySelectorAll('.filter-select');
+            const partCards = document.querySelectorAll('.part-card');
+            const noResults = document.querySelector('.no-results');
+
+            function filterProducts() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const selectedBrand = filterSelects[0].value.toLowerCase();
+                const selectedType = filterSelects[1].value.toLowerCase();
+                const selectedCapacity = filterSelects[2].value.toLowerCase();
+
+                let visibleCount = 0;
+
+                partCards.forEach(card => {
+                    const content = card.textContent.toLowerCase();
+                    const category = card.querySelector('.part-category').textContent.toLowerCase();
+                    const name = card.querySelector('.part-name').textContent.toLowerCase();
+
+                    // Check if card matches all active filters
+                    const matchesSearch = searchTerm === '' || 
+                        content.includes(searchTerm);
+                    const matchesBrand = selectedBrand === '' || 
+                        content.includes(selectedBrand);
+                    const matchesType = selectedType === '' || 
+                        category.includes(selectedType);
+                    const matchesCapacity = selectedCapacity === '' || 
+                        name.includes(selectedCapacity);
+
+                    // Show/hide card based on filter results
+                    if (matchesSearch && matchesBrand && matchesType && matchesCapacity) {
+                        card.classList.remove('hidden');
+                        visibleCount++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                // Show/hide no results message
+                if (visibleCount === 0) {
+                    noResults.style.display = 'block';
+                } else {
+                    noResults.style.display = 'none';
+                }
+            }
+
+            // Add event listeners
+            searchInput.addEventListener('input', filterProducts);
+            filterSelects.forEach(select => {
+                select.addEventListener('change', filterProducts);
+            });
+
+            // Initialize FontAwesome icon
+            const searchIcon = document.createElement('i');
+            searchIcon.className = 'fas fa-search search-icon';
+            document.querySelector('.search-box').appendChild(searchIcon);
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

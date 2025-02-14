@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Powered Cold Rooms - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Discover the benefits of solar-powered cold rooms and how they can reduce operational costs while being environmentally friendly.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dekoolar-blue: #1a4b9c;
+            --dekoolar-gold: #c8a355;
+        }
+        
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-text {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .benefit-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--dekoolar-blue);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--dekoolar-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .features-section {
+            background: rgba(26, 75, 156, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        .features-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            color: var(--dekoolar-gold);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            color: var(--dekoolar-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-content p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .stats-section {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            color: var(--dekoolar-blue);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(26, 75, 156, 0.05);
+            border-radius: 12px;
+        }
+
+        .cta-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--dekoolar-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--dekoolar-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Solar Cold Rooms</span>
+        </div>
+        <div class="hero-content">
+            <h1>Solar Powered Cold Rooms</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <p class="intro-text">Solar-powered cold rooms represent the future of sustainable cold storage, combining renewable energy with advanced refrigeration technology to deliver cost-effective and environmentally friendly solutions.</p>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <h2>Renewable Energy</h2>
+                <p>Harness clean, sustainable solar power to reduce dependency on grid electricity and minimize environmental impact.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h2>Cost Savings</h2>
+                <p>Significantly reduce operational costs through lower energy bills and reduced maintenance requirements.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h2>Energy Independence</h2>
+                <p>Operate reliably in areas with unstable power supply, ensuring continuous cold storage operation.</p>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h2>Key Features</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Solar Panel Array</h3>
+                        <p>High-efficiency panels capture maximum solar energy throughout the day.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Battery Storage</h3>
+                        <p>Advanced battery systems store excess energy for nighttime operation.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Temperature Control</h3>
+                        <p>Precise temperature regulation for optimal product storage.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Hybrid Operation</h3>
+                        <p>Seamless switching between solar and grid power when needed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h2>Impact & Efficiency</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Average Energy Cost Reduction</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Continuous Operation Capability</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">Zero</div>
+                    <div class="stat-label">Direct Carbon Emissions</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Switch to Solar-Powered Cold Storage</h2>
+            <p>Contact DeKoolar to learn how solar-powered cold rooms can benefit your business while reducing environmental impact.</p>
+            <a href="/mainmenu/corporate/contact.html" class="cta-button">
+                <i class="fas fa-arrow-right"></i> Get Started
+            </a>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

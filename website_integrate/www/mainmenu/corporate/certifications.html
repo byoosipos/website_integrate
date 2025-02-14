@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar certifications and accreditations - Our commitment to quality and industry standards. View our professional certifications including CAC, ISO, NAFDAC compliance and more.">
+    <title>Certifications - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;  /* DeKoolar blue */
+            --secondary-color: #C5A572; /* Gold/Brown from logo */
+            --text-color: #333333;
+            --light-gray: #f8f9fa;
+            --dark-gray: #4a4a4a;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 15px rgba(0, 51, 153, 0.1);
+            --border-radius: 8px;
+            --gradient-overlay: linear-gradient(135deg, rgba(0, 51, 153, 0.92), rgba(0, 51, 153, 0.85));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: var(--gradient-overlay), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Certifications Grid */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 51, 153, 0.15);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .certification-image {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .certification-info {
+            padding: 2rem;
+        }
+
+        .certification-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .certification-info h3 i {
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+        }
+
+        .certification-info p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .certification-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        /* Membership List */
+        .membership-list {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .membership-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .membership-list li:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        /* Standards Section */
+        .standards-section {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #ffffff 100%);
+            border-top: 1px solid rgba(0, 51, 153, 0.1);
+        }
+
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .standard-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .standard-card:hover {
+            transform: translateY(-5px);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .standard-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            background: rgba(0, 51, 153, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+
+        .standard-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .standard-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-right-color: var(--secondary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .certification-card {
+                margin: 0 1rem;
+            }
+        }
+
+        .intro-text, .conclusion-text {
+            max-width: 900px;
+            margin: 2rem auto;
+            text-align: center;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            padding: 0 1.5rem;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .conclusion-text {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: rgba(0, 51, 153, 0.03);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Certifications</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content container">
+            <h1>Our Certifications</h1>
+            <p class="hero-subtitle">Excellence Through Standards and Compliance</p>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section">
+        <div class="container">
+            <div class="intro-text">
+                <p>At De Koolar Nigeria Limited, we understand the importance of maintaining the highest standards of quality, safety, and performance in every product and service we provide. As a leader in the HVAC/R industry, we take pride in adhering to local and international standards, ensuring that our products and services meet or exceed the expectations of our customers.</p>
+            </div>
+
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-certificate"></i> Corporate Affairs Commission (CAC) Registration</h3>
+                        <p>As a fully registered company, De Koolar Nigeria Limited is recognized by the Corporate Affairs Commission (CAC) under RC No. 373,575. This certification validates our legal status as a limited liability company, ensuring that we operate in compliance with Nigerian business laws and regulations.</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-award"></i> ISO Certification</h3>
+                        <p>De Koolar is ISO certified in relevant areas such as quality management (ISO 9001) and environmental management (ISO 14001) in view. These certifications are a testament to our commitment to international standards, focusing on consistent quality, customer satisfaction, and sustainability in our operations.</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-check-circle"></i> NAFDAC Compliance</h3>
+                        <p>Our Ice Block Making Machines and Cold Rooms are built to meet the rigorous health and safety standards required for the food and beverage industry. We ensure compliance with the regulations set forth by NAFDAC in production and ensuring that our products are safe, reliable, and fit for purpose.</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-leaf"></i> Energy Efficiency Certifications</h3>
+                        <p>As part of our commitment to sustainability and energy conservation, De Koolar Nigeria Limited ensures that all of our air conditioning and refrigeration systems meet the highest energy efficiency standards. Our products are engineered to reduce energy consumption while maintaining optimal performance.</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-shield-alt"></i> Manufacturer's Safety Certifications</h3>
+                        <p>All our equipment, including Blast Freezers, Industrial Ovens, and Display Chiller Fridges, undergo rigorous safety testing and are certified to meet national and international safety standards. These certifications guarantee that our products are safe for use in both domestic and industrial environments.</p>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-info">
+                        <h3><i class="fas fa-users"></i> Technical and Industry Memberships</h3>
+                        <p>De Koolar Nigeria Limited is proud to be affiliated with prestigious organizations including:</p>
+                        <ul class="membership-list">
+                            <li>Nigerian Society of Engineers (NSE)</li>
+                            <li>Nigeria Institute of Mechanical Engineer</li>
+                            <li>Organization for Technology Advancement of Cold Chain in West Africa (OTACCWA)</li>
+                            <li>Occupational Safety and Health Administrative UK</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-text">
+                <p>By maintaining these certifications, De Koolar Nigeria Limited reinforces its commitment to delivering cutting-edge, reliable, and high-quality HVAC/R solutions. We remain dedicated to continuous improvement and regulatory compliance, ensuring that our customers receive the very best products and services available in the market.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Standards Section -->
+    <section class="section standards-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quality Standards</h2>
+                <p>Our adherence to international quality benchmarks</p>
+            </div>
+            <div class="standards-grid">
+                <div class="standard-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous quality control processes ensuring excellence in all services</p>
+                </div>
+                <div class="standard-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Safety Standards</h3>
+                    <p>Strict adherence to international safety protocols</p>
+                </div>
+                <div class="standard-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Environmental</h3>
+                    <p>Commitment to sustainable practices and environmental protection</p>
+                </div>
+                <div class="standard-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Technical Excellence</h3>
+                    <p>Meeting and exceeding industry technical standards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

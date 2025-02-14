@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar's corporate social responsibility initiatives - Our commitment to community development, environmental sustainability, and social impact in Nigeria.">
+    <title>Corporate Social Responsibility - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 20px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            width: 100%;
+        }
+
+        /* Typography Improvements */
+        h1, h2, h3, h4, h5, h6 {
+            line-height: 1.3;
+            font-weight: 600;
+            margin-bottom: var(--spacing-unit);
+        }
+
+        p {
+            margin-bottom: var(--spacing-unit);
+            font-size: 1.05rem;
+            color: var(--dark-gray);
+        }
+
+        /* Enhanced Breadcrumb */
+        .breadcrumb {
+            padding: 1.5rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+        }
+
+        .breadcrumb a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Hero Section */
+        .hero-section {
+            height: 85vh;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 51, 153, 0.95), 
+                rgba(0, 51, 153, 0.85)
+            ), url('/files/interior-modern-office-building-with-ceiling-lights-ventilation-pipes.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(197, 165, 114, 0.2) 0%, rgba(0, 51, 153, 0.4) 100%);
+            z-index: 1;
+        }
+
+        /* Remove the white gradient at bottom */
+        .hero-section::after {
+            display: none;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--secondary-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+            color: var(--white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .hero-scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .hero-scroll-indicator span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .hero-scroll-indicator:hover span {
+            color: var(--white);
+        }
+
+        .hero-scroll-indicator i {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .hero-scroll-indicator:hover i {
+            color: var(--white);
+            transform: translateY(5px);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        /* Enhanced Initiative Cards */
+        .initiative-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            color: var(--white);
+        }
+
+        .initiative-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .initiative-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .initiative-card:hover .initiative-image {
+            transform: scale(1.05);
+        }
+
+        /* Enhanced Impact Section */
+        .impact-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .impact-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .impact-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        /* Remove Get Involved related CSS */
+        .get-involved,
+        .cta-button,
+        .cta-button::before {
+            display: none;
+        }
+
+        /* Loading Animation Enhancement */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 1024px) {
+            :root {
+                --spacing-unit: 0.875rem;
+            }
+            
+            .container {
+                padding: 0 var(--spacing-unit);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+                background-attachment: scroll;
+            }
+
+            .impact-grid {
+                gap: 1.5rem;
+            }
+
+            .initiative-card {
+                margin: 0;
+            }
+
+            .get-involved {
+                padding: 4rem 0;
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .impact-number {
+                font-size: 2.5rem;
+            }
+
+            .cta-button {
+                padding: 1rem 2rem;
+            }
+        }
+
+        /* Accessibility Improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Remove CSR Hero related CSS */
+        .csr-hero {
+            display: none;
+        }
+
+        /* Content Section Improvements */
+        .csr-section {
+            padding: 6rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        .introduction {
+            max-width: 900px;
+            margin: 0 auto 6rem;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .introduction p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            font-weight: 300;
+        }
+
+        .container h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .container > p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+        }
+
+        /* Enhanced Pillar Grid */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .pillar-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .pillar-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pillar-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pillar-card p {
+            color: var(--dark-gray);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        /* Enhanced Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-color), rgba(0, 51, 153, 0.9));
+            margin: 4rem 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-grid::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(197, 165, 114, 0.1) 0%, transparent 70%);
+        }
+
+        .stat-item {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .stat-item p {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Enhanced Sub Sections */
+        .sub-section {
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .sub-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .sub-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .sub-section h4 {
+            color: var(--secondary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+        }
+
+        .sub-section p {
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .initiative-content {
+            padding-left: 1rem;
+            border-left: 2px solid var(--light-gray);
+        }
+
+        /* Enhanced Conclusion */
+        .conclusion {
+            margin-top: 6rem;
+            padding: 4rem 2rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .conclusion h3 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .conclusion p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 768px) {
+            .csr-section {
+                padding: 4rem 0;
+            }
+
+            .introduction {
+                margin-bottom: 4rem;
+            }
+
+            .pillar-grid {
+                gap: 2rem;
+                padding: 1rem;
+            }
+
+            .stats-grid {
+                padding: 2rem 1rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .sub-section {
+                margin: 3rem 0;
+            }
+
+            .conclusion {
+                margin-top: 4rem;
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate/about-us">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>CSR</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Corporate Social Responsibility</h1>
+            <p class="hero-subtitle">Making a positive impact in our communities through sustainable practices, ethical business, and community development</p>
+        </div>
+        <a href="#csr-content" class="hero-scroll-indicator">
+            <span>Discover Our Initiatives</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- CSR Content Section -->
+    <div id="csr-content" class="csr-section">
+        <div class="introduction">
+            <p>At De Koolar Nigeria Limited, we believe that the success of our business extends beyond the products we deliver and the services we provide. As a responsible corporate entity, we recognize our role in contributing to the broader society and are committed to making a positive impact through our Corporate Social Responsibility (CSR) initiatives.</p>
+        </div>
+
+        <div class="container">
+            <h2>Our CSR Approach</h2>
+            <p>De Koolar's CSR strategy is built on four core pillars that guide our efforts to create long-lasting, meaningful change.</p>
+
+            <div class="pillar-grid">
+                <div class="pillar-card">
+                    <h3>1. Community Development</h3>
+                    <p>Creating shared prosperity and improving lives through education, health initiatives, and disaster relief support.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>2. Environmental Sustainability</h3>
+                    <p>Leading initiatives for sustainable practices and environmental protection through energy-efficient products and green manufacturing.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>3. Ethical Business Practices</h3>
+                    <p>Upholding the highest standards of integrity, transparency, and fair labor practices in all our operations.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>4. Human Capacity Building</h3>
+                    <p>Investing in training, development, and empowerment of our workforce and the broader community.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <p>Students Trained</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <p>Trees Planted</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <p>Communities Impacted</p>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">₦50M+</div>
+                    <p>CSR Investment</p>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>Community Development Initiatives</h3>
+                <div class="initiative-content">
+                    <h4>Education and Skills Development</h4>
+                    <p>We support educational initiatives through scholarships, internships, and skills development workshops, empowering the next generation of HVAC/R professionals.</p>
+
+                    <h4>Health and Wellness</h4>
+                    <p>Supporting healthcare initiatives, improving access to essential services, and promoting employee wellness through comprehensive programs.</p>
+
+                    <h4>Disaster Relief and Humanitarian Aid</h4>
+                    <p>Providing immediate support and relief during crises through financial contributions and donation of goods and services.</p>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>Environmental Sustainability</h3>
+                <div class="initiative-content">
+                    <h4>Energy Efficiency and Eco-Friendly Products</h4>
+                    <p>Designing and manufacturing energy-efficient systems that meet or exceed international standards while reducing environmental impact.</p>
+
+                    <h4>Waste Reduction and Recycling</h4>
+                    <p>Implementing comprehensive recycling programs and promoting the use of RRR machine for responsible refrigerant management.</p>
+
+                    <h4>Green Manufacturing</h4>
+                    <p>Adopting sustainable practices and integrating renewable energy sources in our production processes.</p>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>Ethical Business Practices</h3>
+                <div class="initiative-content">
+                    <h4>Fair Labor Practices</h4>
+                    <p>Providing an inclusive work environment with fair wages and safe working conditions.</p>
+
+                    <h4>Anti-Corruption and Transparency</h4>
+                    <p>Maintaining strict ethical guidelines and promoting transparency in all business dealings.</p>
+
+                    <h4>Ethical Sourcing</h4>
+                    <p>Supporting local suppliers and ensuring a sustainable, responsible supply chain.</p>
+                </div>
+            </div>
+
+            <div class="sub-section">
+                <h3>Human Capacity Building</h3>
+                <div class="initiative-content">
+                    <h4>Training and Professional Development</h4>
+                    <p>Investing in continuous education and skill development for our workforce.</p>
+
+                    <h4>Youth Empowerment</h4>
+                    <p>Providing mentorship, internships, and career development opportunities for young people.</p>
+
+                    <h4>Employee Well-being</h4>
+                    <p>Creating a supportive work environment focused on physical, mental, and emotional well-being.</p>
+                </div>
+            </div>
+
+            <div class="conclusion">
+                <h3>Our Commitment to Sustainable Impact</h3>
+                <p>At De Koolar Nigeria Limited, our CSR efforts reflect our deep commitment to creating lasting, positive change in the communities we serve, promoting environmental sustainability, and upholding the highest ethical standards. Through our core pillars, we strive to build a better future for all, one that benefits not only our business but society as a whole.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

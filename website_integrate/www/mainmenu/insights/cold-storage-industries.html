@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Role of Cold Storage in Different Industries - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Discover how cold storage impacts various sectors from agriculture to aviation, and learn about industry-specific requirements and benefits.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .industry-section {
+            margin-bottom: 3rem;
+        }
+
+        .industry-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--dekoolar-gold);
+        }
+
+        .industry-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .industry-item {
+            background: #fff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--dekoolar-blue);
+        }
+
+        .industry-item h3 {
+            color: var(--dekoolar-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .industry-item p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Role of Cold Storage</span>
+        </div>
+        <div class="hero-content">
+            <h1>The Role of Cold Storage in Different Industries</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <div class="industry-section">
+            <h2>Industry Applications</h2>
+            <p>Cold storage plays a crucial role in preserving perishable goods, maintaining quality, and ensuring compliance with industry standards. Here's how it impacts different sectors:</p>
+            
+            <ul class="industry-list">
+                <li class="industry-item">
+                    <h3>Agriculture & Food Processing</h3>
+                    <p>Reducing post-harvest losses, extending shelf life, and enhancing food security.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Healthcare & Pharmaceuticals</h3>
+                    <p>Ensuring safe storage of vaccines, blood samples, and medicines in compliance with WHO, UNICEF, and Red Cross standards.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Retail & Supermarkets</h3>
+                    <p>Keeping perishable goods fresh and reducing food wastage through advanced refrigeration.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Hospitality & Restaurants</h3>
+                    <p>Enhancing food safety and compliance with regulatory requirements.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Logistics & Cold Chain</h3>
+                    <p>Maintaining optimal temperatures for perishable goods during transportation.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Oil & Gas</h3>
+                    <p>Storing temperature-sensitive chemicals and food items.</p>
+                </li>
+                
+                <li class="industry-item">
+                    <h3>Aviation</h3>
+                    <p>Ensuring perishables are stored efficiently while waiting for boarding.</p>
+                </li>
+            </ul>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

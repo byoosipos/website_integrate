@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Emergency Services - 24/7 emergency response for HVAC and refrigeration systems. Rapid response team for urgent repairs and system failures.">
+    <title>Emergency Services - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/emergency.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Emergency Contact Banner */
+        .emergency-banner {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        .emergency-banner h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .emergency-banner .phone {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        /* Services Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .service-list i {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* Response Time Section */
+        .response-section {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .response-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .response-card {
+            background: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .response-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .response-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .response-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .response-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-item span {
+            color: var(--dark-gray);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/services">Services</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Emergency Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content container">
+            <h1>24/7 Emergency Services</h1>
+            <p class="hero-subtitle">Rapid response team for urgent HVAC and refrigeration needs</p>
+            <div class="hero-cta">
+                <a href="tel:+2348146397467" class="btn btn-primary">Call Now</a>
+                <a href="#services" class="btn btn-secondary">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Contact Banner -->
+    <div class="emergency-banner">
+        <div class="container">
+            <h2>24/7 Emergency Support Line</h2>
+            <div class="phone">
+                <i class="fas fa-phone"></i> +234 814 639 7467
+            </div>
+            <p>Available 24 hours a day, 7 days a week</p>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Emergency Services</h2>
+                <p>Fast and reliable emergency support for your cooling systems</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Emergency Repairs</h3>
+                    <p>Immediate response for critical system failures</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> System breakdowns</li>
+                        <li><i class="fas fa-check"></i> Component failures</li>
+                        <li><i class="fas fa-check"></i> Emergency replacements</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-thermometer-half"></i>
+                    <h3>Temperature Control</h3>
+                    <p>Urgent response for temperature-critical environments</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Cold room failures</li>
+                        <li><i class="fas fa-check"></i> Temperature fluctuations</li>
+                        <li><i class="fas fa-check"></i> System stabilization</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Power Issues</h3>
+                    <p>Solutions for power-related emergencies</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check"></i> Backup power systems</li>
+                        <li><i class="fas fa-check"></i> Electrical failures</li>
+                        <li><i class="fas fa-check"></i> System protection</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Time Section -->
+    <section class="response-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Response Process</h2>
+                <p>Swift and efficient emergency response protocol</p>
+            </div>
+
+            <div class="response-grid">
+                <div class="response-card">
+                    <i class="fas fa-phone-volume"></i>
+                    <h3>Immediate Response</h3>
+                    <p>24/7 emergency hotline with immediate call response</p>
+                </div>
+
+                <div class="response-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Quick Dispatch</h3>
+                    <p>Rapid deployment of emergency response team</p>
+                </div>
+
+                <div class="response-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>On-Site Service</h3>
+                    <p>Professional on-site emergency repairs and solutions</p>
+                </div>
+
+                <div class="response-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Follow-up</h3>
+                    <p>Comprehensive follow-up to ensure system stability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Emergency Contacts</h2>
+                <p>Multiple ways to reach our emergency response team</p>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <span>Emergency: +234 814 639 7467</span><br>
+                        <span>WhatsApp: +234 809 060 6137</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span>info@dekoolar.com</span><br>
+                        <span>customercare@dekoolar.com</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Available 24/7 for Emergencies</span>
+                </div>
+            </div>
+
+            <div class="contact-addresses" style="margin-top: 3rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <div class="address-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fas fa-building" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Head Office</h3>
+                    <p style="color: var(--dark-gray); line-height: 1.6;">
+                        1/3 Alade Close,<br>
+                        Beside Addide Supermarket,<br>
+                        Off Iju Road, Ifako-Ijaiye,<br>
+                        Lagos State, Nigeria.
+                    </p>
+                </div>
+
+                <div class="address-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fas fa-industry" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Service Center</h3>
+                    <p style="color: var(--dark-gray); line-height: 1.6;">
+                        DeKoolar Industrial Works Layout,<br>
+                        KM 4, Papalanto-Sagamu Expressway,<br>
+                        Ewekoro, Abese Village,<br>
+                        Ogun State, Nigeria.
+                    </p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <a href="tel:+2348146397467" class="btn btn-primary">Call Emergency Line</a>
+            </div>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

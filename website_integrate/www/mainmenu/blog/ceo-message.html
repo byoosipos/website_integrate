@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Message from Our CEO - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Read a welcome message from Ola Akanbi, CEO of DeKoolar Nigeria Limited, about our commitment to excellence in industrial cooling solutions.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-post {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .blog-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .ceo-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            object-fit: cover;
+            object-position: top center;
+            box-shadow: var(--shadow);
+            border: 4px solid var(--primary-color);
+        }
+
+        .ceo-image-container {
+            position: relative;
+            margin: 0 auto 3rem;
+            width: fit-content;
+        }
+
+        .ceo-image-container::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .blog-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .ceo-signature {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+            text-align: right;
+        }
+
+        .ceo-signature h4 {
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .ceo-signature .designation {
+            color: var(--dark-gray);
+            font-style: italic;
+        }
+
+        .share-section {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <article class="blog-post">
+        <header class="blog-header">
+            <h1>A Message from Our CEO</h1>
+            <div class="blog-meta">
+                <span><i class="far fa-calendar"></i> March 20, 2024</span>
+                <span class="mx-2">|</span>
+                <span><i class="far fa-user"></i> By Ola Akanbi</span>
+            </div>
+            <div class="ceo-image-container">
+                <img src="/files/james-ola-akanbi-dekoolar.jpg" alt="Ola Akanbi - CEO DeKoolar" class="ceo-image">
+            </div>
+        </header>
+
+        <div class="blog-content">
+            <p>I warmly welcome you to our new website. Our company is the Nigerian leading manufacturer of quality Ice Block Making Machines, efficient Coldrooms, Refrigeration and Air Conditioning Systems, and many other Cooling and Heat Transfer Equipment.</p>
+            
+            <p>Are you interested in Ice Block Making Machine, Coldroom or any other HVAC products and services? Then, your search is ended here!</p>
+            
+            <p>We design, manufacture, install and service all types of HVAC Equipment and Systems. Absolutely, no competitor compares with DeKoolar's superior and efficient solutions, backed by a reliable customer support service. Our technical expertise, wealth of industry experience and hefty customer base are simply unmatched.</p>
+            
+            <p>Our business is principally HVAC – Heating, Ventilation and Air Conditioning in all its applications. The mainstream products we offer are; Ice Block Making Machine, Cold Room, Cool Display and Storage Barn, among others. In principle, we serve our customers with the right product or service, in the right features mix, at the right price every time.</p>
+            
+            <p>There are competing machines and products out there in the market. You might have received empty promises and perhaps been disappointed, using other machines, in the past. At DeKoolar, we guarantee that our products and services will fulfill our promises in performance.</p>
+            
+            <p>Certainly, your first touch with us, will last longer than anywhere else. Why? The answer is simple. De Koolar's team is committed to our basic philosophy of customer satisfaction and performance efficiency of all our products, with core focus on continuous innovation.</p>
+            
+            <p>I would like to offer special thanks to our customers and partners for their continued trust and vote of confidence in DeKoolar and its product and service offerings. Without them, our success today would not have been possible.</p>
+            
+            <div class="ceo-signature">
+                <p>Feel Kool Always!</p>
+                <p>Sincerely,</p>
+                <h4>Ola Akanbi</h4>
+                <p class="designation">Managing Director/CEO</p>
+            </div>
+        </div>
+
+        <!-- Social Sharing -->
+        <div class="share-section">
+            <h3>Share this Message</h3>
+            <div class="share-buttons">
+                <button class="share-btn facebook" onclick="shareOnFacebook('A Message from Our CEO - DeKoolar Nigeria Limited')">
+                    <i class="fab fa-facebook-f"></i> Share
+                </button>
+                <button class="share-btn twitter" onclick="shareOnTwitter('A Message from Our CEO - DeKoolar Nigeria Limited')">
+                    <i class="fab fa-twitter"></i> Tweet
+                </button>
+                <button class="share-btn linkedin" onclick="shareOnLinkedIn('A Message from Our CEO - DeKoolar Nigeria Limited')">
+                    <i class="fab fa-linkedin-in"></i> Share
+                </button>
+                <button class="share-btn whatsapp" onclick="shareOnWhatsApp('A Message from Our CEO - DeKoolar Nigeria Limited')">
+                    <i class="fab fa-whatsapp"></i> Share
+                </button>
+            </div>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        function shareOnFacebook(title) {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter(title) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(title);
+            const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnLinkedIn(title) {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnWhatsApp(title) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(title + '\n' + window.location.href);
+            const shareUrl = `https://wa.me/?text=${text}`;
+            window.open(shareUrl, '_blank');
+        }
+    </script>
+</body>
+</html> 

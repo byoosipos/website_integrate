@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Clients - DeKoolar Nigeria Limited</title>
+    <link rel="icon" type="image/jpg" href="/files/FALCON-IMAGE-LOGO.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="/files/FALCON-IMAGE-LOGO.jpg">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .clients-hero {
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)),
+                        url('/files/clients-bg.jpg') center/cover no-repeat;
+            padding: 6rem 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .clients-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .clients-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .clients-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 1rem;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .client-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .client-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .client-card p {
+            color: var(--text-color);
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        .client-category {
+            margin: 4rem 0;
+        }
+
+        .client-category h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .category-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--dark-gray);
+        }
+
+        @media (max-width: 768px) {
+            .clients-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .clients-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="clients-hero">
+        <div class="container">
+            <h1>Our Valued Clients</h1>
+            <p>De Koolar Nigeria Limited enjoys a populous business relationship with its numerous clients across Nigeria. As we pursue our objective corporate mission, guided by the philosophy of customer satisfaction, our clientele keeps growing by the day.</p>
+        </div>
+    </section>
+
+    <div class="clients-container">
+        <!-- Industrial & Manufacturing -->
+        <div class="client-category">
+            <h2>Industrial & Manufacturing</h2>
+            <p class="category-description">Leading companies in manufacturing and industrial sectors trust DeKoolar for their cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>GUINNESS NIGERIA PLC</h3>
+                    <p>Supply and Installation of 5 Nos. Ice Block Making Machine</p>
+                </div>
+                <div class="client-card">
+                    <h3>NIGERIAN BREWERIES PLC</h3>
+                    <p>Construction of a Cold Storage Facility at ABA Brownfield Brewery Extension</p>
+                </div>
+                <div class="client-card">
+                    <h3>NIGERIA BOTTLING COMPANY LTD</h3>
+                    <p>General HVAC Maintenance Services</p>
+                </div>
+                <div class="client-card">
+                    <h3>ANIMAL CARE SERVICES KONSULT (NIG) LIMITED</h3>
+                    <p>Construction and Supply of Blast Freezer</p>
+                </div>
+                <div class="client-card">
+                    <h3>NIGERIA STORES AND RESEARCH INSTITUTE, ILORIN</h3>
+                    <p>Supply and Installation of 30 Tonnes Cold room</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oil & Gas -->
+        <div class="client-category">
+            <h2>Oil & Gas</h2>
+            <p class="category-description">Major players in the oil and gas industry rely on our expertise</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>MOBIL PRODUCING NIGERIA UNLIMITED</h3>
+                    <p>Supply and Installation of Coldroom Equipment</p>
+                </div>
+                <div class="client-card">
+                    <h3>TOTAL UPSTREAM NIGERIA</h3>
+                    <p>Supply and Installation of Coldroom</p>
+                </div>
+                <div class="client-card">
+                    <h3>STAT OIL NIGERIA PLC</h3>
+                    <p>Supply, Installation and Maintenance of Cold Rooms</p>
+                </div>
+                <div class="client-card">
+                    <h3>GLOBAL TIDES ENERGY</h3>
+                    <p>Installation of 15 tons Cold room (A double engine coldroom solution)</p>
+                </div>
+                <div class="client-card">
+                    <h3>NIGERIA NATIONAL PETROLEUM CORPORATION (NNPC)</h3>
+                    <p>Industrial Cooling Solutions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hospitality & Food Service -->
+        <div class="client-category">
+            <h2>Hospitality & Food Service</h2>
+            <p class="category-description">Premier hospitality establishments choose DeKoolar for their cooling needs</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>TRANSCORP HILTON, ABUJA</h3>
+                    <p>Maintenance and Repairs of Food Storage Barn</p>
+                </div>
+                <div class="client-card">
+                    <h3>VICTORIA CROWN PLAZA HOTEL</h3>
+                    <p>Maintenance and Repairs Service for Cold Rooms</p>
+                </div>
+                <div class="client-card">
+                    <h3>DOMINO PIZZA</h3>
+                    <p>Design and Construction of different capacities of cold room and blast freezers for Nigerian operations</p>
+                </div>
+                <div class="client-card">
+                    <h3>ORIENTAL KITCHEN</h3>
+                    <p>Supply and Installation of 10 Tons Coldroom (Cold room B), overhauling of Coldroom A, with replacement of the Compressor</p>
+                </div>
+                <div class="client-card">
+                    <h3>BIOBAK KITCHEN & OUTDOOR CATERING SERVICE LTD</h3>
+                    <p>Supply and Installation of DeKoolar Industrial Freezer/Cube/Flakes Machines in Abuja</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aviation & Transportation -->
+        <div class="client-category">
+            <h2>Aviation & Transportation</h2>
+            <p class="category-description">Leading aviation companies trust our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>ARIK AIR NIGERIA LIMITED</h3>
+                    <p>Design, Construction and Installation of 12 Tonnes Cold Storage Room</p>
+                </div>
+                <div class="client-card">
+                    <h3>SKYWAY AVIATION HANDLING COMPANY LTD</h3>
+                    <p>Supply and Installation of 20ft standard container cold room at the Murtala Muhammed Int'l Airport, Lagos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Telecommunications -->
+        <div class="client-category">
+            <h2>Telecommunications</h2>
+            <p class="category-description">Major telecom providers rely on our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>MTN COMMUNICATIONS LIMITED</h3>
+                    <p>Supply, Installation and Maintenance of Industrial and domestic Air Conditioning Systems in KANO, KADUNA, PLATEAU, NASARAWA, BENUE, BAUCHI, NIGER and KOGI States</p>
+                </div>
+                <div class="client-card">
+                    <h3>NIGERIA TELECOMMUNITATIONS LTD (NITEL)</h3>
+                    <p>Supply and General Maintenance of Industrial and Domestic cooling systems, switch and base stations in Federal Capital Territory, Niger State and its environs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Retail & Distribution -->
+        <div class="client-category">
+            <h2>Retail & Distribution</h2>
+            <p class="category-description">Major retail chains and distributors trust our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>PRINCE EBEANO SUPERMARKET CHAIN</h3>
+                    <p>Supply and Installation of shelved Cold room at Lekki, Lagos State</p>
+                </div>
+                <div class="client-card">
+                    <h3>TAYO SUPERMARKETS CHAIN</h3>
+                    <p>Supply of 5 Tonnes Coldroom at Ojota, Lagos State</p>
+                </div>
+                <div class="client-card">
+                    <h3>GENESIS FOODS NIGERIA LIMITED</h3>
+                    <p>Supply of 3 Nos. Containerized Cold Room in Port Harcourt, Rivers State</p>
+                </div>
+                <div class="client-card">
+                    <h3>VINCO FROZEN FOODS</h3>
+                    <p>Supply and Installation of 250 Tonnes Cold room at Ketu, Lagos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agriculture & Farming -->
+        <div class="client-category">
+            <h2>Agriculture & Farming</h2>
+            <p class="category-description">Agricultural businesses rely on our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>HUGO FARMS AND GROCERIES LIMITED</h3>
+                    <p>Design, construction and installation of 20 x 8 x 8 ft Cold room and 6 x 7 x7 Blast freezer built on site with retainership for routine maintenance</p>
+                </div>
+                <div class="client-card">
+                    <h3>GLAY FARMS LIMITED</h3>
+                    <p>Supply and installation of 10 tons Cold room (20 x8 x 8ft)</p>
+                </div>
+                <div class="client-card">
+                    <h3>AYADOL NATURE FARMS</h3>
+                    <p>Supply and installation of a Blast Freezer (6 x 7 x 7ft)</p>
+                </div>
+                <div class="client-card">
+                    <h3>MAX FARMS LIMITED</h3>
+                    <p>Supply & installation of 200/250KG Blast Freezer (6 x 7 x 7ft) & 20ft cold room</p>
+                </div>
+                <div class="client-card">
+                    <h3>FEDFORG FARMS LIMITED</h3>
+                    <p>Construction and Supply of Coldroom</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Healthcare & Medical -->
+        <div class="client-category">
+            <h2>Healthcare & Medical</h2>
+            <p class="category-description">Healthcare institutions trust our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>MAITAMA DISTRICT HOSPITAL, ABUJA</h3>
+                    <p>Supply and Installation of Air Conditioners</p>
+                </div>
+                <div class="client-card">
+                    <h3>ADVANCE MEDI-SYSTEMS LIMITED</h3>
+                    <p>Construction of 11 x 9 x 8 ft Chiller (Cold room)</p>
+                </div>
+                <div class="client-card">
+                    <h3>KOGI STATE UNIVERSITY</h3>
+                    <p>Construction of 10 Tonnes 7-Door Cold Storage Mortuary Facility</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Government & Institutions -->
+        <div class="client-category">
+            <h2>Government & Institutions</h2>
+            <p class="category-description">Government agencies and institutions that trust DeKoolar</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>CORPORATE AFFAIR COMMISSION (CAC)</h3>
+                    <p>Cooling Systems and Maintenance</p>
+                </div>
+                <div class="client-card">
+                    <h3>FEDERAL CAPITAL DEVELOPMENT AUTHORITY (FCDA)</h3>
+                    <p>Industrial Cooling Solutions</p>
+                </div>
+                <div class="client-card">
+                    <h3>FEDERAL MINISTRY OF AGRICULTURE</h3>
+                    <p>Cooling Systems and Solutions</p>
+                </div>
+                <div class="client-card">
+                    <h3>FEDERAL MINISTRY OF WATER RESOURCES</h3>
+                    <p>Supply and Installation of domestic and industrial cooling systems in Abuja</p>
+                </div>
+                <div class="client-card">
+                    <h3>SPORTS COUNCIL, FCT – ABUJA</h3>
+                    <p>Maintenance of Industrial and Domestic Air-conditioners</p>
+                </div>
+                <div class="client-card">
+                    <h3>ABUJA MUNICIPAL AREA COUNCIL (AMAC)</h3>
+                    <p>Maintenance services for cooling systems</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ice Block Business -->
+        <div class="client-category">
+            <h2>Ice Block Business</h2>
+            <p class="category-description">Ice block manufacturers who trust our machines</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>MRS. ABDUL ICE VENTURES</h3>
+                    <p>Supply and Installation of 500 blocks Ice Making Machine, Apo Legislative Quarters, Abuja</p>
+                </div>
+                <div class="client-card">
+                    <h3>MADAM PROMISE BLOCKS & CUBES</h3>
+                    <p>Supply and Installation of 2 Nos (100 blocks and 50 blocks/8hrs) Ice block making machine at Lekki, Lagos</p>
+                </div>
+                <div class="client-card">
+                    <h3>AYOFORE BLOCK & ICE CUBES BIZ</h3>
+                    <p>Supply and Installation of 3 Nos. 100 blocks in 8 hrs Ice block making machine at Treasure Park, Lekki, Lagos</p>
+                </div>
+                <div class="client-card">
+                    <h3>ALHAJI DRY FROZEN FOODS</h3>
+                    <p>Supply and Installation of 200 blocks Ice block making machine at Lungi Barracks, Maitama, Abuja</p>
+                </div>
+                <div class="client-card">
+                    <h3>OLA COLD VENTURES</h3>
+                    <p>Supply and Installation of 3 Nos. Ice block making machine (150 blocks and 100 blocks /8hrs)</p>
+                </div>
+                <div class="client-card">
+                    <h3>BAZ ICE BLOCK ENTERPRISES</h3>
+                    <p>Supply and Installation of a 200 blocks Ice making machine at Mararaba, Nasarawa State</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Institutions -->
+        <div class="client-category">
+            <h2>Financial Institutions</h2>
+            <p class="category-description">Financial institutions that rely on our cooling solutions</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>FIRST CITY MONUMENT BANK (FCMB)</h3>
+                    <p>Maintenance and repair services for air conditioning systems</p>
+                </div>
+                <div class="client-card">
+                    <h3>AFRICA DEVELOPMENT BANK</h3>
+                    <p>Cooling Solutions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Other Notable Clients -->
+        <div class="client-category">
+            <h2>Other Notable Clients</h2>
+            <p class="category-description">More organizations that trust DeKoolar for their cooling needs</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <h3>INTERNATIONAL LAW INSTITUTE</h3>
+                    <p>Cooling Systems</p>
+                </div>
+                <div class="client-card">
+                    <h3>LEGAL AIDS COUNCIL</h3>
+                    <p>Air Conditioning Solutions</p>
+                </div>
+                <div class="client-card">
+                    <h3>FEDERAL ROAD SAFETY COMMISSION</h3>
+                    <p>Cooling Systems and Maintenance</p>
+                </div>
+                <div class="client-card">
+                    <h3>INTERNATIONAL COMMITTEE OF THE RED CROSS (ICRC)</h3>
+                    <p>Maintenance of Cold Storage Room</p>
+                </div>
+                <div class="client-card">
+                    <h3>TOSADANI NIGERIA LIMITED</h3>
+                    <p>Cooling Solutions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/mainmenu/public/js/script.js"></script>
+</body>
+</html> 

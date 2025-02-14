@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Warranty Information - Comprehensive warranty coverage for our refrigeration products. Learn about warranty terms, coverage details, and claim procedures.">
+    <title>Warranty Information - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Warranty Cards */
+        .warranty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .warranty-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .warranty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .warranty-header {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .warranty-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .warranty-header p {
+            opacity: 0.9;
+        }
+
+        .warranty-content {
+            padding: 2rem;
+        }
+
+        .warranty-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .warranty-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .warranty-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Coverage Section */
+        .coverage-section {
+            background: var(--light-gray);
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .coverage-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .coverage-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .coverage-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .coverage-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .coverage-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Claim Process */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            counter-reset: step;
+        }
+
+        .process-step {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            counter-increment: step;
+        }
+
+        .process-step::before {
+            content: counter(step);
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .process-step h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+        }
+
+        .contact-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-section p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .contact-button.outline {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .contact-button:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-button.outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .warranty-card {
+                margin: 0 1rem;
+            }
+
+            .process-step::before {
+                top: 1rem;
+                left: 1rem;
+                transform: none;
+            }
+
+            .process-step {
+                padding-top: 4rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/support">Support</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Warranty Information</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Warranty Information</h1>
+            <p class="hero-subtitle">Comprehensive coverage for your peace of mind</p>
+        </div>
+    </section>
+
+    <!-- Warranty Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Warranty Plans</h2>
+                <p>Our commitment to quality and customer satisfaction</p>
+            </div>
+            <div class="warranty-grid">
+                <div class="warranty-card">
+                    <div class="warranty-header">
+                        <h3>Standard Warranty</h3>
+                        <p>Included with all products</p>
+                    </div>
+                    <div class="warranty-content">
+                        <ul class="warranty-list">
+                            <li>1-year parts and labor coverage</li>
+                            <li>Manufacturing defects</li>
+                            <li>Material failures</li>
+                            <li>Technical support</li>
+                            <li>Free repairs or replacement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="warranty-card">
+                    <div class="warranty-header">
+                        <h3>Extended Warranty</h3>
+                        <p>Additional protection</p>
+                    </div>
+                    <div class="warranty-content">
+                        <ul class="warranty-list">
+                            <li>Up to 3 years coverage</li>
+                            <li>Priority service</li>
+                            <li>Preventive maintenance</li>
+                            <li>24/7 support access</li>
+                            <li>Parts replacement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="warranty-card">
+                    <div class="warranty-header">
+                        <h3>Commercial Warranty</h3>
+                        <p>For business solutions</p>
+                    </div>
+                    <div class="warranty-content">
+                        <ul class="warranty-list">
+                            <li>Customized coverage plans</li>
+                            <li>On-site service support</li>
+                            <li>Emergency response</li>
+                            <li>Business continuity</li>
+                            <li>Dedicated account manager</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="section coverage-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What's Covered</h2>
+                <p>Understanding your warranty coverage</p>
+            </div>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Parts & Labor</h3>
+                    <p>Repair or replacement of defective parts and professional labor services</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Manufacturing Defects</h3>
+                    <p>Coverage for any manufacturing or material defects affecting performance</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Technical Support</h3>
+                    <p>Access to expert technical support and troubleshooting assistance</p>
+                </div>
+                <div class="coverage-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>On-Site Service</h3>
+                    <p>Professional on-site repairs and maintenance services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claim Process Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Warranty Claim Process</h2>
+                <p>Simple steps to file your warranty claim</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <h3>Contact Us</h3>
+                    <p>Reach out to our customer service team through phone, email, or online form</p>
+                </div>
+                <div class="process-step">
+                    <h3>Provide Details</h3>
+                    <p>Share your product information, purchase details, and describe the issue</p>
+                </div>
+                <div class="process-step">
+                    <h3>Assessment</h3>
+                    <p>Our technical team will assess the issue and determine the best solution</p>
+                </div>
+                <div class="process-step">
+                    <h3>Resolution</h3>
+                    <p>We'll repair or replace your product according to warranty terms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2>Need Warranty Support?</h2>
+            <p>Our customer service team is ready to assist you with your warranty claims and inquiries</p>
+            <div class="contact-buttons">
+                <a href="/mainmenu/support/customer-service" class="contact-button">Contact Support</a>
+                <a href="/mainmenu/support/technical" class="contact-button outline">Technical Support</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

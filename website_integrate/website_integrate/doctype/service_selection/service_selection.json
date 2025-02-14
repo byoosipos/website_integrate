@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "creation": "2025-02-08 06:39:08.586292",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "service_category",
+  "service_type",
+  "frequency",
+  "details"
+ ],
+ "fields": [
+  {
+   "fieldname": "service_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Service Category",
+   "options": "\nInstallation Services\nMaintenance & Repairs\nConsultation\nTraining\nEnergy Audits\nEmergency Services",
+   "reqd": 1
+  },
+  {
+   "depends_on": "service_category",
+   "fieldname": "service_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Service Type",
+   "options": "\nCold Room Installation\nHVAC Installation\nPreventive Maintenance\nRepair Services\nTechnical Consultation\nEnergy Efficiency Audit\nStaff Training\n24/7 Emergency Support\nAMC (Annual Maintenance Contract)",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.service_type !== 'Emergency Support'",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Service Frequency",
+   "options": "\nOne-time\nWeekly\nMonthly\nQuarterly\nBi-annually\nAnnually"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Small Text",
+   "label": "Service Details"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2025-02-08 06:49:41.390965",
+ "modified_by": "Administrator",
+ "module": "Website Integrate",
+ "name": "Service Selection",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

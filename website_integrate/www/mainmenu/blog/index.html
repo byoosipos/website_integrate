@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Blog - Stay updated with the latest news, insights, and trends in refrigeration technology, HVAC systems, and cold chain solutions.">
+    <title>Blog & News - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 40vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Blog Layout */
+        .blog-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        /* Featured Post */
+        .featured-post {
+            margin-bottom: 3rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .featured-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .featured-content {
+            padding: 2rem;
+        }
+
+        .featured-content h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .post-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .read-more:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Blog Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .post-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .post-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .post-content .post-meta {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-widget h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .categories-list {
+            list-style: none;
+        }
+
+        .categories-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .categories-list a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+
+        .categories-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .categories-list .count {
+            background: var(--light-gray);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        .popular-posts {
+            list-style: none;
+        }
+
+        .popular-posts li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .popular-posts li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .post-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--border-radius);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
+        .post-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .post-info a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .post-info a:hover {
+            color: var(--primary-color);
+        }
+
+        .post-info .date {
+            font-size: 0.8rem;
+            color: var(--dark-gray);
+        }
+
+        /* Tags */
+        .tags-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+
+        .page-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--white);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .page-link:hover,
+        .page-link.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .blog-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 30vh;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 300px;
+            }
+
+            .post-card {
+                margin: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Blog & News</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Blog & News</h1>
+            <p class="hero-subtitle">Stay updated with the latest in refrigeration technology</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <div class="container">
+        <div class="blog-layout">
+            <!-- Main Content -->
+            <main>
+                <!-- Featured Post -->
+                <article class="featured-post">
+                    <div class="featured-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="featured-content">
+                        <h2>The Future of Cold Chain Technology: Trends and Innovations</h2>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Admin</span>
+                            <span><i class="fas fa-calendar"></i> March 15, 2024</span>
+                            <span><i class="fas fa-folder"></i> Technology</span>
+                        </div>
+                        <p class="post-excerpt">Explore the latest innovations in cold chain technology and how they're revolutionizing the industry. From IoT integration to sustainable cooling solutions, discover what's shaping the future of refrigeration.</p>
+                        <a href="/mainmenu/blog/posts/future-cold-chain-technology" class="read-more">Read More</a>
+                    </div>
+                </article>
+
+                <!-- Blog Posts Grid -->
+                <div class="posts-grid">
+                    <!-- Post 1 -->
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('/files/ICE BLOCK MACHINE.png');"></div>
+                        <div class="post-content">
+                            <h3>Energy Efficiency in Industrial Refrigeration</h3>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar"></i> March 10, 2024</span>
+                                <span><i class="fas fa-folder"></i> Industry</span>
+                            </div>
+                            <p class="post-excerpt">Learn about the latest strategies and technologies for improving energy efficiency in industrial refrigeration systems.</p>
+                            <a href="/mainmenu/blog/posts/energy-efficiency" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 2 -->
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('/files/RIVA COLD COMPLETE UNIT PICTURE.PNG');"></div>
+                        <div class="post-content">
+                            <h3>Maintaining Your HVAC System</h3>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar"></i> March 5, 2024</span>
+                                <span><i class="fas fa-folder"></i> Maintenance</span>
+                            </div>
+                            <p class="post-excerpt">Essential tips and best practices for maintaining your HVAC system to ensure optimal performance and longevity.</p>
+                            <a href="/mainmenu/blog/posts/hvac-maintenance" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 3 -->
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                        <div class="post-content">
+                            <h3>Cold Storage Solutions for Pharmaceuticals</h3>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar"></i> March 1, 2024</span>
+                                <span><i class="fas fa-folder"></i> Healthcare</span>
+                            </div>
+                            <p class="post-excerpt">Specialized cold storage solutions for the pharmaceutical industry, ensuring product integrity and compliance.</p>
+                            <a href="/mainmenu/blog/posts/pharmaceutical-storage" class="read-more">Read More</a>
+                        </div>
+                    </article>
+
+                    <!-- Post 4 -->
+                    <article class="post-card">
+                        <div class="post-image" style="background-image: url('/files/ICE BLOCK MACHINE.png');"></div>
+                        <div class="post-content">
+                            <h3>Sustainable Refrigeration Practices</h3>
+                            <div class="post-meta">
+                                <span><i class="fas fa-calendar"></i> February 25, 2024</span>
+                                <span><i class="fas fa-folder"></i> Sustainability</span>
+                            </div>
+                            <p class="post-excerpt">Implementing environmentally friendly practices in commercial and industrial refrigeration systems.</p>
+                            <a href="/mainmenu/blog/posts/sustainable-refrigeration" class="read-more">Read More</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
+                </div>
+            </main>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Categories Widget -->
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Technology <span class="count">8</span></a></li>
+                        <li><a href="#">Industry News <span class="count">12</span></a></li>
+                        <li><a href="#">Maintenance <span class="count">6</span></a></li>
+                        <li><a href="#">Healthcare <span class="count">4</span></a></li>
+                        <li><a href="#">Sustainability <span class="count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Popular Posts Widget -->
+                <div class="sidebar-widget">
+                    <h3>Popular Posts</h3>
+                    <ul class="popular-posts">
+                        <li>
+                            <div class="post-thumbnail" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                            <div class="post-info">
+                                <h4><a href="#">Smart Monitoring Systems for Cold Rooms</a></h4>
+                                <span class="date">March 8, 2024</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="post-thumbnail" style="background-image: url('/files/ICE BLOCK MACHINE.png');"></div>
+                            <div class="post-info">
+                                <h4><a href="#">Optimizing Ice Production Efficiency</a></h4>
+                                <span class="date">March 3, 2024</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="post-thumbnail" style="background-image: url('/files/RIVA COLD COMPLETE UNIT PICTURE.PNG');"></div>
+                            <div class="post-info">
+                                <h4><a href="#">Next-Gen HVAC Technologies</a></h4>
+                                <span class="date">February 28, 2024</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tags Widget -->
+                <div class="sidebar-widget">
+                    <h3>Tags</h3>
+                    <div class="tags-list">
+                        <a href="#" class="tag">Cold Storage</a>
+                        <a href="#" class="tag">HVAC</a>
+                        <a href="#" class="tag">Energy Efficiency</a>
+                        <a href="#" class="tag">Technology</a>
+                        <a href="#" class="tag">Maintenance</a>
+                        <a href="#" class="tag">Innovation</a>
+                        <a href="#" class="tag">Healthcare</a>
+                        <a href="#" class="tag">Industry</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

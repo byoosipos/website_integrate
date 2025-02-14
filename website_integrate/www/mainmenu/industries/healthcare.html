@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Healthcare & Pharmaceutical Solutions - GMP-compliant cooling solutions for medical facilities, pharmaceutical storage, and healthcare environments. WHO and NAFDAC compliant systems.">
+    <title>Healthcare & Pharmaceutical Solutions - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Copy the entire style section from agriculture.html -->
+    <style>
+        /* Root Variables and Base Styles */
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #00A3E0;
+            --accent-color: #006837;
+            --medical-blue: #0077CC;
+            --medical-light: #E6F3FF;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+            --bg-gradient: linear-gradient(135deg, var(--medical-blue), #004D99);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--medical-light);
+            border-top: 3px solid var(--medical-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--medical-light);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .breadcrumb ul {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .breadcrumb a {
+            color: var(--medical-blue);
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--primary-color);
+        }
+
+        .breadcrumb i {
+            font-size: 0.8em;
+            color: var(--dark-gray);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--bg-gradient);
+            color: var(--white);
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/files/healthcare-bg.jpg') center/cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--secondary-color);
+            color: var(--white);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--medical-blue);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            font-size: 1.1em;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Grid and Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: visible;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+            padding-top: 40px;
+            margin-top: 40px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .card-icon i {
+            font-size: 35px;
+            color: var(--white);
+        }
+
+        .card-content {
+            padding: 20px 30px 30px;
+            background: var(--white);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.5em;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px;
+        }
+
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark-gray);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--medical-blue);
+        }
+
+        /* Case Studies */
+        .case-studies {
+            background: var(--medical-light);
+        }
+
+        .case-study-image {
+            height: 250px;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--medical-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--dark-gray);
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        /* Compliance Section */
+        .compliance-section {
+            background: var(--white);
+            padding: 100px 0;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .compliance-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--medical-light);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .compliance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .compliance-icon {
+            font-size: 40px;
+            color: var(--medical-blue);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--medical-light);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .testimonial-content::before,
+        .testimonial-content::after {
+            content: '"';
+            font-size: 4em;
+            color: var(--medical-blue);
+            opacity: 0.1;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .testimonial-content::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-content::after {
+            bottom: -60px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-position: center;
+            background-size: cover;
+            border: 3px solid var(--medical-blue);
+        }
+
+        .author-info h4 {
+            color: var(--medical-blue);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .author-info p {
+            color: var(--dark-gray);
+            font-size: 0.9em;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--bg-gradient);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/files/pattern.png') center/cover;
+            opacity: 0.05;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-content p {
+            font-size: 1.1em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2em;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-content {
+                padding: 20px;
+            }
+
+            .testimonial-card {
+                padding: 25px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/industries">Industries</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Healthcare & Pharmaceuticals</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Healthcare & Pharmaceuticals</h1>
+            <p class="hero-subtitle">GMP-compliant cooling solutions for medical and pharmaceutical facilities</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-button primary" onclick="openQuoteForm(); return false;">Get a Quote</a>
+                <a href="/mainmenu/projects" class="hero-button secondary">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Solutions</h2>
+                <p>Specialized cooling solutions for healthcare and pharmaceutical facilities</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Pharmaceutical Storage</h3>
+                        <ul class="solution-features">
+                            <li>Temperature validation</li>
+                            <li>GMP compliance</li>
+                            <li>Environmental monitoring</li>
+                            <li>Backup systems</li>
+                        </ul>
+                        <a href="/mainmenu/services/cold-rooms" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Medical Facilities</h3>
+                        <ul class="solution-features">
+                            <li>Clean room HVAC</li>
+                            <li>Operating theater systems</li>
+                            <li>Laboratory cooling</li>
+                            <li>Air filtration</li>
+                        </ul>
+                        <a href="/mainmenu/services/hvac" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Emergency Systems</h3>
+                        <ul class="solution-features">
+                            <li>Backup power integration</li>
+                            <li>24/7 monitoring</li>
+                            <li>Alert systems</li>
+                            <li>Rapid response service</li>
+                        </ul>
+                        <a href="/mainmenu/services/maintenance" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Real results from our healthcare and pharmaceutical clients</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="case-study-content">
+                        <h3>UNICEF Medical Storage</h3>
+                        <p>Temperature-controlled storage facility for vaccines and medical supplies.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">300m²</div>
+                                <div class="stat-label">Storage Area</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Compliance</div>
+                            </div>
+                        </div>
+                        <a href="/mainmenu/projects" class="case-study-link">View Case Study</a>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="case-study-content">
+                        <h3>Premier Hospital HVAC</h3>
+                        <p>Complete HVAC solution for a major hospital complex.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">15,000m²</div>
+                                <div class="stat-label">Facility Size</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">99.9%</div>
+                                <div class="stat-label">Uptime</div>
+                            </div>
+                        </div>
+                        <a href="/mainmenu/projects" class="case-study-link">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industry Standards & Compliance</h2>
+                <p>Meeting stringent healthcare and pharmaceutical requirements</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>GMP Compliance</h3>
+                    <p>Good Manufacturing Practice certified systems</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>WHO Standards</h3>
+                    <p>World Health Organization guidelines compliant</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>NAFDAC Approved</h3>
+                    <p>Meeting all NAFDAC storage requirements</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Quality Control</h3>
+                    <p>Rigorous quality management system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our healthcare and pharmaceutical clients say about us</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "DeKoolar's pharmaceutical storage solutions have helped us maintain perfect compliance with regulatory requirements. Their monitoring systems give us complete peace of mind."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="author-info">
+                        <h4>Dr. Amina Ibrahim</h4>
+                        <p>Facility Manager, Central Medical Stores</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "The HVAC system DeKoolar installed in our operating theaters has been flawless. Their attention to detail and understanding of medical requirements is exceptional."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="author-info">
+                        <h4>Dr. Michael Okafor</h4>
+                        <p>Medical Director, Premier Hospital</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Upgrade Your Facility?</h2>
+                <p>Contact us today to discuss your healthcare or pharmaceutical cooling requirements.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary" onclick="openQuoteForm(); return false;">Get a Quote</a>
+                    <a href="/mainmenu/contact" class="cta-button secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

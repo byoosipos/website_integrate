@@ -1,0 +1,80 @@
+def get_context(context):
+    from datetime import datetime
+    import frappe
+    
+    # Get all published items
+    products = frappe.get_all(
+        "Item",
+        filters={"is_published": 1},
+        fields=["route", "modified"]
+    )
+    
+    # Get all published blog posts
+    blog_posts = frappe.get_all(
+        "Blog Post",
+        filters={"published": 1},
+        fields=["route", "modified"]
+    )
+    
+    # Get all services
+    services = frappe.get_all(
+        "Service",
+        filters={"published": 1},
+        fields=["route", "modified"]
+    )
+    
+    # Static pages
+    static_pages = [
+        {"route": "/mainmenu/", "priority": "1.0"},
+        {"route": "/mainmenu/products/", "priority": "0.9"},
+        {"route": "/mainmenu/services/", "priority": "0.9"},
+        {"route": "/mainmenu/industries/", "priority": "0.8"},
+        {"route": "/mainmenu/projects/", "priority": "0.8"},
+        {"route": "/mainmenu/insights/", "priority": "0.7"},
+        {"route": "/mainmenu/corporate/about-us.html", "priority": "0.7"},
+        {"route": "/mainmenu/corporate/contact.html", "priority": "0.8"},
+    ]
+    
+    context.entries = []
+    
+    # Add static pages
+    for page in static_pages:
+        context.entries.append({
+            "loc": page["route"],
+            "lastmod": datetime.now().strftime("%Y-%m-%d"),
+            "priority": page["priority"],
+            "changefreq": "weekly"
+        })
+    
+    # Add products
+    for product in products:
+        context.entries.append({
+            "loc": product.route,
+            "lastmod": product.modified.strftime("%Y-%m-%d"),
+            "priority": "0.8",
+            "changefreq": "weekly"
+        })
+    
+    # Add blog posts
+    for post in blog_posts:
+        context.entries.append({
+            "loc": post.route,
+            "lastmod": post.modified.strftime("%Y-%m-%d"),
+            "priority": "0.6",
+            "changefreq": "monthly"
+        })
+    
+    # Add services
+    for service in services:
+        context.entries.append({
+            "loc": service.route,
+            "lastmod": service.modified.strftime("%Y-%m-%d"),
+            "priority": "0.8",
+            "changefreq": "monthly"
+        })
+    
+    context.no_cache = 1
+    context.no_sitemap = 1
+    context.xml_lang = "en-US"
+    
+    return context 

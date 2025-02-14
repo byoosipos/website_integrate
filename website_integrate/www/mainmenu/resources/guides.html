@@ -1,0 +1,483 @@
+{% extends "templates/web.html" %}
+
+{% block style %}
+<style>
+    :root {
+        --primary-color: #003399;
+        --secondary-color: #C5A572;
+        --white-color: #ffffff;
+        --logo-blue: #003399;
+        --logo-gold: #C5A572;
+        --logo-green: #006633;
+    }
+
+    /* Hero Section Fix */
+    .hero-section {
+        background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.85)), url('/files/cold-storage-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--white-color);
+        padding: 8rem 0;
+        margin: 0;
+        position: relative;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
+
+    .hero-wrapper {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-content {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Logo Colors in Hero */
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        color: var(--white-color);
+    }
+
+    .hero-title span.logo-text {
+        color: var(--logo-gold);
+    }
+
+    .hero-title:after {
+        content: '';
+        display: block;
+        width: 100px;
+        height: 4px;
+        background: var(--logo-gold);
+        margin: 20px auto;
+    }
+
+    /* Hero Overlay Fix */
+    .hero-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, 
+            rgba(0, 51, 153, 0.85) 0%, 
+            rgba(0, 51, 153, 0.95) 100%);
+        z-index: 1;
+    }
+
+    /* Main Content Adjustment */
+    #guide-content {
+        position: relative;
+        background: var(--white-color);
+        padding-top: 3rem;
+    }
+
+    /* Responsive hero section */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            padding: 0 1rem;
+        }
+        .hero-section {
+            padding: 6rem 0;
+        }
+        
+        .hero-content {
+            padding: 0 15px;
+        }
+    }
+
+    /* Enhanced typography */
+    .section {
+        color: #2c3e50;
+        line-height: 1.6;
+        padding: 3rem 0;
+        background: #f8f9fa;
+    }
+
+    /* Main heading styles */
+    h1.mb-4 {
+        color: var(--primary-color);
+        font-weight: 700;
+        border-bottom: 3px solid var(--secondary-color);
+        padding-bottom: 15px;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Card enhancements */
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 2rem !important;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        border-top: 3px solid var(--secondary-color);
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    /* Section headings */
+    .h3 {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid var(--secondary-color);
+        padding-left: 15px;
+    }
+
+    /* Subheadings */
+    .h4 {
+        color: var(--primary-color);
+        font-weight: 500;
+        margin-top: 1.5rem;
+    }
+
+    .h5 {
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    /* List items */
+    .list-unstyled li {
+        margin-bottom: 0.75rem;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .list-unstyled li:before {
+        content: "•";
+        color: var(--secondary-color);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+    }
+
+    /* Paragraphs */
+    p {
+        margin-bottom: 1.2rem;
+        color: #37474f;
+    }
+
+    p.lead {
+        font-size: 1.25rem;
+        color: var(--primary-color);
+        font-weight: 400;
+    }
+
+    /* Container max-width for better readability */
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+
+    /* Container Alignment Fix */
+    .container {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Print styles */
+    @media print {
+        .card {
+            box-shadow: none;
+            border: 1px solid #dee2e6;
+        }
+        
+        .section {
+            padding: 1rem 0;
+        }
+    }
+
+    /* Additional accent elements */
+    .card-body h2:after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background: var(--secondary-color);
+        margin-top: 10px;
+    }
+
+    /* Add these button styles after the hero title styles */
+    .hero-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--white-color);
+        background: var(--secondary-color);
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        border: 2px solid var(--secondary-color);
+        margin-top: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .hero-button:hover {
+        background: transparent;
+        color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-button:active {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        color: var(--white-color);
+    }
+
+    @media (max-width: 768px) {
+        .hero-button {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block page_content %}
+<!-- Hero Section -->
+<div class="hero-wrapper">
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">De <span class="logo-text">Koolar</span> Business Guides</h1>
+            <p class="hero-subtitle">Comprehensive insights and expert guidance for optimizing your cold storage operations. Discover industry best practices, innovative solutions, and strategic approaches.</p>
+            <a href="#guide-content" class="hero-button">Explore Our Guides</a>
+        </div>
+    </section>
+</div>
+
+<!-- Main Content -->
+<section class="section" id="guide-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="mb-4">De Koolar Nigeria Limited Business Guides</h1>
+                
+                <!-- Introduction -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">Introduction</h2>
+                        <p>At De Koolar Nigeria Limited, we are committed to empowering businesses with expert insights and guidance on cold storage and refrigeration solutions. Whether you are in agriculture, healthcare, retail, logistics, or manufacturing, our business guides provide essential knowledge to help you optimize operations, reduce costs, and improve efficiency.</p>
+                        <p>Explore our curated resources to learn best practices, industry trends, and strategic approaches for leveraging cold storage solutions to grow your business.</p>
+                    </div>
+                </div>
+
+                <!-- Understanding Cold Storage -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">1. Understanding Cold Storage: A Beginner's Guide</h2>
+                        
+                        <h3 class="h4 mb-3">What is Cold Storage, and Why is it Important?</h3>
+                        <p>Cold storage is the process of preserving perishable goods by maintaining specific temperature conditions to extend shelf life, prevent spoilage, and ensure safety. Industries such as agriculture, healthcare, and food processing rely on cold storage to maintain product integrity and comply with regulatory standards.</p>
+
+                        <h3 class="h4 mb-3">Types of Cold Storage Solutions</h3>
+                        <ul class="list-unstyled">
+                            <li>• Walk-in Freezers/Cold Rooms: Ideal for storage of frozen fish, meats, ice cream, pastry and dairy products, etc.</li>
+                            <li>• Walk-in-Chiller Rooms: Used storage/preservation of vegetables, fruits, drinks, pharmaceutical, industrial chemicals, etc.</li>
+                            <li>• Refrigerated Warehouses: Large-scale storage for bulk perishable goods and industrial applications.</li>
+                            <li>• Portable Cold Storage/Trailer: Mobile solutions for logistics and on-the-go preservation.</li>
+                        </ul>
+
+                        <h3 class="h4 mb-3">Choosing the Right Cold Storage System</h3>
+                        <ul class="list-unstyled">
+                            <li>• Assess your temperature requirements for your items.</li>
+                            <li>• Consider storage capacity and scalability.</li>
+                            <li>• Ensure energy efficiency and sustainability.</li>
+                            <li>• Engaging the right partner (De Koolar) for sustainable growth.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industry-Specific Solutions -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">2. Industry-Specific Cold Storage Solutions</h2>
+
+                        <h3 class="h4 mb-3">Agriculture & Food Processing</h3>
+                        <p>Cold storage ensures that fresh produce, dairy, and meats remain fresh from farm to consumer. Proper storage reduces post-harvest losses and enhances food security.</p>
+
+                        <h3 class="h4 mb-3">Healthcare & Pharmaceuticals</h3>
+                        <p>De Koolar specializes in vaccine storage solutions that comply with WHO, UNICEF, and Red Cross standards. Our systems ensure temperature consistency for pharmaceutical products.</p>
+
+                        <h3 class="h4 mb-3">Retail & Supermarkets</h3>
+                        <p>We provide cold rooms and refrigeration units for supermarkets to keep dairy, frozen foods, and fresh produce at optimal conditions.</p>
+
+                        <h3 class="h4 mb-3">Logistics & Cold Chain</h3>
+                        <p>Temperature-controlled logistics are essential for transporting perishable goods. De Koolar offers refrigerated containers and last-mile delivery cooling vans to maintain product integrity while in transit.</p>
+
+                        <h3 class="h4 mb-3">Hospitality & Restaurants</h3>
+                        <p>Proper refrigeration minimizes food wastage and ensures compliance with food safety regulations. Our solutions are tailored to commercial kitchens and hotels.</p>
+
+                        <h3 class="h4 mb-3">Chemical & Laboratory</h3>
+                        <p>Our cold storage systems are designed to safely store volatile and temperature and humidity sensitive chemicals, preventing degradation and maintaining stability.</p>
+
+                        <h3 class="h4 mb-3">Marine Industry</h3>
+                        <p>We offer specialized cold storage solutions for seafood preservation, ensuring freshness from ocean to market.</p>
+
+                        <h3 class="h4 mb-3">Oil & Gas</h3>
+                        <p>Our industrial cold storage facilities ensure safe storage of lubricants, chemicals, and temperature-sensitive materials in compliance with global safety standards. We have also being of services to more than five major oil and gas companies in Nigeria.</p>
+
+                        <h3 class="h4 mb-3">Aviation</h3>
+                        <p>De Koolar builds cold storage systems in airports to store perishable goods while awaiting boarding by passengers and for export requirements purpose, ensuring seamless cold chain management.</p>
+                    </div>
+                </div>
+
+                <!-- Cost-Effective Facility -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">3. How to Build a Cost-Effective Cold Storage Facility</h2>
+                        <ul class="list-unstyled">
+                            <li>• Location Selection: Choose a strategic location for optimal logistics.</li>
+                            <li>• Qualitative Design: Consider the ambience temperature, pull-down time, frequency of entry and exit and heat load.</li>
+                            <li>• Power consideration: right sizing your cold room power requirements is key. In De Koolar Nigeria Limited we advocate for the use of Inverter Refrigeration System which can easily be integrated with renewable energy sources (solar system). This is suitable for small and medium size cold rooms.</li>
+                            <li>• Capacity Planning: Assess business needs for scalability.</li>
+                            <li>• Temperature Control: Implement automated monitoring systems.</li>
+                            <li>• Regulatory Compliance: Adhere to industry and government regulations.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Maintenance & Best Practices -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">4. Cold Storage Maintenance & Best Practices</h2>
+                        <ul class="list-unstyled">
+                            <li>• Regularly check insulation and door seals.</li>
+                            <li>• Monitor temperature consistency to prevent spoilage.</li>
+                            <li>• Schedule preventive maintenance for refrigeration units.</li>
+                            <li>• Train staff on proper storage and handling procedures.</li>
+                            <li>• Ensure condenser outdoor is not clogged with dirt or nylon.</li>
+                            <li>• Ensure to key in into available scheduled maintenance plans for optimal experience.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Energy Efficiency -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">5. Energy Efficiency in Cold Storage Systems</h2>
+                        <ul class="list-unstyled">
+                            <li>• Use high-quality insulation material to prevent energy loss.</li>
+                            <li>• Implement smart refrigeration technology for automated energy management.</li>
+                            <li>• Consider inverter refrigeration system that leverage on solar-powered or hybrid cooling systems for sustainability.</li>
+                            <li>• Regularly maintain equipment to prevent inefficiencies.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Financing -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">6. Financing and Investment Opportunities in Cold Storage</h2>
+                        <ul class="list-unstyled">
+                            <li>• Explore government grants and incentives for cold storage businesses.</li>
+                            <li>• Conduct a cost-benefit analysis before investment.</li>
+                            <li>• Consider leasing vs. buying refrigeration equipment.</li>
+                            <li>• Look into financing options such as business loans or investor partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cold Chain Logistics -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">7. Cold Chain Logistics: Enhancing Supply Chain Efficiency</h2>
+                        <ul class="list-unstyled">
+                            <li>• Use refrigerated trucks and containers for long-haul transportation.</li>
+                            <li>• Implement GPS tracking and IoT sensors for real-time temperature monitoring.</li>
+                            <li>• Develop strategic partnerships with logistics providers to optimize distribution.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Future Trends -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">8. Future Trends in Cold Storage and Refrigeration</h2>
+                        <ul class="list-unstyled">
+                            <li>• Smart Refrigeration: AI-driven cooling systems for optimal efficiency.</li>
+                            <li>• Sustainability: Adoption of eco-friendly refrigerants and solar-powered systems.</li>
+                            <li>• Automation: Robotics and AI for efficient inventory management.</li>
+                            <li>• Evaporative Cooling System: This is a paradigm change from the use of vapour compression cooling system that is hitherto known and used widely. However, evaporative cooling system using desiccant is cheaper, efficient, low energy consuming, lesser maintenance costs and highly reliable and sustainable.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQs -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">9. Frequently Asked Questions (FAQs)</h2>
+                        
+                        <h3 class="h5 mb-3">How do I determine the best cold storage system for my business?</h3>
+                        <p>Assess your industry needs, storage capacity, and energy and temperature requirements. Consult with De Koolar experts for tailored recommendations.</p>
+
+                        <h3 class="h5 mb-3">What are the best temperature settings for different perishable goods?</h3>
+                        <ul class="list-unstyled">
+                            <li>• Dairy: 1°C to 4°C</li>
+                            <li>• Frozen Foods: -18°C to -22°C</li>
+                            <li>• Vaccines & Pharmaceuticals: 2°C to 8°C</li>
+                            <li>• Poultry & Meats: -30°C to -40°C</li>
+                        </ul>
+
+                        <h3 class="h5 mb-3">How can I reduce operating costs for my cold storage facility?</h3>
+                        <p>Implement energy-efficient technology – Inverter Refrigeration System, use high-quality insulation, and schedule regular maintenance.</p>
+
+                        <h3 class="h5 mb-3">What maintenance services does De Koolar Nigeria Limited provide?</h3>
+                        <p>We offer consultation, design, manufacturing, installation, cold storage systems upgrade, routine maintenance, and emergency repairs for all cold storage systems.</p>
+
+                        <h3 class="h5 mb-3">How do I get a customized cold storage solution for my business?</h3>
+                        <p>Contact De Koolar for a consultation, and our team will design a solution tailored to your needs.</p>
+                    </div>
+                </div>
+
+                <!-- Conclusion -->
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="h3 mb-3">Conclusion</h2>
+                        <p>At De Koolar Nigeria Limited, we provide end-to-end solutions for cold storage, refrigeration, and temperature-controlled logistics. Whether you're looking to build a new facility, upgrade existing systems, or optimize your operations, our team of experts is here to guide you.</p>
+                        <p>For tailored solutions and expert consultation, contact us today and take your business to the next level with reliable and efficient cold storage technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,495 @@
+{% extends "templates/web.html" %}
+{% block title %}Allamanda Cold Room Project - DeKoolar{% endblock %}
+
+{% block style %}
+<style>
+    :root {
+        --primary: #003399;
+        --secondary: #006837;
+        --accent: #C5A572;
+        --hospitality-gold: #D4AF37;
+        --text-dark: #333333;
+        --text-light: #666666;
+        --bg-light: #f8f9fa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --radius-sm: 8px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(0, 51, 153, 0.85), rgba(212, 175, 55, 0.85)), url('/files/allamanda-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 140px 0;
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.2) 100%);
+    }
+
+    .hero .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        animation: fadeInDown 0.8s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.3rem;
+        max-width: 800px;
+        margin: 0 auto;
+        line-height: 1.6;
+        opacity: 0.95;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+
+    /* Overview Section */
+    .overview {
+        padding: 100px 0;
+        background: var(--bg-light);
+    }
+
+    .overview-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .overview-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: var(--text-dark);
+        position: relative;
+    }
+
+    .overview-content h2::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: var(--hospitality-gold);
+        margin-top: 20px;
+        border-radius: 2px;
+    }
+
+    .overview-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+
+    .overview-image {
+        position: relative;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+    }
+
+    .overview-image img {
+        width: 100%;
+        height: auto;
+        transition: var(--transition);
+    }
+
+    .overview-image:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Features Section */
+    .features {
+        padding: 100px 0;
+        background: var(--white);
+    }
+
+    .features h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-dark);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .feature-card {
+        background: var(--bg-light);
+        padding: 40px;
+        border-radius: var(--radius-md);
+        text-align: center;
+        transition: var(--transition);
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+        background: var(--white);
+    }
+
+    .feature-card i {
+        font-size: 3rem;
+        color: var(--hospitality-gold);
+        margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+    }
+
+    .feature-card p {
+        color: var(--text-light);
+        line-height: 1.7;
+    }
+
+    /* Specifications Section */
+    .specs {
+        padding: 100px 0;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: var(--white);
+        position: relative;
+    }
+
+    .specs::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/files/pattern.png');
+        opacity: 0.1;
+    }
+
+    .specs .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .specs h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+    }
+
+    .specs-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .spec-item {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 30px;
+        border-radius: var(--radius-md);
+        transition: var(--transition);
+    }
+
+    .spec-item:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .spec-item h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: var(--hospitality-gold);
+    }
+
+    .spec-item p {
+        opacity: 0.9;
+        line-height: 1.7;
+    }
+
+    /* Gallery Section */
+    .gallery {
+        padding: 100px 0;
+        background: var(--bg-light);
+    }
+
+    .gallery h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 60px;
+        color: var(--text-dark);
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+
+    .gallery-item {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        aspect-ratio: 16/9;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /* CTA Section */
+    .cta {
+        padding: 120px 0;
+        text-align: center;
+        background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(212, 175, 55, 0.9)), url('/files/allamanda-cta.jpg');
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+        position: relative;
+    }
+
+    .cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .cta .container {
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta h2 {
+        font-size: 2.8rem;
+        margin-bottom: 30px;
+        font-weight: 700;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .btn-white {
+        background: var(--white);
+        color: var(--primary);
+        padding: 18px 48px;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        transition: var(--transition);
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .btn-white:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        background: var(--hospitality-gold);
+        color: var(--white);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .specs-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .overview-grid {
+            grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        .overview-content h2,
+        .features h2,
+        .specs h2,
+        .gallery h2,
+        .cta h2 {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Allamanda Cold Room Project</h1>
+        <p>State-of-the-art cold storage solutions for hospitality excellence</p>
+    </div>
+</section>
+
+<!-- Overview Section -->
+<section class="overview">
+    <div class="container">
+        <div class="overview-grid">
+            <div class="overview-content">
+                <h2>Project Overview</h2>
+                <p>DeKoolar collaborated with Allamanda to design and implement a comprehensive cold storage solution that meets the demanding requirements of a luxury hospitality establishment.</p>
+                <p>Our custom-designed cold rooms ensure optimal preservation of fresh produce, meats, and perishables while maximizing energy efficiency and operational convenience.</p>
+            </div>
+            <div class="overview-image">
+                <img src="/files/allamanda-overview.jpg" alt="Allamanda Cold Room Project">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+    <div class="container">
+        <h2>Key Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-thermometer-half"></i>
+                <h3>Temperature Control</h3>
+                <p>Multi-zone temperature management with precise digital controls for different food categories.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-door-open"></i>
+                <h3>Easy Access</h3>
+                <p>Wide doorways and organized storage systems for efficient loading and retrieval.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Food Safety</h3>
+                <p>HACCP compliant systems with advanced monitoring and recording features.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Energy Efficient</h3>
+                <p>Smart power management and high-efficiency cooling systems.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Remote Monitoring</h3>
+                <p>24/7 temperature monitoring with mobile alerts and reporting.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-fan"></i>
+                <h3>Air Circulation</h3>
+                <p>Advanced airflow design for uniform temperature distribution.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specifications Section -->
+<section class="specs">
+    <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="specs-grid">
+            <div class="spec-item">
+                <h3>Cold Room Dimensions</h3>
+                <p>Multiple units ranging from 20m² to 50m² with customizable shelving configurations.</p>
+            </div>
+            <div class="spec-item">
+                <h3>Temperature Ranges</h3>
+                <p>Adjustable from -5°C to +15°C with ±0.5°C precision control.</p>
+            </div>
+            <div class="spec-item">
+                <h3>Power Systems</h3>
+                <p>Three-phase power supply with backup generator compatibility and UPS integration.</p>
+            </div>
+            <div class="spec-item">
+                <h3>Monitoring System</h3>
+                <p>Cloud-based monitoring with real-time alerts and historical data logging.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery">
+    <div class="container">
+        <h2>Project Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="/files/allamanda-gallery-1.jpg" alt="Cold Room Interior">
+            </div>
+            <div class="gallery-item">
+                <img src="/files/allamanda-gallery-2.jpg" alt="Control Systems">
+            </div>
+            <div class="gallery-item">
+                <img src="/files/allamanda-gallery-3.jpg" alt="Storage Organization">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta">
+    <div class="container">
+        <h2>Elevate Your Cold Storage</h2>
+        <p>Ready to implement a professional-grade cold storage solution for your hospitality business? Let's discuss your requirements.</p>
+        <a href="/mainmenu/request-quote.html" class="btn-white" onclick="openQuoteForm(); return false;">Request Consultation</a>
+    </div>
+</section>
+{% endblock %} 

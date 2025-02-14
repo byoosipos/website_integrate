@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar quality management - Our commitment to excellence through rigorous quality control processes, certifications, and standards.">
+    <title>Quality Management - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/quality-management-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-alt {
+            background-color: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        /* Philosophy Cards */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .philosophy-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .philosophy-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .philosophy-card i {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        /* Process Steps */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .process-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .process-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .process-list li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .process-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content-section p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+        }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .process-card {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/corporate/about-us">Corporate</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Quality Management</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Quality Management</h1>
+            <p class="hero-subtitle">With over two decades of industry-leading experience, we are committed to delivering exceptional products and services that exceed our clients' expectations.</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="content-section">
+                <p>At De Koolar Nigeria Limited, quality is at the core of everything we do. Our focus on quality management ensures that every project, from design and manufacturing to installation and maintenance, is carried out with precision, reliability, and the highest standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Quality Management Philosophy</h2>
+                <p>Quality is a continuous journey, not a destination</p>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-card">
+                    <h3><i class="fas fa-users"></i> Customer-Centric Focus</h3>
+                    <p>Every decision we make is guided by the unique needs of our clients. We listen to their feedback and tailor our offerings to ensure complete satisfaction.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3><i class="fas fa-lightbulb"></i> Innovation & Improvement</h3>
+                    <p>Our team is consistently innovating, exploring new technologies, and improving our processes to deliver the most advanced and efficient solutions.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3><i class="fas fa-certificate"></i> Industry Standards</h3>
+                    <p>We adhere to the highest industry standards, both locally and globally, ensuring compliance with all relevant regulations and certifications.</p>
+                </div>
+                <div class="philosophy-card">
+                    <h3><i class="fas fa-user-tie"></i> Skilled Workforce</h3>
+                    <p>Our team of experienced engineers, technicians, and support staff receives continuous training to maintain our high-quality standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Quality Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Quality Control in Manufacturing</h2>
+                <p>State-of-the-art facilities with advanced machinery and technology</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>Raw Material Inspection</h3>
+                    <p>We carefully select and inspect all raw materials before they enter into production process, ensuring only the highest-quality materials are used.</p>
+                </div>
+                <div class="process-card">
+                    <h3>In-Process Monitoring</h3>
+                    <p>Throughout manufacturing, we implement regular checks and controls to monitor the quality of each component, ensuring compliance with specifications.</p>
+                </div>
+                <div class="process-card">
+                    <h3>Final Testing</h3>
+                    <p>Every product undergoes comprehensive final testing, including performance tests, safety checks, and durability assessments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Quality Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>Installation & Maintenance Excellence</h2>
+                <p>Quality service delivery at every touchpoint</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>Professional Installation</h3>
+                    <ul class="process-list">
+                        <li>Correct installation procedures</li>
+                        <li>System optimization</li>
+                        <li>Performance verification</li>
+                        <li>Safety compliance</li>
+                    </ul>
+                </div>
+                <div class="process-card">
+                    <h3>Maintenance & Repairs</h3>
+                    <ul class="process-list">
+                        <li>Preventive maintenance</li>
+                        <li>Emergency repairs</li>
+                        <li>System upgrades</li>
+                        <li>Performance monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continuous Improvement Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Feedback & Improvement</h2>
+                <p>Driving excellence through customer insights</p>
+            </div>
+            <div class="content-section">
+                <p>We understand that customer satisfaction is key to maintaining our leadership in the industry. We actively seek feedback from our clients through surveys, reviews, and direct communication to assess the performance of our products and services.</p>
+                <p>This valuable input is used to fine-tune our offerings, further improve our quality management processes, and drive the next phase of innovation at De Koolar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="content-section">
+                <h3>Our Commitment to Excellence</h3>
+                <p>At De Koolar Nigeria Limited, quality is the foundation upon which our success is built. From our products to our services, we continuously strive to maintain and enhance the highest standards of quality management.</p>
+                <p>Whether we are designing, manufacturing, installing, or maintaining HVAC/R systems, our commitment to excellence ensures that we consistently deliver the most reliable and efficient solutions to our clients. When you choose De Koolar, you choose quality, innovation, and a lasting partnership in meeting your HVAC/R needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

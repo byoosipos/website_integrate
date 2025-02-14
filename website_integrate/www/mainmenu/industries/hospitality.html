@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Hospitality & Restaurant Solutions - Specialized cooling and HVAC solutions for hotels, restaurants, and food service businesses. Commercial refrigeration, kitchen cooling, and dining area climate control.">
+    <title>Hospitality & Restaurant Solutions - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Root Variables and Base Styles */
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)),
+                        url('/files/hospitality-hero.jpg') center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .hero-button {
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .hero-button.primary {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .hero-button.secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        /* Solutions Section */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .solution-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .solution-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .solution-features li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .solution-features li:before {
+            content: '✓';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            background: var(--light-gray);
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .case-study-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .case-study-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .case-study-content {
+            padding: 30px;
+        }
+
+        .case-study-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Compliance Section */
+        .compliance-section {
+            background: var(--white);
+            padding: 80px 0;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .compliance-card {
+            text-align: center;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background: var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .compliance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .compliance-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(rgba(0, 51, 153, 0.05), rgba(0, 51, 153, 0.05));
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-content {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .author-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)),
+                        url('/files/cta-bg.jpg') center/cover;
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .cta-button.primary {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .solutions-grid,
+            .case-studies-grid,
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .case-study-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/industries">Industries</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Hospitality & Restaurants</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Hospitality & Restaurants</h1>
+            <p class="hero-subtitle">Complete cooling solutions for hotels, restaurants, and food service</p>
+            <div class="hero-buttons">
+                <a href="#" class="hero-button primary" onclick="openQuoteForm(); return false;">Get a Quote</a>
+                <a href="/mainmenu/projects" class="hero-button secondary">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Solutions</h2>
+                <p>Comprehensive cooling solutions for the hospitality industry</p>
+            </div>
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Kitchen Cooling</h3>
+                        <ul class="solution-features">
+                            <li>Walk-in coolers</li>
+                            <li>Blast chillers</li>
+                            <li>Prep area cooling</li>
+                            <li>Kitchen ventilation</li>
+                        </ul>
+                        <a href="/mainmenu/services/cold-rooms" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Hotel Solutions</h3>
+                        <ul class="solution-features">
+                            <li>Guest room HVAC</li>
+                            <li>Public area cooling</li>
+                            <li>Energy management</li>
+                            <li>Smart controls</li>
+                        </ul>
+                        <a href="/mainmenu/services/hvac" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <div class="solution-content">
+                        <h3>Dining & Bar</h3>
+                        <ul class="solution-features">
+                            <li>Wine storage</li>
+                            <li>Display chillers</li>
+                            <li>Ice machines</li>
+                            <li>Bar refrigeration</li>
+                        </ul>
+                        <a href="/mainmenu/services/ice-block" class="solution-link">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="section case-studies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Real results from our hospitality and restaurant clients</p>
+            </div>
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="case-study-content">
+                        <h3>Luxury Hotel Complex</h3>
+                        <p>Complete HVAC and refrigeration solution for a 5-star hotel.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label">Rooms</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">30%</div>
+                                <div class="stat-label">Energy Savings</div>
+                            </div>
+                        </div>
+                        <a href="/mainmenu/projects" class="case-study-link">View Case Study</a>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="case-study-content">
+                        <h3>Restaurant Chain</h3>
+                        <p>Standardized kitchen cooling solutions across multiple locations.</p>
+                        <div class="case-study-stats">
+                            <div class="stat">
+                                <div class="stat-number">15</div>
+                                <div class="stat-label">Locations</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">24/7</div>
+                                <div class="stat-label">Support</div>
+                            </div>
+                        </div>
+                        <a href="/mainmenu/projects" class="case-study-link">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industry Standards & Compliance</h2>
+                <p>Meeting hospitality and food service requirements</p>
+            </div>
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Food Safety</h3>
+                    <p>HACCP compliant cooling systems</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Hotel Standards</h3>
+                    <p>International hospitality standards</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Energy Efficiency</h3>
+                    <p>Green building certification ready</p>
+                </div>
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>ISO 9001 certified systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Client Testimonials</h2>
+                <p>What our hospitality and restaurant clients say about us</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "DeKoolar transformed our hotel's climate control system. Our guests consistently praise the comfort of their rooms, and we've seen significant energy savings."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="author-info">
+                        <h4>James Okafor</h4>
+                        <p>General Manager, Grand Plaza Hotel</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    "Their kitchen cooling solutions are exceptional. The reliability and efficiency of their systems have helped us maintain consistent food quality across all our locations."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="author-info">
+                        <h4>Chef Aisha Mohammed</h4>
+                        <p>Executive Chef, Fine Dining Group</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Enhance Your Facility?</h2>
+                <p>Contact us today to discuss your hospitality cooling requirements.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button primary" onclick="openQuoteForm(); return false;">Get a Quote</a>
+                    <a href="/mainmenu/contact" class="cta-button secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

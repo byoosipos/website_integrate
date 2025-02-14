@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Cold Room Projects - Explore our portfolio of custom cold storage solutions. From commercial cold rooms to industrial freezer facilities, discover our expertise in cold chain solutions.">
+    <title>Cold Room Projects - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/COLD ROOM STORAGE 1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .project-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: var(--light-gray);
+            color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-features h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .features-list {
+            list-style: none;
+        }
+
+        .features-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark-gray);
+        }
+
+        .features-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--light-gray);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 50vh;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .project-card {
+                margin: 0 1rem;
+            }
+
+            .project-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Include Header -->
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/mainmenu/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/projects">Projects</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Cold Room Projects</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Cold Room Projects</h1>
+            <p class="hero-subtitle">Custom cold storage solutions for every industry</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Cold Room Projects</h2>
+                <p>Explore our successful cold storage implementations across various industries</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Mega Cold Storage Project -->
+                <div class="project-card" id="mega-storage">
+                    <div class="project-image" style="background-image: url('/files/COLD ROOM STORAGE 1.png');"></div>
+                    <div class="project-content">
+                        <h3>Mega Cold Storage Facility</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Lagos</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-ruler-combined"></i> 500m²</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Food Storage</span>
+                            <span class="project-tag">Multi-Zone</span>
+                            <span class="project-tag">Commercial</span>
+                        </div>
+                        <p class="project-description">Large-scale cold storage facility designed for a major food distribution company, featuring multiple temperature zones and state-of-the-art monitoring systems.</p>
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul class="features-list">
+                                <li>Multiple temperature zones (-18°C to +4°C)</li>
+                                <li>Advanced monitoring and control systems</li>
+                                <li>Energy-efficient design</li>
+                                <li>24/7 remote monitoring</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="project-link">View Case Study</a>
+                    </div>
+                </div>
+
+                <!-- UNICEF Medical Storage -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/files/UNICEF 1 (1).jpg');"></div>
+                    <div class="project-content">
+                        <h3>UNICEF Medical Storage Facility</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Abuja</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-ruler-combined"></i> 300m²</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Medical Storage</span>
+                            <span class="project-tag">Temperature Control</span>
+                            <span class="project-tag">Healthcare</span>
+                        </div>
+                        <p class="project-description">Specialized cold storage facility for medical supplies and vaccines, featuring precise temperature control and backup systems.</p>
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul class="features-list">
+                                <li>Precise temperature control (2°C to 8°C)</li>
+                                <li>Backup power systems</li>
+                                <li>GMP compliant design</li>
+                                <li>Temperature mapping and validation</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="project-link">View Case Study</a>
+                    </div>
+                </div>
+
+                <!-- Westcare Facility -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/files/WESTCARE (1).jpg');"></div>
+                    <div class="project-content">
+                        <h3>Westcare 3-in-1 Facility</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Lagos</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-ruler-combined"></i> 400m²</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Healthcare</span>
+                            <span class="project-tag">Multi-Zone</span>
+                            <span class="project-tag">Pharmaceutical</span>
+                        </div>
+                        <p class="project-description">Comprehensive cold storage solution for a healthcare facility, featuring multiple temperature zones and advanced monitoring systems.</p>
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul class="features-list">
+                                <li>Three distinct temperature zones</li>
+                                <li>Automated monitoring system</li>
+                                <li>Compliance with healthcare standards</li>
+                                <li>Energy-efficient operation</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="project-link">View Case Study</a>
+                    </div>
+                </div>
+
+                <!-- Allamanda Project -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('/files/ALLAMANDA 1 (1).jpg');"></div>
+                    <div class="project-content">
+                        <h3>Allamanda Cold Storage</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Port Harcourt</span>
+                            <span><i class="fas fa-calendar"></i> 2023</span>
+                            <span><i class="fas fa-ruler-combined"></i> 250m²</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Commercial</span>
+                            <span class="project-tag">Food Storage</span>
+                            <span class="project-tag">Retail</span>
+                        </div>
+                        <p class="project-description">Custom-designed cold room solution for commercial food storage, featuring energy-efficient systems and precise temperature control.</p>
+                        <div class="project-features">
+                            <h4>Key Features</h4>
+                            <ul class="features-list">
+                                <li>Energy-efficient cooling system</li>
+                                <li>Digital temperature controls</li>
+                                <li>High-density storage design</li>
+                                <li>Quick-recovery door system</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="project-link">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include Footer -->
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            document.querySelector('.loading').style.display = 'none';
+        });
+    </script>
+</body>
+</html> 

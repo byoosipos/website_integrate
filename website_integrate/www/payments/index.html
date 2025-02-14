@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Byoosi.com Payment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #1f2937;
+            --border-color: #e5e7eb;
+            --success-bg: #dcfce7;
+            --success-text: #166534;
+            --error-bg: #fee2e2;
+            --error-text: #991b1b;
+            --helper-text-color: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .business-info {
+            text-align: center;
+            color: var(--helper-text-color);
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .input-group {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .currency-indicator {
+            position: absolute;
+            right: 12px;
+            color: var(--helper-text-color);
+            font-size: 0.875rem;
+            pointer-events: none;
+        }
+
+        .helper-text {
+            font-size: 0.75rem;
+            color: var(--helper-text-color);
+        }
+
+        label {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--text-color);
+        }
+
+        input {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        input::placeholder {
+            color: #9ca3af;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .success {
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            display: block;
+        }
+
+        .error {
+            background-color: var(--error-bg);
+            color: var(--error-text);
+            display: block;
+        }
+
+        .loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .payment-footer {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--helper-text-color);
+        }
+
+        .payment-footer p {
+            margin: 0.25rem 0;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+        .carrier-indicator {
+            position: absolute;
+            right: 12px;
+            color: var(--helper-text-color);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        input[type="tel"]:valid + .carrier-indicator {
+            color: var(--success-text);
+        }
+
+        input[type="tel"]:invalid + .carrier-indicator {
+            color: var(--error-text);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Byoosi.com Payment</h1>
+        <p class="business-info">BYOOSI.COM LIMITED</p>
+        <form id="paymentForm" class="payment-form">
+            <div class="form-group">
+                <label for="phone">Mobile Money Number</label>
+                <div class="input-group">
+                    <input type="tel" id="phone" name="phone" required 
+                        placeholder="+256701234567" 
+                        pattern="^\+256(70|74|75|76|77|78)[0-9]{7}$" 
+                        maxlength="13">
+                    <span id="phoneCarrier" class="carrier-indicator"></span>
+                </div>
+                <small class="helper-text">Format: +256775123456 (MTN) or +256753123456 (Airtel)</small>
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Amount (UGX)</label>
+                <div class="input-group">
+                    <input type="number" id="amount" name="amount" 
+                        required min="500" step="100" 
+                        placeholder="Enter amount in UGX">
+                    <span class="currency-indicator">UGX</span>
+                </div>
+                <small class="helper-text">Minimum amount: UGX 500</small>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Payment Description</label>
+                <input type="text" id="description" name="description" 
+                    placeholder="What's this payment for?">
+                <small class="helper-text">Optional: Add a note for your payment</small>
+            </div>
+
+            <button type="submit" id="submitPayment" class="btn-primary">Pay Now</button>
+        </form>
+
+        <div id="statusMessage" class="status-message"></div>
+        
+        <footer class="payment-footer">
+            <p>Support: info@byoosi.com | +256 779728077</p>
+            <p>Powered by Relworx Payment Gateway</p>
+        </footer>
+    </div>
+
+    <script>
+        // Configuration
+        const RELWORX_CONFIG = {
+            API_KEY: '45ecb53c81fead.Rta8MNVQQhDS7s1J_hqIYw',
+            ACCOUNT_NO: 'RELC23A5AB148',
+            API_URL: '/api/method/website_integrate.www.payments.payment_api',
+            REDIRECT_URL: window.location.origin + '/payment-success',
+            CANCEL_URL: window.location.origin + '/payment-cancelled',
+            BUSINESS_NAME: 'BYOOSI.COM LIMITED',
+            WEBHOOK_URL: window.location.origin + '/webhook'
+        };
+
+        // Payment Processing Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const paymentForm = document.getElementById('paymentForm');
+            const submitButton = document.getElementById('submitPayment');
+            const statusMessage = document.getElementById('statusMessage');
+            const amountInput = document.getElementById('amount');
+            const phoneInput = document.getElementById('phone');
+            const phoneCarrier = document.getElementById('phoneCarrier');
+
+            // Format amount with commas for display
+            function formatAmount(amount) {
+                return amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            // Format phone number to international format for Uganda
+            function formatPhoneNumber(phone) {
+                let cleaned = phone.replace(/[^\d+]/g, '');
+                
+                // If number starts with 0, replace with +256
+                if (cleaned.startsWith('0')) {
+                    cleaned = '+256' + cleaned.substring(1);
+                }
+                // If number starts with 256, add +
+                else if (cleaned.startsWith('256')) {
+                    cleaned = '+' + cleaned;
+                }
+                // If number doesn't have any prefix, add +256
+                else if (!cleaned.startsWith('+')) {
+                    cleaned = '+256' + cleaned;
+                }
+
+                // Extract the carrier code (70,74,75,76,77,78)
+                const carrierCode = cleaned.substring(4, 6);
+                const mtnPrefixes = ['76', '77', '78'];
+                const airtelPrefixes = ['70', '74', '75'];
+                
+                if (cleaned.length !== 13) {
+                    throw new Error('Phone number must be 12 digits with + prefix');
+                }
+                
+                if (![...mtnPrefixes, ...airtelPrefixes].includes(carrierCode)) {
+                    throw new Error('Only MTN (76, 77, 78) and Airtel (70, 74, 75) numbers are supported');
+                }
+                
+                return cleaned;
+            }
+
+            // Identify carrier from phone number
+            function identifyCarrier(phone) {
+                // Extract carrier code after +256
+                const carrierCode = phone.replace(/[^\d+]/g, '').substring(4, 6);
+                if (['76', '77', '78'].includes(carrierCode)) return 'MTN';
+                if (['70', '74', '75'].includes(carrierCode)) return 'Airtel';
+                return '';
+            }
+
+            // Validate phone number format
+            phoneInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/[^\d+]/g, '');
+                
+                // Ensure + is always at the start
+                if (!value.startsWith('+') && value.length > 0) {
+                    value = '+' + value;
+                }
+                
+                // Update input value
+                e.target.value = value;
+                
+                try {
+                    if (value.length === 13) {
+                        const formattedNumber = formatPhoneNumber(value);
+                        const carrier = identifyCarrier(formattedNumber);
+                        phoneCarrier.textContent = carrier;
+                        e.target.setCustomValidity('');
+                        showMessage(`Valid ${carrier} number`, 'success');
+                    } else {
+                        phoneCarrier.textContent = '';
+                        e.target.setCustomValidity('Phone number must be in format +256XXXXXXXXX');
+                        if (value.length > 4) {
+                            const carrier = identifyCarrier(value);
+                            if (carrier) {
+                                showMessage(`Enter complete ${carrier} number`, 'error');
+                            }
+                        }
+                    }
+                } catch (error) {
+                    phoneCarrier.textContent = '';
+                    e.target.setCustomValidity(error.message);
+                    showMessage(error.message, 'error');
+                }
+            });
+
+            // Format amount on input
+            amountInput.addEventListener('input', (e) => {
+                const value = parseFloat(e.target.value);
+                if (value < 500) {
+                    e.target.setCustomValidity('Amount must be at least UGX 500');
+                } else {
+                    e.target.setCustomValidity('');
+                }
+            });
+
+            // Generate unique reference (8-36 characters)
+            function generateReference() {
+                const timestamp = Date.now().toString(36);
+                const random = Math.random().toString(36).substring(2, 6);
+                return `REL${timestamp}${random}`.toUpperCase();
+            }
+
+            // Handle form submission
+            paymentForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                try {
+                    const phoneNumber = formatPhoneNumber(phoneInput.value);
+                    const amount = parseFloat(amountInput.value);
+                    
+                    if (amount < 500) {
+                        throw new Error('Amount must be at least UGX 500');
+                    }
+
+                    // Disable form while processing
+                    submitButton.disabled = true;
+                    submitButton.classList.add('loading');
+                    submitButton.textContent = 'Processing...';
+                    
+                    const formData = {
+                        account_no: RELWORX_CONFIG.ACCOUNT_NO,
+                        reference: generateReference(),
+                        msisdn: phoneNumber,
+                        currency: 'UGX',
+                        amount: amount,
+                        description: document.getElementById('description').value || 'Payment Request'
+                    };
+
+                    // Make API call through Frappe endpoint
+                    const response = await fetch(`${RELWORX_CONFIG.API_URL}.request_payment`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message || 'Payment request failed');
+                    }
+
+                    const data = await response.json();
+
+                    if (data.success) {
+                        // Store references for tracking
+                        localStorage.setItem('paymentReference', formData.reference);
+                        localStorage.setItem('internalReference', data.internal_reference);
+                        
+                        // Show processing message
+                        showMessage(`${data.message} Please check your phone for the mobile money prompt.`, 'success');
+                        
+                        // Start polling for payment status
+                        pollPaymentStatus(formData.reference);
+                    } else {
+                        throw new Error(data.message || 'Payment request failed. Please try again.');
+                    }
+                    
+                } catch (error) {
+                    showMessage(error.message, 'error');
+                    submitButton.disabled = false;
+                    submitButton.classList.remove('loading');
+                    submitButton.textContent = 'Pay Now';
+                }
+            });
+
+            // Poll payment status
+            async function pollPaymentStatus(reference) {
+                let attempts = 0;
+                const maxAttempts = 20; // 20 attempts * 3 seconds = 60 seconds timeout
+                
+                const checkStatus = async () => {
+                    try {
+                        const response = await fetch(`${RELWORX_CONFIG.API_URL}.check_status?reference=${reference}`, {
+                            method: 'GET',
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (!response.ok) {
+                            const errorData = await response.json();
+                            throw new Error(errorData.message || 'Failed to check payment status');
+                        }
+
+                        const data = await response.json();
+
+                        if (data.success) {
+                            switch(data.status) {
+                                case 'COMPLETED':
+                                    showMessage('Payment successful! Thank you.', 'success');
+                                    paymentForm.reset();
+                                    submitButton.disabled = false;
+                                    submitButton.classList.remove('loading');
+                                    submitButton.textContent = 'Pay Now';
+                                    return;
+                                case 'FAILED':
+                                    throw new Error('Payment failed: ' + data.message);
+                                case 'CANCELLED':
+                                    throw new Error('Payment was cancelled');
+                                case 'PENDING':
+                                    if (attempts < maxAttempts) {
+                                        attempts++;
+                                        setTimeout(checkStatus, 3000); // Check every 3 seconds
+                                    } else {
+                                        throw new Error('Payment timeout. Please check your transaction status later.');
+                                    }
+                                    break;
+                                default:
+                                    throw new Error('Unknown payment status');
+                            }
+                        } else {
+                            throw new Error(data.message || 'Failed to check payment status');
+                        }
+                    } catch (error) {
+                        showMessage(error.message, 'error');
+                        submitButton.disabled = false;
+                        submitButton.classList.remove('loading');
+                        submitButton.textContent = 'Pay Now';
+                    }
+                };
+
+                // Start checking status
+                setTimeout(checkStatus, 3000);
+            }
+
+            function showMessage(message, type) {
+                statusMessage.textContent = message;
+                statusMessage.className = 'status-message ' + type;
+            }
+        });
+    </script>
+</body>
+</html> 

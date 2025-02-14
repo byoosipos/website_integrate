@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeKoolar Nigeria Limited - Industrial Cooling Solutions</title>
+    <link rel="icon" type="image/jpg" href="/files/FALCON-IMAGE-LOGO.jpg">
+    <link rel="shortcut icon" type="image/jpg" href="/files/FALCON-IMAGE-LOGO.jpg">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f8f9fa;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 10px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Global Styles */
+        /* Card Styles */
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+        .whatsapp-float i {
+            margin-top: 16px;
+        }
+        .call-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 110px;
+            right: 40px;
+            background-color: #34b7f1;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+        .call-float i {
+            margin-top: 16px;
+        }
+        /* Social Share Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .share-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .share-btn.facebook {
+            background: #3b5998;
+        }
+
+        .share-btn.twitter {
+            background: #1da1f2;
+        }
+
+        .share-btn.linkedin {
+            background: #0077b5;
+        }
+
+        .share-btn.whatsapp {
+            background: #25d366;
+        }
+
+        .share-btn i {
+            font-size: 16px;
+        }
+
+        /* CEO Message Section Styles */
+        .ceo-message {
+            padding: 6rem 0;
+            background: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ceo-message .section-title {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .ceo-message .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        .message-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .ceo-photo-container {
+            position: relative;
+        }
+
+        .ceo-photo {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .ceo-photo:hover {
+            transform: translateY(-5px);
+        }
+
+        .message-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .message-content p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .ceo-signature {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+            text-align: right;
+        }
+
+        .ceo-signature p {
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        .ceo-signature h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .ceo-signature .designation {
+            color: var(--secondary-color);
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 992px) {
+            .message-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .ceo-photo-container {
+                text-align: center;
+            }
+
+            .ceo-photo {
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ceo-message {
+                padding: 4rem 0;
+            }
+
+            .message-content {
+                padding: 2rem;
+            }
+
+            .ceo-message .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Featured Solutions Styles */
+        .featured-solutions {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .featured-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .featured-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-card-content {
+            padding: 2rem;
+        }
+
+        .featured-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .featured-card p {
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .partner-logos {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .partner-logos img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .partner-logos img:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1200px) {
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .featured-card img {
+                height: 250px;
+            }
+
+            .partner-logos img {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Keep hero styles but without header height dependencies */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 51, 153, 0.9)), 
+                        url('/mainmenu/assets/images/hero-bg.jpg') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+        }
+
+        .hero-slider {
+            height: 100vh;
+            max-height: 800px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .hero-slide {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding: 3rem 2rem;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+            text-align: left;
+            z-index: 2;
+            padding: 2rem 0;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(0.95);
+        }
+
+        .hero-slide.active .hero-image img {
+            transform: scale(1);
+        }
+
+        .hero-text h1,
+        .hero-text p,
+        .hero-buttons,
+        .share-buttons {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hero-slide.active .hero-text h1 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.2s;
+        }
+
+        .hero-slide.active .hero-text p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.4s;
+        }
+
+        .hero-slide.active .hero-buttons {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.6s;
+        }
+
+        .hero-slide.active .share-buttons {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.8s;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 90%;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .hero-buttons .btn {
+            min-width: 160px;
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-buttons .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+        }
+
+        .hero-buttons .btn-outline {
+            background-color: transparent;
+            color: var(--white) !important;
+            border: 2px solid var(--white);
+        }
+
+        .hero-buttons .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons .btn-primary:hover {
+            background-color: #d4b686;
+        }
+
+        .hero-buttons .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .share-btn {
+            flex: 0 0 auto;
+            padding: 0.625rem 1.25rem;
+            font-size: 0.9rem;
+            min-width: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .hero-slide {
+                gap: 3rem;
+                padding: 2rem;
+            }
+
+            .hero-text {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-slide {
+                position: relative;
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-text {
+                max-width: 600px;
+                padding: 0;
+                margin: 0 auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .share-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .hero-image img {
+                max-width: 500px;
+                max-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slide {
+                padding: 2rem 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .share-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+            }
+
+            .hero-image img {
+                max-width: 400px;
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image img {
+                max-width: 300px;
+                max-height: 300px;
+            }
+
+            .share-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .prev-slide,
+        .next-slide {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .prev-slide:hover,
+        .next-slide:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .slide-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slide-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: background 0.3s ease;
+        }
+
+        .slide-dot.active {
+            background: var(--white);
+        }
+
+        /* Statistics Section Styles */
+        .statistics {
+            background: linear-gradient(90deg, #003399 0%, #006837 100%);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stat-card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card i {
+            font-size: 2.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 500;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                flex-direction: column;
+                gap: 2rem;
+                padding: 2rem 1rem;
+            }
+
+            .stat-card {
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .stat-label {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-slider">
+                <div class="hero-content">
+                    {% for slide in hero_slides %}
+                    <div class="hero-slide {% if loop.index0 == 0 %}active{% endif %}" data-slide="{{ loop.index0 }}">
+                        <div class="hero-text">
+                            <h1>{{ slide.title }}</h1>
+                            <p>{{ slide.blog_intro }}</p>
+                            <div class="hero-buttons">
+                                <a href="/request-for-quotation" class="btn btn-primary">Request Quote</a>
+                                <a href="/mainmenu/corporate/contact" class="btn btn-outline" style="color: white;">Contact Sales</a>
+                            </div>
+                            <div class="share-buttons">
+                                <button class="share-btn facebook" onclick="shareOnFacebook('{{ slide.title }}')">
+                                    <i class="fab fa-facebook-f"></i> Share
+                                </button>
+                                <button class="share-btn twitter" onclick="shareOnTwitter('{{ slide.title }}')">
+                                    <i class="fab fa-twitter"></i> Tweet
+                                </button>
+                                <button class="share-btn linkedin" onclick="shareOnLinkedIn('{{ slide.title }}')">
+                                    <i class="fab fa-linkedin-in"></i> Share
+                                </button>
+                                <button class="share-btn whatsapp" onclick="shareOnWhatsApp('{{ slide.title }}')">
+                                    <i class="fab fa-whatsapp"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <img src="{{ slide.meta_image }}" alt="{{ slide.title }}">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="slider-controls">
+                    <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slide-dots">
+                        {% for slide in hero_slides %}
+                        <button class="slide-dot {% if loop.index0 == 0 %}active{% endif %}" data-slide="{{ loop.index0 }}"></button>
+                        {% endfor %}
+                    </div>
+                    <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Philosophy -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <h2>Our Mission</h2>
+                    <p>To build a resilient and sustainable team that deeply understands the economic value of addressing human needs in cold chain solutions while leveraging the dynamic advancements of contemporary technology.</p>
+                    <div class="vision-box">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Our Vision</h3>
+                        <p>To be recognized among the Top Ten Global Leaders (TTGL) in cold chain industry, setting benchmarks in innovation, quality and customer satisfaction.</p>
+                    </div>
+                </div>
+                <div class="philosophy-content">
+                    <h2>Our Philosophy & Expertise</h2>
+                    <p>At De Koolar, our core philosophy centers on customer satisfaction and operational efficiency in every machine we produce, with a steadfast commitment to continuous innovation.</p>
+                    <ul class="philosophy-list">
+                        <li><i class="fas fa-check-circle"></i> Personalized solutions for each client</li>
+                        <li><i class="fas fa-check-circle"></i> Cutting-edge research and development</li>
+                        <li><i class="fas fa-check-circle"></i> Higher operational efficiency</li>
+                        <li><i class="fas fa-check-circle"></i> Eco-friendly technology</li>
+                        <li><i class="fas fa-check-circle"></i> Reduced operational costs</li>
+                        <li><i class="fas fa-check-circle"></i> Unwavering Integrity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Video Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>DeKoolar - Manufacturer of Ice Block Making Machine, Cold Room & HVAC Products in Nigeria</h2>
+            </div>
+            <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin: 2rem auto;">
+                <iframe 
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                    src="https://www.youtube.com/embed/Qw1B4YpTpyk" 
+                    title="DeKoolar - Manufacturer of Ice Block Making Machine, Cold Room & HVAC Products in Nigeria"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Solutions -->
+    <section class="featured-solutions">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our Featured Solutions</h2>
+                <p>Trusted by leading organizations for critical cooling solutions</p>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <img src="/files/UNICEF 1 (1).jpg" alt="UNICEF Partnership" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="featured-card-content">
+                        <h3>UNICEF Partnership</h3>
+                        <p>Providing critical cold chain solutions for vaccine storage and medical supplies across Nigeria. Our expertise ensures reliable temperature control for sensitive medical products.</p>
+                        <div class="partner-logos">
+                            <img src="/files/UNICEF 2 (1).jpg" alt="UNICEF Project" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                            <img src="/files/UNICEF 3 (2).jpg" alt="UNICEF Facility" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <a href="/mainmenu/projects/unicef.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <img src="/files/WESTCARE (1).jpg" alt="Healthcare Solutions" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="featured-card-content">
+                        <h3>Westcare 3-in-1 Facility</h3>
+                        <p>State-of-the-art cold storage solutions for healthcare facilities, ensuring optimal temperature control for medical supplies and pharmaceuticals.</p>
+                        <div class="partner-logos">
+                            <img src="/files/COLD ROOM STORAGE 1.png" alt="Cold Room" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                            <img src="/files/Display Unit Cold ban 2.png" alt="Display Unit" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <a href="/mainmenu/projects/westcare.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <img src="/files/ALLAMANDA 1 (1).jpg" alt="Allamanda Project" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="featured-card-content">
+                        <h3>Allamanda Cold Room Project</h3>
+                        <p>Custom-designed cold room solutions for commercial and industrial applications, featuring advanced temperature control and energy efficiency.</p>
+                        <div class="partner-logos">
+                            <img src="/files/ALLAMANDA 2 (1).jpg" alt="Allamanda Facility" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                            <img src="/files/COLD ROOM STORAGE 1.png" alt="Cold Room Installation" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <a href="/mainmenu/projects/allamanda.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <img src="/files/interior-large-logistics-warehouse-ai-generative_123827-23883.jpg" alt="Industrial Solutions" style="width: 100%; height: 300px; object-fit: cover;">
+                    <div class="featured-card-content">
+                        <h3>Industrial Cold Storage</h3>
+                        <p>Large-scale cold storage solutions for warehouses and logistics facilities, providing reliable temperature control for various industries.</p>
+                        <div class="partner-logos">
+                            <img src="/files/Display Unit Cold ban 2.png" alt="Display Solutions" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                            <img src="/files/Mobile Refrigerator.png" alt="Mobile Solutions" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px;">
+                        </div>
+                        <a href="/mainmenu/products/cold-rooms.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose DeKoolar</h2>
+                <p>Your trusted partner in industrial cooling solutions</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Industry Experience</h3>
+                    <p>Over decades of expertise in innovation and creativity in cooling solutions</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-cog"></i>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored to your specific requirements</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock technical assistance</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Energy Efficient</h3>
+                    <p>Eco-friendly and cost-effective solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <div class="stat-number">1,500+</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-globe-africa"></i>
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-certificate"></i>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Industry Awards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Clients Section -->
+    <section class="clients-section" style="background: var(--light-gray); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Trusted Clients</h2>
+                <p>Serving industry leaders across Nigeria with excellence</p>
+            </div>
+            <div class="clients-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://www.brandtimes.com.ng/wp-content/uploads/2017/01/Guiness-Nigeria.jpg" alt="GUINNESS NIGERIA PLC" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>GUINNESS NIGERIA PLC</h3>
+                    <p>Supply and Installation of 5 Ice Block Making Machines</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://th.bing.com/th/id/R.79faacdd5af9e01c24e98f2a2e255328?rik=eCBl1UPZwrOvlQ&riu=http%3a%2f%2fdragnetscreening.ng%2fmobil%2fstyle%2fuse%2flogo_right.jpg&ehk=2hvEIbnXSgjWDzck%2bppq6sZLyzBnI4RqolMC2%2fpqqR8%3d&risl=&pid=ImgRaw&r=0" alt="MOBIL PRODUCING NIGERIA" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>MOBIL PRODUCING NIGERIA</h3>
+                    <p>Supply and Installation of Coldroom Equipment</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://th.bing.com/th/id/OIP.sMskeLoUHD01s8Hl8Bxo6QHaF2?rs=1&pid=ImgDetMain" alt="TOTAL UPSTREAM NIGERIA" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>TOTAL UPSTREAM NIGERIA</h3>
+                    <p>Supply and Installation of Coldroom</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://th.bing.com/th/id/R.c9f96abda5a2e793b546ee20aa43b7b2?rik=wD6zTpay00D49Q&pid=ImgRaw&r=0" alt="DOMINO PIZZA" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>DOMINO PIZZA</h3>
+                    <p>Design and Construction of Cold Rooms and Blast Freezers</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://yt3.googleusercontent.com/ytc/AL5GRJVPIFOPXzzLhlkEz4Tav-zl19ukOtHfOiwTZJNnZg=s900-c-k-c0x00ffffff-no-rj" alt="TRANSCORP HILTON" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>TRANSCORP HILTON</h3>
+                    <p>Maintenance and Repairs of Food Storage Barn</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://hospitalitychain.com/wp-content/uploads/2017/08/Arik-Air-Line-Now-In-Partnership-With-Ecowas-Fashion-Week-2014.jpg" alt="ARIK AIR NIGERIA" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>ARIK AIR NIGERIA</h3>
+                    <p>Design and Construction of 12 Tonnes Cold Storage Room</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://images.africanfinancials.com/63be93ed-ng-mtn-logo.png" alt="MTN COMMUNICATIONS" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>MTN COMMUNICATIONS</h3>
+                    <p>Supply, Installation and Maintenance of AC Systems</p>
+                </div>
+                <div class="client-card" style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); text-align: center; transition: var(--transition);">
+                    <img src="https://cdn.punchng.com/wp-content/uploads/2017/06/20151820/nigerian-breweries-logo.jpg" alt="NIGERIAN BREWERIES" style="width: 120px; height: 120px; object-fit: contain; margin-bottom: 1rem; border-radius: 10px;">
+                    <h3>NIGERIAN BREWERIES</h3>
+                    <p>Construction of Cold Storage Facility at ABA</p>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="/mainmenu/corporate/clients" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">View All Clients</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Clients Say</h2>
+                <p>Success stories from businesses we've helped transform</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"DeKoolar's cold room solutions have revolutionized our food storage capabilities. Their expertise and professional service have been invaluable to our business growth."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/files/client-1.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Engr. Yemi</h4>
+                            <p>CEO, Mayor Farms Limited</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"The energy efficiency of their HVAC systems has significantly reduced our operational costs. Their after-sales support is exceptional."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/files/client-2.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>S. K. Onajobi</h4>
+                            <p>CEO, Empire Limited</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Their ice block machines have been running flawlessly for years. The reliability and quality of DeKoolar's products are unmatched in the industry."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="/files/client-3.jpg" alt="Client">
+                        <div class="author-info">
+                            <h4>Mr. Alabi</h4>
+                            <p>Eco Fresh Limited</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Contact us today for a free consultation and quote</p>
+                <div class="cta-buttons">
+                    <a href="/request-for-quotation" class="btn btn-primary">Request Quote</a>
+                    <a href="#contact" class="btn btn-outline" style="color: white;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO's Message -->
+    <section class="ceo-message">
+        <div class="container">
+            <h2 class="section-title">CEO's Message</h2>
+            <div class="message-container">
+                <div class="ceo-photo-container">
+                    <img src="/files/james-ola-akanbi-dekoolar.jpg" alt="Ola Akanbi - CEO of DeKoolar" class="ceo-photo">
+                </div>
+                <div class="message-content">
+                    <p>I warmly welcome you to our new website. Our company is the Nigerian leading manufacturer of quality Ice Block Making Machines, efficient Coldrooms, Refrigeration and Air Conditioning Systems, and many other Cooling and Heat Transfer Equipment.</p>
+                    
+                    <p>Are you interested in Ice Block Making Machine, Coldroom or any other HVAC products and services? Then, your search is ended here!</p>
+                    
+                    <p>We design, manufacture, install and service all types of HVAC Equipment and Systems. Absolutely, no competitor compares with DeKoolar's superior and efficient solutions, backed by a reliable customer support service. Our technical expertise, wealth of industry experience and hefty customer base are simply unmatched.</p>
+                    
+                    <p>Our business is principally HVAC – Heating, Ventilation and Air Conditioning in all its applications. The mainstream products we offer are; Ice Block Making Machine, Cold Room, Cool Display and Storage Barn, among others. In principle, we serve our customers with the right product or service, in the right features mix, at the right price every time.</p>
+                    
+                    <p>There are competing machines and products out there in the market. You might have received empty promises and perhaps been disappointed, using other machines, in the past. At DeKoolar, we guarantee that our products and services will fulfill our promises in performance.</p>
+                    
+                    <p>Certainly, your first touch with us, will last longer than anywhere else. Why? The answer is simple. De Koolar's team is committed to our basic philosophy of customer satisfaction and performance efficiency of all our products, with core focus on continuous innovation.</p>
+                    
+                    <p>I would like to offer special thanks to our customers and partners for their continued trust and vote of confidence in DeKoolar and its product and service offerings. Without them, our success today would not have been possible.</p>
+                    
+                    <div class="ceo-signature">
+                        <p>Feel Kool Always!</p>
+                        <p>Sincerely,</p>
+                        <h4>Ola Akanbi</h4>
+                        <p class="designation">Managing Director/CEO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "website_integrate/templates/includes/footer.html" %}
+
+    <a href="https://wa.me/2348146397467?text=Hello%20DeKoolar%2C%20I%20would%20like%20to%20inquire%20about%20your%20services." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="tel:+2349076600000" class="call-float">
+        <i class="fas fa-phone"></i>
+    </a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/mainmenu/public/js/script.js"></script>
+    <script>
+        function shareOnFacebook(title) {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnTwitter(title) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(title);
+            const shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnLinkedIn(title) {
+            const url = encodeURIComponent(window.location.href);
+            const shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnWhatsApp(title) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(title + '\n' + window.location.href);
+            const shareUrl = `https://wa.me/?text=${text}`;
+            window.open(shareUrl, '_blank');
+        }
+
+        // Hero Slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            const prevBtn = document.querySelector('.prev-slide');
+            const nextBtn = document.querySelector('.next-slide');
+            let currentSlide = 0;
+            let slideInterval;
+            const intervalTime = 5000; // Time between automatic slides (5 seconds)
+
+            function startSlideShow() {
+                slideInterval = setInterval(nextSlide, intervalTime);
+            }
+
+            function stopSlideShow() {
+                clearInterval(slideInterval);
+            }
+
+            function updateSlides() {
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                    slide.style.opacity = '0';
+                    slide.style.visibility = 'hidden';
+                });
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                slides[currentSlide].classList.add('active');
+                slides[currentSlide].style.opacity = '1';
+                slides[currentSlide].style.visibility = 'visible';
+                dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                updateSlides();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                updateSlides();
+            }
+
+            // Event Listeners
+            prevBtn.addEventListener('click', () => {
+                stopSlideShow();
+                prevSlide();
+                startSlideShow();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                stopSlideShow();
+                nextSlide();
+                startSlideShow();
+            });
+
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopSlideShow();
+                    currentSlide = index;
+                    updateSlides();
+                    startSlideShow();
+                });
+            });
+
+            // Pause on hover
+            const heroSlider = document.querySelector('.hero-slider');
+            heroSlider.addEventListener('mouseenter', stopSlideShow);
+            heroSlider.addEventListener('mouseleave', startSlideShow);
+
+            // Start the slideshow
+            startSlideShow();
+        });
+    </script>
+</body>
+</html> 

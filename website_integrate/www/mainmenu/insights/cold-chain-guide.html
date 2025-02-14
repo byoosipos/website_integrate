@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Cold Storage Chain - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Learn about cold chain networks, their importance, and how they maintain product quality throughout the supply chain.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-text {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .chain-stages {
+            margin-bottom: 4rem;
+        }
+
+        .stage-card {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .stage-number {
+            position: absolute;
+            left: -1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4rem;
+            height: 4rem;
+            background: var(--dekoolar-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stage-card h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .stage-card p {
+            color: #555;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .benefits-section {
+            background: rgba(26, 75, 156, 0.05);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+        }
+
+        .benefits-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--dekoolar-gold);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--dekoolar-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .best-practices {
+            margin: 4rem 0;
+        }
+
+        .best-practices h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .practice-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .practice-list li {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .practice-list li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--dekoolar-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(26, 75, 156, 0.05);
+            border-radius: 12px;
+        }
+
+        .cta-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--dekoolar-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: var(--dekoolar-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Cold Chain Guide</span>
+        </div>
+        <div class="hero-content">
+            <h1>Understanding Cold Storage Chain</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <p class="intro-text">A cold chain is a temperature-controlled supply chain that maintains product quality and safety from production to consumption. Understanding its components and best practices is crucial for businesses handling temperature-sensitive products.</p>
+
+        <div class="chain-stages">
+            <div class="stage-card">
+                <div class="stage-number">1</div>
+                <h2>Production & Processing</h2>
+                <p>Initial cooling and temperature control begins at the source, whether it's harvesting agricultural products or manufacturing pharmaceuticals.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-number">2</div>
+                <h2>Transportation</h2>
+                <p>Temperature-controlled vehicles maintain the cold chain during product movement between facilities.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-number">3</div>
+                <h2>Storage</h2>
+                <p>Cold storage facilities maintain optimal temperatures for different product types, from frozen foods to temperature-sensitive medicines.</p>
+            </div>
+
+            <div class="stage-card">
+                <div class="stage-number">4</div>
+                <h2>Distribution</h2>
+                <p>Products are distributed to retailers or end-users while maintaining the required temperature range.</p>
+            </div>
+        </div>
+
+        <div class="benefits-section">
+            <h2>Benefits of Effective Cold Chain Management</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Extended Shelf Life</h3>
+                    <p>Proper temperature control extends product life and maintains quality.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Consistent temperature monitoring ensures product safety and efficacy.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Reduced Losses</h3>
+                    <p>Minimizes product spoilage and waste throughout the supply chain.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="best-practices">
+            <h2>Cold Chain Best Practices</h2>
+            <ul class="practice-list">
+                <li>Regular temperature monitoring and documentation</li>
+                <li>Proper packaging and insulation</li>
+                <li>Staff training on cold chain procedures</li>
+                <li>Backup power systems for emergencies</li>
+                <li>Regular maintenance of cooling equipment</li>
+                <li>Standard operating procedures for handling</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2>Optimize Your Cold Chain Management</h2>
+            <p>Let DeKoolar help you implement an effective cold chain solution for your business.</p>
+            <a href="/mainmenu/corporate/contact.html" class="cta-button">
+                <i class="fas fa-arrow-right"></i> Contact Us
+            </a>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

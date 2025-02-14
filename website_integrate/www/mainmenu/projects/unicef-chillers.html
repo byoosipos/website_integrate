@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UNICEF sponsored walk-in chiller rooms installation in Abuja by De Koolar Nigeria Limited">
+    <title>UNICEF Chiller Rooms Project - De Koolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --success: #28a745;
+            --chiller-blue: #00bcd4;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .project-hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: var(--primary-color);
+        }
+
+        .project-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .project-hero-image.active {
+            opacity: 0.7;
+        }
+
+        .project-hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .project-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-status, .project-partner {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-status {
+            background: var(--success);
+            color: var(--white);
+        }
+
+        .project-partner {
+            background: var(--chiller-blue);
+            color: var(--white);
+        }
+
+        .project-subtitle {
+            font-size: 1.4rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-item i {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .project-gallery {
+            padding: 4rem 0;
+            background: var(--light-gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .spec-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .spec-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-card i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .specs-table th {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .specs-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .components-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .component-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .component-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .component-card ul {
+            list-style: none;
+        }
+
+        .component-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                height: 500px;
+            }
+
+            .project-hero-content {
+                padding: 4rem 0;
+            }
+
+            .project-highlights {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .project-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="hero-slider" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+            <img src="/files/UNICEF 1 (1).jpg" alt="UNICEF Chillers Project" class="project-hero-image active">
+            <img src="/files/UNICEF 2 (1).jpg" alt="UNICEF Cold Storage" class="project-hero-image">
+            <img src="/files/UNICEF 3 (2).jpg" alt="UNICEF Facility" class="project-hero-image">
+        </div>
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="project-badges" style="margin-bottom: 1.5rem;">
+                    <span class="project-status">Project Completed</span>
+                    <span class="project-partner">UNICEF Sponsored</span>
+                </div>
+                <h1>UNICEF Chillers Project</h1>
+                <p class="project-subtitle">Two 175m³ Walk-in Chiller Rooms Installation in Abuja</p>
+                <div class="project-highlights" style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem;">
+                    <div class="highlight-item">
+                        <i class="fas fa-warehouse" style="font-size: 2rem; color: var(--secondary-color);"></i>
+                        <p>350m³ Total Capacity</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-temperature-low" style="font-size: 2rem; color: var(--secondary-color);"></i>
+                        <p>+/-5°C Control</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--secondary-color);"></i>
+                        <p>24/7 Monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery -->
+    <section class="project-gallery">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Project Showcase</h2>
+                <p>Our comprehensive cold chain solutions for UNICEF's medical storage facilities</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/files/UNICEF 2 (1).jpg" alt="UNICEF Cold Storage Facility">
+                    <div class="gallery-caption">
+                        <h3>Cold Storage Facility</h3>
+                        <p>Temperature-controlled storage for vaccines</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/files/UNICEF 3 (2).jpg" alt="UNICEF Medical Supply Storage">
+                    <div class="gallery-caption">
+                        <h3>Medical Supply Storage</h3>
+                        <p>Specialized storage solutions for medical supplies</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="/files/COLD ROOM STORAGE 1.png" alt="Cold Room Installation">
+                    <div class="gallery-caption">
+                        <h3>Cold Room Installation</h3>
+                        <p>Professional installation and setup</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2>Project Overview</h2>
+                <p>Our partnership with UNICEF involves providing critical cold chain solutions for vaccine storage and medical supplies across Nigeria. We ensure reliable temperature control for sensitive medical products through our advanced cooling systems.</p>
+                
+                <div class="features-list">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Advanced temperature monitoring systems</li>
+                        <li>24/7 emergency support</li>
+                        <li>Energy-efficient cooling solutions</li>
+                        <li>Backup power systems</li>
+                        <li>Professional installation and maintenance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-overview fade-in">
+            <h2 class="section-title">Project Overview</h2>
+            <p>Two 175 cubic meter walk-in chiller rooms have been successfully installed and commissioned in Abuja, sponsored by UNICEF. This installation demonstrates our expertise in delivering large-scale refrigeration solutions for critical storage needs.</p>
+            
+            <div class="specs-grid">
+                <div class="spec-card">
+                    <h3><i class="fas fa-warehouse"></i>Storage Capacity</h3>
+                    <ul>
+                        <li>Combined volume: 350 cubic meters</li>
+                        <li>Individual capacity: 175m³ each</li>
+                        <li>Total tonnage: 60 Metric Tonnes</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><i class="fas fa-ruler-combined"></i>Dimensions</h3>
+                    <ul>
+                        <li>External: 12000 x 5600 x 2600mm</li>
+                        <li>Internal: 11700 x 5300 x 2300mm</li>
+                        <li>Floor area: 67.2m² (external)</li>
+                    </ul>
+                </div>
+                <div class="spec-card">
+                    <h3><i class="fas fa-thermometer-half"></i>Temperature Control</h3>
+                    <ul>
+                        <li>Operating range: +/-5°C</li>
+                        <li>Digital monitoring system</li>
+                        <li>Humidity control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="components-section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="components-grid fade-in">
+                <div class="component-card">
+                    <h3><i class="fas fa-cog"></i>Condensing Unit</h3>
+                    <ul>
+                        <li>Danfross Maneurope Compressor (Denmark)</li>
+                        <li>Double fan heat extraction system</li>
+                        <li>Liquid Receiver and Oil Separator</li>
+                        <li>Dual Pressure Switch System</li>
+                        <li>Advanced filtration system</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-wind"></i>Evaporator System</h3>
+                    <ul>
+                        <li>High-efficiency Evaporator Coil</li>
+                        <li>Aluminum Casing Construction</li>
+                        <li>Dual Fan Configuration</li>
+                        <li>Thermostatic Expansion Valve</li>
+                        <li>Blue Fin Technology</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-shield-alt"></i>Safety Features</h3>
+                    <ul>
+                        <li>German-engineered Thermostat</li>
+                        <li>Phase Monitoring Protection</li>
+                        <li>Circuit Breaker System</li>
+                        <li>Overload Protection</li>
+                        <li>Automated Defrost Timer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Construction Details</h2>
+        <div class="specs-table-container fade-in">
+            <table class="specs-table">
+                <tr>
+                    <th>Component</th>
+                    <th>Specification</th>
+                </tr>
+                <tr>
+                    <td>Panel Construction</td>
+                    <td>Polyurethane Sandwich Panel, PPGI Sheet (0.8mm)</td>
+                </tr>
+                <tr>
+                    <td>Insulation Density</td>
+                    <td>44kg/m³ with ±3kg/m³ tolerance</td>
+                </tr>
+                <tr>
+                    <td>Panel Thickness</td>
+                    <td>150mm (roof, body, and floor)</td>
+                </tr>
+                <tr>
+                    <td>Door System</td>
+                    <td>1500 x 2000mm Insulated Sliding Door</td>
+                </tr>
+                <tr>
+                    <td>Power Supply</td>
+                    <td>380-415V, Three Phase, 50Hz</td>
+                </tr>
+                <tr>
+                    <td>Backup Power</td>
+                    <td>30kVA Generator Support</td>
+                </tr>
+                <tr>
+                    <td>Refrigerant</td>
+                    <td>R404A Environmental-Friendly System</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Hero Image Slider
+        const heroImages = document.querySelectorAll('.project-hero-image');
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            heroImages[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            heroImages[currentImageIndex].classList.add('active');
+        }
+
+        setInterval(showNextImage, 5000); // Change image every 5 seconds
+    </script>
+</body>
+</html> 

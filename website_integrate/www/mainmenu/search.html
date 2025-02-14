@@ -1,0 +1,127 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="container py-5">
+    <div class="search-header mb-4">
+        <h1>Search Results</h1>
+        {% if search_query %}
+        <p class="text-muted">Showing results for: "{{ search_query }}"</p>
+        {% endif %}
+    </div>
+
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    {% if not search_query %}
+    <div class="alert alert-info">Please enter a search term to find products, services, or articles.</div>
+    {% else %}
+
+    {% if results.total_count == 0 %}
+    <div class="alert alert-warning">
+        No results found for "{{ search_query }}". Please try different keywords or browse our categories.
+    </div>
+    {% endif %}
+
+    {% if results.products %}
+    <section class="mb-5">
+        <h2 class="h4 mb-4">Products ({{ results.products|length }})</h2>
+        <div class="row">
+            {% for product in results.products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    {% if product.image %}
+                    <img src="{{ product.image }}" class="card-img-top" alt="{{ product.item_name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.item_name }}</h5>
+                        <p class="card-text">{{ product.description|striptags|truncate(100) }}</p>
+                        <a href="{{ product.route }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if results.services %}
+    <section class="mb-5">
+        <h2 class="h4 mb-4">Services ({{ results.services|length }})</h2>
+        <div class="row">
+            {% for service in results.services %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ service.title }}</h5>
+                        <p class="card-text">{{ service.description|striptags|truncate(150) }}</p>
+                        <a href="{{ service.route }}" class="btn btn-outline-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% if results.blog_posts %}
+    <section class="mb-5">
+        <h2 class="h4 mb-4">Articles & Insights ({{ results.blog_posts|length }})</h2>
+        <div class="row">
+            {% for post in results.blog_posts %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="text-muted small">Published on {{ post.published_on|date }}</p>
+                        <p class="card-text">{{ post.blog_intro|striptags|truncate(150) }}</p>
+                        <a href="{{ post.route }}" class="btn btn-outline-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    {% endif %}
+</div>
+
+<style>
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.search-header h1 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+</style>
+{% endblock %} 

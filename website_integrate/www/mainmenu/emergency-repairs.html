@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Emergency Repairs - 24/7 emergency repair services for refrigeration and cooling systems. Quick response for urgent cooling system issues.">
+    <title>Emergency Repairs | Dekoolar</title>
+    <style>
+        .emergency-section {
+            padding: 40px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - var(--header-height) - var(--topbar-height));
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .emergency-header {
+            background: linear-gradient(rgba(0, 51, 153, 0.95), rgba(0, 51, 153, 0.95));
+            padding: 40px 0;
+            color: var(--white);
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .emergency-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .emergency-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Emergency Contact Card */
+        .contact-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .hotline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .hotline i {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .availability {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .emergency-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .emergency-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,104,55,0.2);
+        }
+
+        /* Service Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .service-description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Quick Tips Section */
+        .quick-tips {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .tips-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            background: var(--light-gray);
+        }
+
+        .tip-icon {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .tip-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .emergency-title {
+                font-size: 2rem;
+            }
+
+            .hotline {
+                font-size: 2rem;
+            }
+
+            .emergency-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Dark Mode Support */
+        @media (prefers-color-scheme: dark) {
+            .contact-card,
+            .service-card,
+            .quick-tips {
+                background: #1a1a1a;
+            }
+
+            .tip-item {
+                background: #2d2d2d;
+            }
+
+            .service-description,
+            .tip-text {
+                color: #cccccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+    
+    <div class="emergency-section">
+        <div class="container">
+            <div class="emergency-header">
+                <h1 class="emergency-title">24/7 Emergency Repairs</h1>
+                <p class="emergency-subtitle">Immediate response for urgent cooling system issues. Our expert team is ready to help you anytime.</p>
+            </div>
+            
+            <!-- Emergency Contact Card -->
+            <div class="contact-card">
+                <h2>Emergency Hotline</h2>
+                <div class="hotline">
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+2348012345678" style="color: inherit; text-decoration: none;">+234 801 234 5678</a>
+                </div>
+                <p class="availability">Available 24 hours, 7 days a week</p>
+                <a href="tel:+2348012345678" class="emergency-btn">
+                    <i class="fas fa-phone"></i>
+                    Call Now
+                </a>
+            </div>
+            
+            <!-- Emergency Services -->
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="service-title">Rapid Response</h3>
+                    <p class="service-description">Our emergency team typically responds within 30 minutes and arrives at your location within 2 hours.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="service-title">Expert Repairs</h3>
+                    <p class="service-description">Skilled technicians equipped with the right tools to diagnose and fix your cooling system issues.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="service-title">24/7 Service</h3>
+                    <p class="service-description">Round-the-clock emergency service, including weekends and public holidays.</p>
+                </div>
+            </div>
+            
+            <!-- Quick Tips -->
+            <div class="quick-tips">
+                <h2 class="tips-title">Emergency Quick Tips</h2>
+                <ul class="tips-list">
+                    <li class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <p class="tip-text">Check if the power supply is properly connected and the circuit breaker hasn't tripped.</p>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-thermometer-half"></i>
+                        </div>
+                        <p class="tip-text">Monitor and record the temperature changes to help diagnose the issue faster.</p>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-door-closed"></i>
+                        </div>
+                        <p class="tip-text">Keep cold room doors closed to maintain temperature while waiting for assistance.</p>
+                    </li>
+                    <li class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <p class="tip-text">Have your system details and maintenance history ready for the technician.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

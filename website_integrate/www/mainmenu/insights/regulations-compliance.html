@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Industry Regulations and Compliance - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Understanding critical regulatory standards and compliance requirements for cold storage across different sectors.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-text {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .regulations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .regulation-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--dekoolar-blue);
+        }
+
+        .regulation-card h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .regulation-card h2 i {
+            color: var(--dekoolar-gold);
+            font-size: 1.6rem;
+        }
+
+        .regulation-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .regulation-list li {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .regulation-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--dekoolar-gold);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Regulations & Compliance</span>
+        </div>
+        <div class="hero-content">
+            <h1>Key Industry Regulations and Compliance</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <p class="intro-text">Understanding and adhering to regulatory standards is critical for businesses using cold storage solutions.</p>
+
+        <div class="regulations-grid">
+            <div class="regulation-card">
+                <h2><i class="fas fa-utensils"></i>Food & Agriculture</h2>
+                <ul class="regulation-list">
+                    <li>Compliance with NAFDAC standards</li>
+                    <li>FDA regulations for food storage</li>
+                    <li>HACCP standards for food safety</li>
+                    <li>Temperature monitoring requirements</li>
+                </ul>
+            </div>
+
+            <div class="regulation-card">
+                <h2><i class="fas fa-pills"></i>Pharmaceuticals & Healthcare</h2>
+                <ul class="regulation-list">
+                    <li>WHO guidelines for vaccine storage</li>
+                    <li>UNICEF cold chain standards</li>
+                    <li>Temperature-sensitive medication storage</li>
+                    <li>Medical supply preservation protocols</li>
+                </ul>
+            </div>
+
+            <div class="regulation-card">
+                <h2><i class="fas fa-leaf"></i>Environmental Regulations</h2>
+                <ul class="regulation-list">
+                    <li>Use of eco-friendly refrigerants</li>
+                    <li>Energy efficiency standards</li>
+                    <li>Global sustainability compliance</li>
+                    <li>Carbon footprint reduction measures</li>
+                </ul>
+            </div>
+
+            <div class="regulation-card">
+                <h2><i class="fas fa-hard-hat"></i>Occupational Safety</h2>
+                <ul class="regulation-list">
+                    <li>Proper protective gear requirements</li>
+                    <li>Emergency protocol compliance</li>
+                    <li>Worker safety standards</li>
+                    <li>Cold environment safety measures</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

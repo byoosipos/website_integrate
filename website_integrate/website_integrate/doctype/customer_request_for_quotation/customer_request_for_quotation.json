@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-08 06:26:45.279011",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "first_name",
+  "last_name",
+  "email",
+  "phone",
+  "company_name",
+  "column_break_6",
+  "industry",
+  "request_date",
+  "status",
+  "assigned_to",
+  "product_details_section",
+  "request_type",
+  "product_selections",
+  "service_selections",
+  "column_break_13",
+  "requirements",
+  "additional_notes",
+  "project_details_section",
+  "project_location",
+  "site_requirements",
+  "preferred_timeline",
+  "budget_range",
+  "system_information_section",
+  "source",
+  "ip_address",
+  "user_agent",
+  "industry_details_section",
+  "sub_industry",
+  "facility_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information"
+  },
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Select",
+   "label": "Primary Industry",
+   "options": "Agriculture & Food Processing\nAviation & Airports\nChemical & Pharmaceutical\nHealthcare & Medical\nHospitality & Hotels\nLogistics & Cold Chain\nMarine & Shipping\nOil and Gas\nRetail & Supermarkets\nFood & Beverage\nManufacturing\nData Centers\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_industry",
+   "fieldtype": "Select",
+   "label": "Sub Industry",
+   "depends_on": "industry",
+   "options": "\nFresh Produce\nMeat Processing\nSeafood\nDairy Products\nPharmaceuticals\nMedical Storage\nHotel Kitchen\nRestaurant\nSupermarket\nConvenience Store\nWarehouse\nDistribution Center\nOffshore Platform\nResearch Lab\nOther"
+  },
+  {
+   "fieldname": "facility_type",
+   "fieldtype": "Select",
+   "label": "Facility Type",
+   "options": "\nProduction Facility\nStorage Facility\nProcessing Unit\nRetail Outlet\nWarehouse\nLaboratory\nOffice Building\nHospital\nHotel\nSupermarket\nOther"
+  },
+  {
+   "default": "Now",
+   "fieldname": "request_date",
+   "fieldtype": "Datetime",
+   "label": "Request Date",
+   "read_only": 1
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "New\nIn Progress\nQuotation Sent\nFollowup\nClosed\nLost"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "User"
+  },
+  {
+   "fieldname": "product_details_section",
+   "fieldtype": "Section Break",
+   "label": "Product Details"
+  },
+  {
+   "fieldname": "request_type",
+   "fieldtype": "Select",
+   "label": "Request Type",
+   "options": "Product\nService\nBoth",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.request_type !== 'Service'",
+   "fieldname": "product_selections",
+   "fieldtype": "Table",
+   "label": "Product Selections",
+   "options": "Product Selection",
+   "depends_on": "eval:doc.request_type !== 'Service'"
+  },
+  {
+   "depends_on": "eval:doc.request_type !== 'Product'",
+   "fieldname": "service_selections",
+   "fieldtype": "Table",
+   "label": "Service Selections",
+   "options": "Service Selection",
+   "depends_on": "eval:doc.request_type !== 'Product'"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "requirements",
+   "fieldtype": "Text Editor",
+   "label": "Requirements",
+   "reqd": 1
+  },
+  {
+   "fieldname": "additional_notes",
+   "fieldtype": "Small Text",
+   "label": "Additional Notes"
+  },
+  {
+   "fieldname": "project_details_section",
+   "fieldtype": "Section Break",
+   "label": "Project Details"
+  },
+  {
+   "fieldname": "project_location",
+   "fieldtype": "Small Text",
+   "label": "Project Location"
+  },
+  {
+   "fieldname": "site_requirements",
+   "fieldtype": "Small Text",
+   "label": "Site Requirements"
+  },
+  {
+   "fieldname": "preferred_timeline",
+   "fieldtype": "Select",
+   "label": "Preferred Timeline",
+   "options": "Immediate\n1-2 Weeks\n2-4 Weeks\n1-2 Months\nMore than 2 Months"
+  },
+  {
+   "fieldname": "budget_range",
+   "fieldtype": "Select",
+   "label": "Budget Range",
+   "options": "Less than ₦1M\n₦1M - ₦5M\n₦5M - ₦10M\n₦10M - ₦50M\nAbove ₦50M"
+  },
+  {
+   "fieldname": "system_information_section",
+   "fieldtype": "Section Break",
+   "label": "System Information",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "ip_address",
+   "fieldtype": "Data",
+   "label": "IP Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "user_agent",
+   "fieldtype": "Small Text",
+   "label": "User Agent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "industry_details_section",
+   "fieldtype": "Section Break",
+   "label": "Industry Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-08 06:26:45.279011",
+ "modified_by": "Administrator",
+ "module": "Website Integrate",
+ "name": "Customer Request for Quotation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Guest",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

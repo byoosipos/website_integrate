@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emerging Trends in Cold Storage - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Explore the latest innovations in smart refrigeration, sustainable solutions, and automation transforming the cold storage industry.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .trend-section {
+            margin-bottom: 4rem;
+        }
+
+        .trend-section h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--dekoolar-gold);
+        }
+
+        .trend-card {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .trend-card h3 {
+            color: var(--dekoolar-blue);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trend-card h3 i {
+            color: var(--dekoolar-gold);
+            font-size: 1.6rem;
+        }
+
+        .trend-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Emerging Trends</span>
+        </div>
+        <div class="hero-content">
+            <h1>Emerging Trends in Cold Storage and Refrigeration</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <div class="trend-section">
+            <div class="trend-card">
+                <h3><i class="fas fa-microchip"></i>Smart Refrigeration Technologies</h3>
+                <p>AI-driven temperature monitoring and IoT-enabled tracking systems are revolutionizing cold storage management. Businesses can now monitor and adjust temperatures remotely to prevent spoilage.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3><i class="fas fa-leaf"></i>Sustainable and Eco-Friendly Refrigeration</h3>
+                <p>The industry is shifting towards environmentally friendly refrigerants, energy-efficient systems, and solar-powered refrigeration to reduce carbon footprints and operational costs.</p>
+            </div>
+
+            <div class="trend-card">
+                <h3><i class="fas fa-robot"></i>Automation in Cold Storage Facilities</h3>
+                <p>The use of automated retrieval systems such as data logger enhances efficiency, reducing human errors and improving storage capacity management.</p>
+            </div>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

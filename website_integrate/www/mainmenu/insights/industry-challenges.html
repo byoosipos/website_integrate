@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industry Challenges and Solutions - DeKoolar Nigeria Limited</title>
+    <meta name="description" content="Learn about common challenges in cold storage and how De Koolar provides innovative solutions to address them.">
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .challenge-section {
+            margin-bottom: 4rem;
+        }
+
+        .challenge-card {
+            background: #fff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--dekoolar-blue);
+        }
+
+        .challenge-card h2 {
+            color: var(--dekoolar-blue);
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .challenge-card h2 i {
+            color: var(--dekoolar-gold);
+            font-size: 1.8rem;
+        }
+
+        .challenge-card p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+            <span>/</span>
+            <span>Industry Challenges</span>
+        </div>
+        <div class="hero-content">
+            <h1>Industry Challenges and Solutions</h1>
+        </div>
+    </section>
+
+    <article class="article-content">
+        <div class="challenge-section">
+            <div class="challenge-card">
+                <h2><i class="fas fa-bolt"></i>High Energy Costs</h2>
+                <p>Cold storage facilities consume significant energy. This is where De Koolar Nigeria Limited comes in by implementing energy-efficient designs, leveraging on renewable energy sources to mitigate high costs.</p>
+            </div>
+
+            <div class="challenge-card">
+                <h2><i class="fas fa-clipboard-check"></i>Regulatory Compliance</h2>
+                <p>Strict industry regulations require businesses to maintain specific temperature ranges. De Koolar provides solutions that ensure compliance with national and international standards.</p>
+            </div>
+
+            <div class="challenge-card">
+                <h2><i class="fas fa-link-slash"></i>Supply Chain Disruptions</h2>
+                <p>Ensuring an unbroken cold chain is essential for perishable goods. Investing in backup power solutions and real-time monitoring systems enhances reliability.</p>
+            </div>
+        </div>
+    </article>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

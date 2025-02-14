@@ -1,0 +1,1315 @@
+{% extends "templates/web.html" %}
+{% block title %}Display Chiller - DeKoolar{% endblock %}
+
+{% block page_content %}
+<style>
+    /* Base Styles */
+    :root {
+        /* Logo-based Colors */
+        --dekoolar-blue: #003399;
+        --dekoolar-green: #006837;
+        --dekoolar-gold: #C5A572;
+        
+        /* Extended Color Palette */
+        --blue-light: rgba(0, 51, 153, 0.1);
+        --blue-medium: rgba(0, 51, 153, 0.5);
+        --green-light: rgba(0, 104, 55, 0.1);
+        --green-medium: rgba(0, 104, 55, 0.5);
+        --gold-light: rgba(197, 165, 114, 0.1);
+        --gold-medium: rgba(197, 165, 114, 0.5);
+        --text-dark: #333333;
+        --text-light: #ffffff;
+        
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, var(--dekoolar-blue), var(--dekoolar-green));
+        --gradient-gold: linear-gradient(135deg, var(--dekoolar-gold), var(--gold-light));
+        --gradient-section: linear-gradient(to right, var(--blue-light), var(--green-light));
+        
+        /* Shadows */
+        --shadow-sm: 0 2px 4px rgba(0, 51, 153, 0.1);
+        --shadow-md: 0 4px 6px rgba(0, 51, 153, 0.1);
+        --shadow-lg: 0 10px 15px rgba(0, 51, 153, 0.1);
+        --shadow-gold: 0 4px 6px rgba(197, 165, 114, 0.2);
+        
+        /* Other Variables */
+        --card-radius: 15px;
+        --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-fast: all 0.2s ease-in-out;
+        --hero-height: 80vh;
+        --hero-min-height: 600px;
+        --hero-overlay: linear-gradient(135deg, rgba(0, 51, 153, 0.95), rgba(0, 104, 55, 0.90));
+    }
+
+    /* Enhanced Hero Section */
+    .hero-section {
+        background: linear-gradient(rgba(0, 51, 153, 0.9), rgba(0, 104, 55, 0.85)), url('/files/35103.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: var(--hero-height);
+        min-height: var(--hero-min-height);
+        color: var(--text-light);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 104, 55, 0.8)),
+            radial-gradient(circle at 20% 50%, rgba(0, 51, 153, 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 80% 50%, rgba(0, 104, 55, 0.4) 0%, transparent 50%);
+        z-index: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 0 20px;
+        animation: fadeInUp 1s ease-out;
+        color: var(--text-light);
+    }
+
+    .hero-section h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        position: relative;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--text-light);
+    }
+
+    .hero-section h1::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--dekoolar-gold);
+        border-radius: 2px;
+        box-shadow: var(--shadow-gold);
+    }
+
+    .hero-section .lead {
+        font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin-top: 2rem;
+        line-height: 1.6;
+        font-weight: 300;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        color: var(--text-light);
+    }
+
+    .hero-scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--text-light);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 2rem;
+        animation: bounce 2s infinite;
+        cursor: pointer;
+        z-index: 2;
+        opacity: 0.8;
+        transition: var(--transition-fast);
+    }
+
+    .hero-scroll-indicator:hover {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.1);
+    }
+
+    /* Hero Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-20px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-10px);
+        }
+    }
+
+    /* Hero Responsive */
+    @media (max-width: 768px) {
+        :root {
+            --hero-height: 60vh;
+            --hero-min-height: 500px;
+        }
+
+        .hero-section {
+            background-attachment: scroll;
+        }
+
+        .hero-content {
+            padding: 0 15px;
+        }
+    }
+
+    /* Section Enhancements */
+    .section {
+        padding: 100px 0;
+        position: relative;
+        background: white;
+    }
+
+    .section:nth-child(even) {
+        position: relative;
+    }
+
+    .section:nth-child(even)::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-gold);
+        opacity: 0.3;
+    }
+
+    .section:nth-child(even)::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-gold);
+        opacity: 0.3;
+    }
+
+    /* Section Title Enhancements */
+    .section h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+        position: relative;
+        display: inline-block;
+        color: var(--dekoolar-blue);
+        text-align: center;
+        width: 100%;
+    }
+
+    .section h2::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--gradient-gold);
+        border-radius: 2px;
+        transition: var(--transition-slow);
+        box-shadow: var(--shadow-gold);
+    }
+
+    .section h2:hover::after {
+        width: 150px;
+    }
+
+    .section h3 {
+        font-size: 1.8rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        position: relative;
+        color: var(--dekoolar-blue);
+        text-align: center;
+    }
+
+    .section h3::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--gradient-gold);
+        border-radius: 2px;
+        transition: var(--transition-slow);
+        opacity: 0.8;
+        box-shadow: var(--shadow-gold);
+    }
+
+    .section h3:hover::after {
+        width: 100px;
+    }
+
+    /* Adjust feature card titles to left align */
+    .feature-card h3, 
+    .type-card h3,
+    .intro-content h3 {
+        text-align: left;
+    }
+
+    .feature-card h3::after, 
+    .type-card h3::after,
+    .intro-content h3::after {
+        left: 0;
+        transform: none;
+    }
+
+    /* Center align section containers */
+    .section .container {
+        text-align: center;
+    }
+
+    /* Keep content text left-aligned */
+    .section p, 
+    .section ul, 
+    .feature-card, 
+    .type-card-content,
+    .maintenance-tips {
+        text-align: left;
+    }
+
+    /* Card Enhancements */
+    .feature-card {
+        background: white;
+        border-radius: var(--card-radius);
+        padding: 35px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-slow);
+        height: 100%;
+        border: 2px solid var(--gold-light);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: var(--transition-slow);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        color: var(--dekoolar-blue);
+        margin-bottom: 25px;
+        transition: var(--transition-fast);
+        background: var(--gold-light);
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        box-shadow: var(--shadow-gold);
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(10deg);
+        background: var(--gradient-primary);
+    }
+
+    /* Type Card Enhancements */
+    .type-card {
+        border: none;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        margin-bottom: 30px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 20px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .type-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 51, 153, 0.15);
+    }
+
+    .type-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+    }
+
+    .type-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 280px;
+        background: linear-gradient(to bottom, 
+            transparent 0%, 
+            rgba(0, 51, 153, 0.02) 50%, 
+            rgba(0, 51, 153, 0.1) 100%);
+        z-index: 1;
+        transition: all 0.4s ease;
+        opacity: 0;
+    }
+
+    .type-card:hover::before {
+        opacity: 1;
+    }
+
+    .type-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .type-card-content {
+        padding: 30px;
+        position: relative;
+        background: white;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-top: 4px solid var(--dekoolar-gold);
+    }
+
+    .type-card h3 {
+        color: var(--dekoolar-blue);
+        margin-bottom: 15px;
+        font-size: 1.6rem;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .type-card h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--dekoolar-gold);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0.7;
+    }
+
+    .type-card:hover h3::after {
+        width: 100%;
+        opacity: 1;
+    }
+
+    .type-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 1.05rem;
+    }
+
+    .type-card-footer {
+        margin-top: auto;
+        padding-top: 20px;
+        border-top: 1px solid rgba(197, 165, 114, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .type-card-specs {
+        display: flex;
+        gap: 15px;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(197, 165, 114, 0.1);
+    }
+
+    .spec-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .spec-item i {
+        color: var(--dekoolar-gold);
+        font-size: 1rem;
+    }
+
+    @media (max-width: 991px) {
+        .type-card {
+            margin-bottom: 25px;
+        }
+        
+        .type-card img {
+            height: 250px;
+        }
+        
+        .type-card::before {
+            height: 250px;
+        }
+        
+        .type-card-content {
+            padding: 25px;
+        }
+        
+        .type-card h3 {
+            font-size: 1.4rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .type-card img {
+            height: 220px;
+        }
+        
+        .type-card::before {
+            height: 220px;
+        }
+        
+        .type-card-content {
+            padding: 20px;
+        }
+        
+        .type-card h3 {
+            font-size: 1.3rem;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .type-card p {
+            font-size: 1rem;
+        }
+    }
+
+    /* Benefits List Enhancement */
+    .benefits-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .benefits-list li {
+        margin-bottom: 15px;
+        padding-left: 35px;
+        position: relative;
+        transition: var(--transition-fast);
+    }
+
+    .benefits-list li:before {
+        content: '\f00c';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        color: var(--dekoolar-gold);
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: var(--transition-fast);
+    }
+
+    .benefits-list li:hover {
+        color: var(--dekoolar-blue);
+        background: var(--gold-light);
+        border-radius: 5px;
+        padding: 5px 35px;
+        margin-left: -5px;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .benefits-list li:hover:before {
+        transform: translateY(-50%) scale(1.2);
+    }
+
+    /* Maintenance Tips Enhancement */
+    .maintenance-tips {
+        background: white;
+        border-radius: var(--card-radius);
+        padding: 40px;
+        margin-bottom: 30px;
+        box-shadow: var(--shadow-md);
+        border: 2px solid var(--gold-light);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .maintenance-tips::before {
+        background: var(--gradient-gold);
+        opacity: 0;
+    }
+
+    .maintenance-tips:hover::before {
+        opacity: 1;
+    }
+
+    /* Enhanced CTA Section */
+    .cta-section {
+        padding: 150px 0;
+        text-align: center;
+        background: var(--gradient-primary);
+        color: white;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/files/35103.jpg');
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        background-blend-mode: overlay;
+        transform: scale(1.1);
+        transition: transform 0.5s ease;
+    }
+
+    .cta-section:hover::before {
+        transform: scale(1);
+    }
+
+    .cta-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .cta-section h2 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-section .lead {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        color: var(--text-light);
+        opacity: 0.9;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    /* Enhanced Quote Button */
+    .btn-white {
+        background: linear-gradient(to right, white, #f8f9fa);
+        color: var(--dekoolar-blue);
+        padding: 20px 60px;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 40px;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        font-weight: 600;
+        font-size: 1.2rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        border: 2px solid var(--dekoolar-gold);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+        min-width: 280px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .btn-white::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    .btn-white::after {
+        content: '\f061';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+
+    .btn-white:hover {
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        border-color: transparent;
+    }
+
+    .btn-white:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+
+    .btn-white:hover::after {
+        transform: translateX(5px);
+    }
+
+    .btn-white:active {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .btn-white {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            min-width: 240px;
+        }
+    }
+
+    /* Introduction Section Enhancement */
+    .intro-image {
+        height: 100%;
+        min-height: 400px;
+        object-fit: cover;
+        border-radius: var(--card-radius);
+        box-shadow: var(--shadow-lg);
+        transition: var(--transition-slow);
+        border: 3px solid var(--gold-light);
+    }
+
+    .intro-image:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--dekoolar-gold);
+    }
+
+    .intro-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        padding-right: 30px;
+    }
+
+    @media (max-width: 991px) {
+        .intro-content {
+            padding-right: 0;
+            margin-bottom: 30px;
+        }
+        
+        .intro-image {
+            min-height: 300px;
+        }
+    }
+
+    /* Remove gradient backgrounds */
+    .section:nth-child(odd),
+    .section:nth-child(even) {
+        background: white;
+    }
+
+    /* Adjust card backgrounds */
+    .feature-card,
+    .type-card,
+    .maintenance-tips {
+        background: white;
+    }
+
+    /* Add subtle borders for visual separation */
+    .section {
+        border-bottom: 1px solid rgba(197, 165, 114, 0.1);
+    }
+
+    .section:last-child {
+        border-bottom: none;
+    }
+
+    /* Common Places of Use Section Enhancement */
+    .places-card {
+        background: white;
+        border-radius: 20px;
+        padding: 35px;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid var(--gold-light);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .places-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 51, 153, 0.1);
+        border-color: var(--dekoolar-gold);
+    }
+
+    .places-card h4 {
+        color: var(--dekoolar-blue);
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .places-card h4::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--dekoolar-gold);
+        transition: all 0.4s ease;
+    }
+
+    .places-card:hover h4::after {
+        width: 100%;
+    }
+
+    .places-card h4 i {
+        font-size: 1.8rem;
+        color: var(--dekoolar-gold);
+        background: var(--gold-light);
+        padding: 12px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .places-card:hover h4 i {
+        background: var(--dekoolar-gold);
+        color: white;
+        transform: rotate(10deg);
+    }
+
+    .places-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .places-list li {
+        padding: 12px 0;
+        padding-left: 35px;
+        position: relative;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        color: #666;
+        border-bottom: 1px solid var(--gold-light);
+    }
+
+    .places-list li:last-child {
+        border-bottom: none;
+    }
+
+    .places-list li::before {
+        content: '\f058';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 400;
+        position: absolute;
+        left: 0;
+        color: var(--dekoolar-gold);
+        transition: all 0.3s ease;
+    }
+
+    .places-list li:hover {
+        color: var(--dekoolar-blue);
+        transform: translateX(8px);
+        padding-left: 40px;
+    }
+
+    .places-list li:hover::before {
+        font-weight: 900;
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+        .places-card {
+            margin-bottom: 20px;
+            padding: 25px;
+        }
+
+        .places-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+<!-- Enhanced Hero Section -->
+<section class="hero-section">
+    <div class="hero-content">
+        <h1 class="mb-4">Display Chillers</h1>
+        <p class="lead">Advanced Commercial Refrigeration Solutions for Optimal Product Display</p>
+    </div>
+    <div class="hero-scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Introduction -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="intro-content">
+                    <h2 class="mb-4">What is a Display Chiller?</h2>
+                    <p>A display chiller, also known as a display refrigerator, is an essential piece of commercial refrigeration equipment that combines functionality with visibility. It keeps food and drinks at perfect storage temperatures while making them visible to customers through glass doors and strategic lighting.</p>
+                    <h3 class="mt-4 mb-3">Why Use a Display Chiller?</h3>
+                    <ul class="benefits-list">
+                        <li>Merchandise products attractively to boost sales</li>
+                        <li>Allow customers to browse products at their leisure</li>
+                        <li>Build customer confidence with safe storage temperatures</li>
+                        <li>Enhance product visibility with strategic lighting</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="image-wrapper">
+                    <img src="/files/1416.jpg" alt="Display Chiller Overview" class="intro-image img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How They Work -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">How Do Display Chillers Work?</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="feature-card">
+                    <ul class="benefits-list">
+                        <li>Works with refrigeration principle and features an insulated enclosure</li>
+                        <li>Uses glass doors, lids, or hygiene guards for product visibility without opening</li>
+                        <li>Can be set to chilled or freezing temperatures</li>
+                        <li>Features strategic lighting for clear product visibility even at night</li>
+                        <li>Available in models without glass for direct product access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h3 class="text-center mb-4">Common Places of Use</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="places-card">
+                            <h4><i class="fas fa-store"></i>Retail Settings</h4>
+                            <ul class="places-list">
+                                <li>Supermarkets & Hypermarkets</li>
+                                <li>Convenience Stores & Mini Marts</li>
+                                <li>Bakeries & Confectioneries</li>
+                                <li>Food Service Establishments</li>
+                                <li>Cafes & Restaurants</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="places-card">
+                            <h4><i class="fas fa-box"></i>Product Types</h4>
+                            <ul class="places-list">
+                                <li>Beverages & Soft Drinks</li>
+                                <li>Dairy Products & Fresh Milk</li>
+                                <li>Fresh Meats & Deli Items</li>
+                                <li>Beer & Alcoholic Beverages</li>
+                                <li>Cakes & Pastries</li>
+                                <li>Fresh Produce & Vegetables</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Types of Display Chillers -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Types of Display Chillers</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/1430.jpg" alt="Multideck Display">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Multidecks</h3>
+                            <p>Large open-fronted display fridges with multiple tiers, perfect for supermarkets and convenience stores. Features seamless cold air flow and energy-efficient design.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>2°C - 8°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                                <span>Multi-tier</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/940.jpg" alt="Serve-over Counter">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Serve-over Counter</h3>
+                            <p>Ideal for bakeries and delis, featuring chilled display areas that enhance product presentation and enable direct customer service.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>0°C - 4°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>Assisted</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/1238.jpg" alt="Counter Top Display">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Counter Top Display</h3>
+                            <p>Space-efficient solution perfect for compact spaces, ideal for displaying pastries, salads, and beverages.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>2°C - 6°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                                <span>Compact</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/824.jpg" alt="Upright Glass Door Unit">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Upright Glass Door Unit</h3>
+                            <p>Versatile units with full-length glass doors, providing extensive product visibility and consistent temperature control.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>1°C - 5°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-door-closed"></i>
+                                <span>Full-length</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/35103.jpg" alt="Under Counter Glass Door">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Under Counter Glass Door</h3>
+                            <p>Space-saving design perfect for bars and cafes, providing easy access while maintaining visibility.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>2°C - 8°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-arrows-alt-v"></i>
+                                <span>Low-profile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="type-card">
+                    <img src="/files/1416.jpg" alt="Cake Display">
+                    <div class="type-card-content">
+                        <div>
+                            <h3>Cake Display Refrigerator</h3>
+                            <p>Specialized units with humidity control and strategic lighting for optimal cake presentation and preservation.</p>
+                        </div>
+                        <div class="type-card-specs">
+                            <div class="spec-item">
+                                <i class="fas fa-thermometer-half"></i>
+                                <span>4°C - 8°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <i class="fas fa-tint"></i>
+                                <span>Humidity Control</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Dimensions and Specifications -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Dimensions & Specifications</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="feature-card">
+                    <h3>Typical Dimensions</h3>
+                    <ul class="benefits-list">
+                        <li>Small countertop models: 15-20 inches in width and height</li>
+                        <li>Larger freestanding units: 70-80 inches tall and 30-40 inches wide</li>
+                        <li>Multiple size options available to suit different space requirements</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Unique Features -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">What Sets Display Refrigerators Apart?</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3>User-Friendly Design</h3>
+                    <p>Equipped with adjustable shelves for flexible product display and easy organization</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Superior Lighting</h3>
+                    <p>Strategic internal lighting ensures products are perfectly highlighted to attract customers</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h3>Adaptable Doors</h3>
+                    <p>Sliding door options available for tight spaces, ensuring easy access and convenience</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <h3>Temperature Display</h3>
+                    <p>Clear and accurate temperature displays to assure product freshness</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Enhanced Security</h3>
+                    <p>Lockable doors available to ensure product safety during off-hours</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Humidity Control</h3>
+                    <p>Special features to maintain optimal humidity for sensitive items like cakes and pastries</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lifespan and Durability -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Lifespan & Durability</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="feature-card">
+                    <h3>How Long Does a Display Chiller Last?</h3>
+                    <p>With proper care and maintenance, display chillers typically last between 10 to 15 years. Regular maintenance and servicing can significantly extend the unit's lifespan beyond this average.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Energy Efficiency -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Space & Energy Optimization</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <h3>Making the Most of Limited Space</h3>
+                    <ul class="benefits-list">
+                        <li>Strategic corner unit placement</li>
+                        <li>Integration within existing counters</li>
+                        <li>Multiple style options to suit different spaces</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <h3>Proper Stocking Guidelines</h3>
+                    <ul class="benefits-list">
+                        <li>Avoid overstocking to maintain proper airflow</li>
+                        <li>Strategic product placement for maximum visibility</li>
+                        <li>Balance between display appeal and energy efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits and Features -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Benefits of Commercial Display Chillers</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Elegant Product Display</h3>
+                    <ul class="benefits-list">
+                        <li>Enhanced visual appeal for products</li>
+                        <li>Strategic eye-level placement</li>
+                        <li>Ambient lighting for optimal presentation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Powerful Marketing Tool</h3>
+                    <ul class="benefits-list">
+                        <li>Acts as a silent salesperson</li>
+                        <li>Highlights promotional items</li>
+                        <li>Increases impulse purchases</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Maintenance -->
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Maintenance & Support</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="maintenance-tips">
+                    <h3 class="mb-4">DeKoolar Maintenance Support</h3>
+                    <p>At DeKoolar Nigeria Limited, we offer a robust, pocket-friendly, and effective maintenance culture to preserve your display chiller's quality and performance. Our dedicated Maintenance/Support department works in collaboration with our customer service team to ensure:</p>
+                    <ul class="benefits-list">
+                        <li>Regular temperature monitoring</li>
+                        <li>Door seal inspection and maintenance</li>
+                        <li>Proper airflow management</li>
+                        <li>Condenser maintenance</li>
+                        <li>Thorough cleaning routines</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Enhance Your Product Display?</h2>
+        <p class="lead">Contact our consultation team for expert advice on choosing the right display chiller for your business</p>
+        <a href="/mainmenu/request-quote.html" class="btn-white" onclick="openQuoteForm(); return false;">Request a Quote</a>
+    </div>
+</section>
+{% endblock %} 

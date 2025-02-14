@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Refrigeration Solutions - Commercial and industrial refrigeration systems, including display units, chillers, and freezers. Energy-efficient cooling solutions for all business needs.">
+    <title>Refrigeration Solutions - DeKoolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --header-height: 80px;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --border-radius: 8px;
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 0;
+            background: var(--light-gray);
+            margin-bottom: 0;
+        }
+
+        .breadcrumb ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb i {
+            color: var(--dark-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 51, 153, 0.8), rgba(0, 51, 153, 0.8)), url('/files/refrigeration.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Products Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .section-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .product-content p {
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .specs-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .specs-list i {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        /* Applications Section */
+        .applications-section {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .application-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .application-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .application-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .application-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .application-card p {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a> <i class="fas fa-chevron-right"></i></li>
+                <li><a href="/mainmenu/products">Products</a> <i class="fas fa-chevron-right"></i></li>
+                <li>Refrigeration</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content container">
+            <h1>Refrigeration Solutions</h1>
+            <p class="hero-subtitle">Commercial and industrial refrigeration systems for every business need</p>
+            <div class="hero-cta">
+                <a href="/mainmenu/corporate/contact" class="btn btn-primary">Request a Quote</a>
+                <a href="#products" class="btn btn-secondary">View Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Refrigeration Range</h2>
+                <p>Discover our comprehensive range of refrigeration solutions for all industries</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Display Units -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/files/display-fridge.jpg');"></div>
+                    <div class="product-content">
+                        <h3>Commercial Display Units</h3>
+                        <p>Showcase your products with our premium display refrigerators</p>
+                        <ul class="specs-list">
+                            <li><i class="fas fa-thermometer-half"></i> Precise Temperature Control</li>
+                            <li><i class="fas fa-door-open"></i> Glass Door Display</li>
+                            <li><i class="fas fa-lightbulb"></i> LED Lighting</li>
+                            <li><i class="fas fa-eye"></i> Maximum Product Visibility</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industrial Chillers -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/files/industrial-chiller.jpg');"></div>
+                    <div class="product-content">
+                        <h3>Industrial Chillers</h3>
+                        <p>High-capacity chillers for industrial processes</p>
+                        <ul class="specs-list">
+                            <li><i class="fas fa-industry"></i> Heavy-duty Performance</li>
+                            <li><i class="fas fa-tachometer-alt"></i> High Cooling Capacity</li>
+                            <li><i class="fas fa-cogs"></i> Process Integration</li>
+                            <li><i class="fas fa-chart-line"></i> Energy Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Deep Freezers -->
+                <div class="product-card">
+                    <div class="product-image" style="background-image: url('/files/deep-freezer.jpg');"></div>
+                    <div class="product-content">
+                        <h3>Commercial Freezers</h3>
+                        <p>Reliable freezing solutions for long-term storage</p>
+                        <ul class="specs-list">
+                            <li><i class="fas fa-snowflake"></i> Deep Freezing Capability</li>
+                            <li><i class="fas fa-box"></i> Large Storage Capacity</li>
+                            <li><i class="fas fa-shield-alt"></i> Temperature Stability</li>
+                            <li><i class="fas fa-bolt"></i> Energy Efficient</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Industry Applications</h2>
+                <p>Our refrigeration solutions serve various industries with specific cooling needs</p>
+            </div>
+
+            <div class="applications-grid">
+                <div class="application-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Retail</h3>
+                    <p>Supermarkets, convenience stores, and retail displays</p>
+                </div>
+                <div class="application-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food Service</h3>
+                    <p>Restaurants, hotels, and catering facilities</p>
+                </div>
+                <div class="application-card">
+                    <i class="fas fa-flask"></i>
+                    <h3>Pharmaceutical</h3>
+                    <p>Medical storage and laboratory facilities</p>
+                </div>
+                <div class="application-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Manufacturing</h3>
+                    <p>Process cooling and industrial applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

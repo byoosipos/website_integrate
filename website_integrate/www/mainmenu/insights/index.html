@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeKoolar Industry Insights & Updates</title>
+    <link rel="stylesheet" href="/mainmenu/public/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dekoolar-blue: #1a4b9c;
+            --dekoolar-gold: #c8a355;
+            --section-padding: 4rem 0;
+        }
+
+        .hero {
+            background: linear-gradient(90deg, #0047BA 0%, #00B6BB 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .hero-breadcrumbs {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            gap: 1rem;
+            color: var(--white);
+            font-size: 0.9rem;
+        }
+
+        .hero-breadcrumbs a {
+            color: var(--dekoolar-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-breadcrumbs a:hover {
+            opacity: 0.8;
+        }
+
+        .hero::before {
+            display: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dekoolar-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--white);
+            font-weight: 300;
+        }
+
+        .introduction-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: var(--section-padding);
+            position: relative;
+        }
+
+        .introduction-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--dekoolar-blue);
+        }
+
+        .introduction-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .introduction-content h2 {
+            color: var(--dekoolar-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .introduction-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--dekoolar-gold);
+        }
+
+        .introduction-content p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .insights-section {
+            padding: var(--section-padding);
+            background: #ffffff;
+            margin-top: -2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            color: var(--dekoolar-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--dekoolar-gold);
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .insight-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(26, 75, 156, 0.15);
+            border-color: var(--dekoolar-gold);
+        }
+
+        .insight-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .insight-content {
+            padding: 1.8rem;
+        }
+
+        .insight-content h3 {
+            color: var(--dekoolar-blue);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .insight-content p {
+            color: #555;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .insight-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #777;
+            font-size: 0.9rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .read-more {
+            color: var(--dekoolar-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--dekoolar-gold);
+            transform: translateX(5px);
+        }
+
+        .read-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: var(--section-padding);
+            background: #f8f9fa;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--dekoolar-blue);
+        }
+
+        .faq-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .faq-item h3 {
+            color: var(--dekoolar-blue);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Conclusion Section Styles */
+        .conclusion-section {
+            padding: var(--section-padding);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        }
+
+        .conclusion-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .conclusion-content h2 {
+            color: var(--dekoolar-blue);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .conclusion-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--dekoolar-gold);
+        }
+
+        .conclusion-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .conclusion-content .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--dekoolar-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .conclusion-content .cta-button:hover {
+            background: var(--dekoolar-gold);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-breadcrumbs">
+            <a href="/mainmenu/">Home</a>
+            <span>/</span>
+            <a href="/mainmenu/insights/">Insights</a>
+        </div>
+        <div class="hero-content">
+            <h1>Industry Insights</h1>
+            <p>Nigeria's Leading Industrial Cooling Solutions Provider</p>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="introduction-section">
+        <div class="introduction-content">
+            <h2>Welcome to De Koolar Nigeria Limited Industry Insights</h2>
+            <p>De Koolar Nigeria Limited is a leader in cold storage and refrigeration solutions, serving various industries with cutting-edge technology and expertise. This section provides industry insights, trends, and analysis to help businesses optimize their operations with efficient cold storage solutions.</p>
+            <p>Explore key insights into how cold storage impacts different sectors, the latest innovations, regulatory requirements, and future trends shaping the industry.</p>
+        </div>
+    </section>
+
+    <!-- Insights Grid -->
+    <section class="insights-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest Updates</h2>
+                <p>Expert insights and industry updates from our team</p>
+            </div>
+            <div class="insights-grid">
+                <!-- Role of Cold Storage -->
+                <article class="insight-card">
+                    <img src="/files/cold-storage-industries.jpg" alt="Cold Storage in Different Industries" class="insight-image">
+                    <div class="insight-content">
+                        <h3>The Role of Cold Storage in Different Industries</h3>
+                        <p>Discover how cold storage impacts various sectors from agriculture to aviation, and learn about industry-specific requirements and benefits.</p>
+                        <div class="insight-meta">
+                            <span>March 25, 2024</span>
+                            <a href="/mainmenu/insights/cold-storage-industries.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Emerging Trends -->
+                <article class="insight-card">
+                    <img src="/files/emerging-trends.jpg" alt="Emerging Trends in Cold Storage" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Emerging Trends in Cold Storage</h3>
+                        <p>Explore the latest innovations in smart refrigeration, sustainable solutions, and automation transforming the cold storage industry.</p>
+                        <div class="insight-meta">
+                            <span>March 23, 2024</span>
+                            <a href="/mainmenu/insights/emerging-trends.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Industry Challenges -->
+                <article class="insight-card">
+                    <img src="/files/industry-challenges.jpg" alt="Industry Challenges and Solutions" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Industry Challenges and Solutions</h3>
+                        <p>Learn about common challenges in cold storage and how De Koolar provides innovative solutions to address them.</p>
+                        <div class="insight-meta">
+                            <span>March 21, 2024</span>
+                            <a href="/mainmenu/insights/industry-challenges.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regulations and Compliance -->
+                <article class="insight-card">
+                    <img src="/files/regulations-compliance.jpg" alt="Regulations and Compliance" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Key Industry Regulations and Compliance</h3>
+                        <p>Understanding critical regulatory standards and compliance requirements for cold storage across different sectors.</p>
+                        <div class="insight-meta">
+                            <span>March 18, 2024</span>
+                            <a href="/mainmenu/insights/regulations-compliance.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Investment Opportunities -->
+                <article class="insight-card">
+                    <img src="/files/investment-opportunities.jpg" alt="Investment Opportunities in Cold Storage" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Investment Opportunities in Cold Storage</h3>
+                        <p>Explore lucrative investment opportunities in Nigeria's growing cold storage sector and learn about potential returns.</p>
+                        <div class="insight-meta">
+                            <span>March 15, 2024</span>
+                            <a href="/mainmenu/insights/investment-opportunities.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Future Outlook -->
+                <article class="insight-card">
+                    <img src="/files/future-outlook.jpg" alt="Future Outlook for Cold Storage" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Future Outlook for Cold Storage in Nigeria and Africa</h3>
+                        <p>Discover growth drivers and future prospects for the cold storage industry in Nigeria and across Africa.</p>
+                        <div class="insight-meta">
+                            <span>March 12, 2024</span>
+                            <a href="/mainmenu/insights/future-outlook.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- CEO Message -->
+                <article class="insight-card">
+                    <img src="/files/james-ola-akanbi-dekoolar.jpg" alt="Ola Akanbi - CEO DeKoolar" class="insight-image">
+                    <div class="insight-content">
+                        <h3>A Message from Our CEO</h3>
+                        <p>Read a welcome message from our CEO about our commitment to excellence in industrial cooling solutions.</p>
+                        <div class="insight-meta">
+                            <span>March 20, 2024</span>
+                            <a href="/mainmenu/insights/ceo-message.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Mobile Cold Room Article -->
+                <article class="insight-card">
+                    <img src="/files/mobile-coldroom.jpg" alt="Mobile Cold Room" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Mobile Cold room Explained</h3>
+                        <p>A comprehensive guide to mobile cold rooms, their applications, and benefits for businesses in Nigeria.</p>
+                        <div class="insight-meta">
+                            <span>March 15, 2024</span>
+                            <a href="/mainmenu/insights/mobile-coldroom-guide.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Cold Chain Article -->
+                <article class="insight-card">
+                    <img src="/files/cold-chain.jpg" alt="Cold Chain Storage" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Understanding Cold Storage Chain</h3>
+                        <p>Learn about cold chain networks, their importance, and how they maintain product quality throughout the supply chain.</p>
+                        <div class="insight-meta">
+                            <span>March 10, 2024</span>
+                            <a href="/mainmenu/insights/cold-chain-guide.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Solar Cold Room Article -->
+                <article class="insight-card">
+                    <img src="/files/solar-coldroom.jpg" alt="Solar Powered Cold Room" class="insight-image">
+                    <div class="insight-content">
+                        <h3>Solar Powered Cold Rooms</h3>
+                        <p>Discover the benefits of solar-powered cold rooms and how they can reduce operational costs while being environmentally friendly.</p>
+                        <div class="insight-meta">
+                            <span>March 5, 2024</span>
+                            <a href="/mainmenu/insights/solar-coldroom-benefits.html" class="read-more">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about cold storage solutions</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How can businesses reduce energy costs in cold storage?</h3>
+                    <p>Investing in energy-efficient refrigeration system (Inverter Units), solar-powered refrigeration, and IoT-enabled monitoring can help reduce costs.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What industries benefit most from cold storage solutions?</h3>
+                    <p>Agriculture, pharmaceuticals, retail outlets, logistics, hospitality, oil and gas, food and beverages and aviation benefit significantly from reliable cold storage.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>How does De Koolar ensure compliance with industry regulations?</h3>
+                    <p>We design, manufacture and install cold storage systems that meet national and international regulatory standards, ensuring optimal temperature control.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What are the key factors to consider when investing in a cold storage facility?</h3>
+                    <p>Location, government policy, energy available and efficiency, scalability, market, source of reliable product, quality after-sales services and compliance with industry regulations are crucial for a successful investment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="conclusion-section">
+        <div class="container">
+            <div class="conclusion-content">
+                <h2>Conclusion</h2>
+                <p>De Koolar Nigeria Limited remains at the forefront of providing innovative cold storage solutions tailored to various industries. By staying informed on industry trends, regulatory changes, and investment opportunities, businesses can maximize the benefits of cold storage technology.</p>
+                <p>For expert consultation and custom cold storage solutions, contact us today to explore how De Koolar can help your business achieve operational excellence.</p>
+                <a href="/mainmenu/corporate/contact.html" class="cta-button">Contact Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

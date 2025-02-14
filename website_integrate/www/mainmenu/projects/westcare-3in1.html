@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Westcare Foods 3-in-1 cold storage facility installation in Idimu, Lagos State by De Koolar Nigeria Limited">
+    <title>Westcare Foods 3-in-1 Storage - De Koolar Nigeria Limited</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #003399;
+            --secondary-color: #C5A572;
+            --accent-color: #006837;
+            --text-color: #333333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666666;
+            --white: #ffffff;
+            --success: #28a745;
+            --chiller-blue: #00bcd4;
+            --frozen-blue: #1565c0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero-section {
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            margin-bottom: 4rem;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .project-status {
+            display: inline-block;
+            background: var(--success);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-partner {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .spec-card {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .spec-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .spec-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spec-card i {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .specs-table th {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .specs-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .components-section {
+            background: var(--light-gray);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .component-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .component-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .component-card ul {
+            list-style: none;
+        }
+
+        .component-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .zone-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .zone-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .zone-card.chiller {
+            border-color: var(--chiller-blue);
+        }
+
+        .zone-card.frozen {
+            border-color: var(--frozen-blue);
+        }
+
+        .zone-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .zone-specs {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .zone-specs div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .zone-specs span:first-child {
+            color: var(--dark-gray);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .zone-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+
+    <section class="hero-section" style="background-image: url('/assets/website_integrate/images/westcare-3in1.jpg');">
+        <div class="container">
+            <div class="hero-content">
+                <span class="project-status">Project Completed</span>
+                <span class="project-partner">Westcare Foods</span>
+                <h1>3-in-1 Cold Storage Facility</h1>
+                <p class="hero-subtitle">Multi-zone Storage Solution in Idimu, Lagos State</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="project-overview fade-in">
+            <h2 class="section-title">Project Overview</h2>
+            <p>A state-of-the-art 3-in-1 cold storage facility has been successfully installed at Idimu, Lagos State, sponsored by Westcare Foods. This versatile installation features three distinct temperature zones, each optimized for specific storage requirements, from bottled water to frozen foods.</p>
+            
+            <div class="zone-cards">
+                <div class="zone-card chiller">
+                    <h3><i class="fas fa-wine-bottle"></i>Bottled Water Zone</h3>
+                    <p>Dedicated chiller room for optimal water storage conditions.</p>
+                    <div class="zone-specs">
+                        <div>
+                            <span>Temperature</span>
+                            <span>+/-5°C</span>
+                        </div>
+                        <div>
+                            <span>Capacity</span>
+                            <span>4 Tonnes</span>
+                        </div>
+                        <div>
+                            <span>Power</span>
+                            <span>3 HP Unit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="zone-card chiller">
+                    <h3><i class="fas fa-apple-alt"></i>Perishables Zone</h3>
+                    <p>Temperature-controlled environment for fresh food preservation.</p>
+                    <div class="zone-specs">
+                        <div>
+                            <span>Temperature</span>
+                            <span>+/-5°C</span>
+                        </div>
+                        <div>
+                            <span>Capacity</span>
+                            <span>15 Tonnes</span>
+                        </div>
+                        <div>
+                            <span>Power</span>
+                            <span>5 HP Unit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="zone-card frozen">
+                    <h3><i class="fas fa-snowflake"></i>Frozen Foods Zone</h3>
+                    <p>Deep freeze storage for long-term preservation.</p>
+                    <div class="zone-specs">
+                        <div>
+                            <span>Temperature</span>
+                            <span>-18°C</span>
+                        </div>
+                        <div>
+                            <span>Capacity</span>
+                            <span>20 Tonnes</span>
+                        </div>
+                        <div>
+                            <span>Power</span>
+                            <span>7.5 HP Unit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="components-section">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="components-grid fade-in">
+                <div class="component-card">
+                    <h3><i class="fas fa-warehouse"></i>Construction</h3>
+                    <ul>
+                        <li>100mm Polyurethane Sandwich Panels</li>
+                        <li>42kg/m³ Panel Density (±3kg/m³)</li>
+                        <li>PPGI Sheet (0.8mm thickness)</li>
+                        <li>Cam-lock Panel Grip System</li>
+                        <li>Polystyrene Floor Insulation</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-plug"></i>Power Systems</h3>
+                    <ul>
+                        <li>380-415V Three Phase Supply</li>
+                        <li>8kVA - 25kVA Generator Support</li>
+                        <li>2.5mm - 6mm Cable Sizing</li>
+                        <li>50Hz Operating Frequency</li>
+                        <li>Phase Monitoring Protection</li>
+                    </ul>
+                </div>
+                <div class="component-card">
+                    <h3><i class="fas fa-cogs"></i>Refrigeration</h3>
+                    <ul>
+                        <li>Danfross, Copeland & Bitzer Units</li>
+                        <li>R22 Refrigerant System</li>
+                        <li>Split Unit Configuration</li>
+                        <li>Thermostatic Expansion</li>
+                        <li>Digital Temperature Control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2 class="section-title">Zone Specifications</h2>
+        <div class="specs-table-container fade-in">
+            <table class="specs-table">
+                <tr>
+                    <th>Specification</th>
+                    <th>Bottled Water Zone</th>
+                    <th>Perishables Zone</th>
+                    <th>Frozen Foods Zone</th>
+                </tr>
+                <tr>
+                    <td>Dimensions (Out)</td>
+                    <td>3300 x 1500 x 2400mm</td>
+                    <td>3900 x 2660 x 2400mm</td>
+                    <td>6000 x 4000 x 2400mm</td>
+                </tr>
+                <tr>
+                    <td>Floor Area</td>
+                    <td>5m²</td>
+                    <td>18.4m²</td>
+                    <td>24.0m²</td>
+                </tr>
+                <tr>
+                    <td>Volume</td>
+                    <td>11.9m³</td>
+                    <td>43.9m³</td>
+                    <td>57.6m³</td>
+                </tr>
+                <tr>
+                    <td>Compressor</td>
+                    <td>Danfross (Denmark)</td>
+                    <td>Copeland (Denmark)</td>
+                    <td>Bitzer (Germany)</td>
+                </tr>
+                <tr>
+                    <td>Power Rating</td>
+                    <td>3.5kWh</td>
+                    <td>5.6kWh</td>
+                    <td>8kWh</td>
+                </tr>
+                <tr>
+                    <td>Shelving</td>
+                    <td>No</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    {% include "templates/includes/footer.html" %}
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html> 

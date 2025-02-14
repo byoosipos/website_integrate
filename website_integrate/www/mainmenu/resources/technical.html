@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeKoolar Technical Resources - Access technical specifications, documentation, and guidelines for our refrigeration and cooling systems.">
+    <title>Technical Resources | Dekoolar</title>
+    <style>
+        .technical-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+            min-height: calc(100vh - var(--header-height) - var(--topbar-height));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .page-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .resource-icon {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 24px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .resource-content {
+            padding: 24px;
+        }
+
+        .resource-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .resource-description {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: var(--primary-color);
+            gap: 12px;
+        }
+
+        .resource-link i {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-link:hover i {
+            transform: translateX(4px);
+        }
+
+        /* Categories Section */
+        .categories {
+            margin-bottom: 40px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .category-btn:hover,
+        .category-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .technical-section {
+                padding: 40px 0;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .categories {
+                gap: 10px;
+            }
+
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .resource-card {
+                background: #1a1a1a;
+            }
+
+            .resource-content {
+                color: #ffffff;
+            }
+
+            .resource-description {
+                color: #cccccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include "templates/includes/header.html" %}
+    
+    <div class="technical-section">
+        <div class="container">
+            <h1 class="page-title">Technical Resources</h1>
+            
+            <div class="categories">
+                <button class="category-btn active">All Resources</button>
+                <button class="category-btn">Product Specifications</button>
+                <button class="category-btn">Installation Guides</button>
+                <button class="category-btn">Technical Documentation</button>
+                <button class="category-btn">CAD Drawings</button>
+            </div>
+            
+            <div class="resources-grid">
+                <!-- Product Specifications -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Product Specifications</h3>
+                        <p class="resource-description">Detailed technical specifications for our complete range of cold rooms, chillers, and refrigeration systems.</p>
+                        <a href="#" class="resource-link">View Specifications <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Installation Guides -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Installation Guides</h3>
+                        <p class="resource-description">Step-by-step installation manuals and guidelines for proper system setup and configuration.</p>
+                        <a href="#" class="resource-link">Download Guides <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Technical Documentation -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Technical Documentation</h3>
+                        <p class="resource-description">Comprehensive technical documentation including wiring diagrams, maintenance schedules, and troubleshooting guides.</p>
+                        <a href="#" class="resource-link">Access Documents <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- CAD Drawings -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">CAD Drawings</h3>
+                        <p class="resource-description">Download CAD drawings and technical layouts for planning and integration purposes.</p>
+                        <a href="#" class="resource-link">View Drawings <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Maintenance Guides -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Maintenance Guides</h3>
+                        <p class="resource-description">Regular maintenance procedures and best practices for optimal system performance.</p>
+                        <a href="#" class="resource-link">View Guides <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Safety Guidelines -->
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="resource-content">
+                        <h3 class="resource-title">Safety Guidelines</h3>
+                        <p class="resource-description">Important safety information and operational guidelines for our cooling systems.</p>
+                        <a href="#" class="resource-link">Read Guidelines <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include "templates/includes/footer.html" %}
+</body>
+</html> 

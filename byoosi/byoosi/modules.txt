@@ -1,0 +1,6 @@
+# List of modules used in the Frappe application
+
+# Example modules
+frappe
+your_custom_module
+another_module
